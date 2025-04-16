@@ -1,0 +1,54 @@
+<div class="card  container-fluid " style="height: 300px;">
+  <div class="card-body d-flex   flex-column align-items-center justify-content-center">
+    <h1 class="card-title">Front End Developer</h1>
+    <h3 class="card-text fs-5">company Name</h3>
+  </div>
+</div>
+
+<div class="container-fluid " style=" background-color: rgb(244, 244, 246); overflow: hidden;">
+<div class="container " style="margin-top: 100px;">
+  <div class="row ">
+    <div class="col-lg-5  me-5 " >
+      <div class="mb-3">
+        <span class="badge bg-light text-dark me-2">Part Time</span>
+        <span class="badge bg-light text-dark">San Francisco, CA</span>
+      </div>
+      <h5 class="fw-bold d-flex align-items-center">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/0/08/Pinterest-logo.png" alt="Logo" width="24" height="24" class="me-2" />
+        Senior Product Designer
+      </h5>
+      <p class="text-muted">Design | $40,000 - $200,000/year</p>
+      <button class="btn btn-dark w-100 mt-3">Apply Now</button>
+    </div>
+    <div class="col-lg-6 "  >
+      <h5 class="fw-bolder mb-3">Job Description</h5>
+      <p class="mb-5 text-body-secondary fw-medium lh-2">
+        As a Product Designer, you will work within a Product Delivery Team fused with UX, engineering,
+        product and data talent. You will help the team design beautiful interfaces that solve business
+        challenges for our clients. We work with a number of Tier 1 banks on building web-based applications
+        for AML, KYC and Sanctions List management workflows. This role is ideal if you are looking to segue
+        your career into the FinTech or Big Data arenas.
+      </p>
+
+      <h6 class="fw-bold mb-3">Key Responsibilities</h6>
+      <ul class="mb-5 text-body-secondary fw-medium">
+        <li *ngFor="let item of [1,2,3,4]">
+          Be involved in every step of the product design cycle from discovery to developer handoff and user acceptance testing.
+        </li>
+      </ul>
+
+      <h6 class="fw-bold mb-3">Skills and Experience</h6>
+      <ul class="mb-5 text-body-secondary fw-medium">
+        <li *ngFor="let item of [1,2,3]">
+          You have at least 3 years’ experience working as a Product Designer.
+        </li>
+      </ul>
+
+      <div class="d-flex justify-content-between gap-2 mt-4">
+        <button class="btn btn-outline-dark" [routerLink]="'/Applection-form'">Apply Now</button>
+        <button class="btn btn-outline-dark" [routerLink]="''">Go Back</button>
+      </div>
+    </div>
+  </div>
+</div>
+</div>

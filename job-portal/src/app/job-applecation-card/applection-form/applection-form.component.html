@@ -1,0 +1,55 @@
+<div class="card  container-fluid " style="height: 300px;">
+    <div class="card-body d-flex   flex-column align-items-center justify-content-center">
+        <h1> Apply for a job by Adding Your Details below</h1>
+    </div>
+</div>
+
+<div class="container-fluid d-flex justify-content-center align-items-center flex-column"
+    style="background-color: rgb(244, 244, 246); overflow:hidden;">
+    <div class="form-wrapper container d-flex justify-content-center align-items-center shadow mt-5 col-lg-6 col-12"
+        style=" transition: background-color 0.3s, box-shadow 0.3s;">
+        <form [formGroup]="jobForm" (ngSubmit)="onSubmit()" >
+            <div class="form-group mt-5">
+                <label>First Name:</label>
+                <input type="text" class="form-control" formControlName="firstName" style="cursor: pointer;">
+            </div>
+            <div class="form-group mt-2 mb-2">
+                <label>Last Name:</label>
+                <input type="text" class="form-control" formControlName="lastName" style="cursor: pointer;">
+            </div>
+            <div class="mb-3">
+                <label for="resume">Upload Your Resume (PDF):</label>
+                <input type="file" id="resume" class="form-control resume-file" (change)="onFileChange($event)"
+                    accept=".pdf">
+            </div>
+
+            <div class="mb-3">
+                <h4>When will you be available for work?</h4>
+                <div *ngFor="let jobType of jobTypes">
+                    <div class="form-check mb-2 ">
+                        <input class="form-check-input" type="radio" [value]="jobType" formControlName="availability"
+                            style="cursor: pointer;">
+                        <label class="form-check-label">{{ jobType }}</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <h4>Do You Have Any Experience?</h4>
+                <div class="form-check mb-2">
+                    <input class="form-check-input" type="checkbox" formControlName="experience"
+                        style="cursor: pointer;">
+                    <label class="form-check-label">
+                        I have no experience, this is my first job.
+                    </label>
+                </div>
+            </div>
+
+            <button type="submit" class="btn ps-3 pe-3"
+                style="background-color: rgb(29, 36, 69); color:white; width:100%">Apply</button>
+
+
+        </form>
+    </div>
+</div>
+
