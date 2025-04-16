@@ -1,0 +1,38 @@
+<div class="container mb-1">
+
+  <div class="card mb-3 last-app-block shadow-sm" style="max-width: 540px; height: auto; overflow: hidden;" >
+    <div class="row g-0">
+      <div class="col-4">
+        <div class="h-100 w-100 overflow-hidden">
+          <img
+            src="{{recentApplication.imageURL}}"
+            class="img-fluid h-100 w-100 object-fit-cover"
+            alt="...">
+        </div>
+      </div>
+      <div class="col-8">
+        <div class="card-body py-2 px-3">
+          <h6 class="card-title mb-1 fw-bold" style="font-size: 16px;">{{ recentApplication.title }}</h6>
+          <p class="card-text mb-1" style="font-size: 14px;">From {{recentApplication.applicant}}</p>
+          <p class="card-text mb-1" style="font-size: 12px;">{{recentApplication.skills.join(', ') }}</p>
+          <p class="card-text my-3" style="font-size: 16px;">
+            <span
+              class="badge rounded-pill"
+              [ngClass]="{
+                  'text-bg-success': recentApplication.status == 'Accepted',
+                  'text-bg-danger': recentApplication.status == 'Rejected',
+                  'text-bg-warning': recentApplication.status == 'Under Review',
+                  'text-bg-primary': recentApplication.status == 'Interview Scheduled'
+                }">
+                {{ recentApplication.status }}
+            </span>
+          </p>
+
+
+          <a href="#" class="btn btn-sm btn-outline-primary" style="font-size: 12px;">View Application</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
