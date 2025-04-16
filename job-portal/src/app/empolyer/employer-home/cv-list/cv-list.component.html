@@ -1,0 +1,11 @@
+
+<div class="container mb-5 p-1">
+  <p>Based on Your Last CV Search</p>
+
+
+  <div class="col-12">
+
+    <app-cv-block *ngFor="let c of candidates" [candidate]="c"></app-cv-block>
+
+  </div>
+</div>
