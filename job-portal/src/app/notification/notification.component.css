@@ -1,0 +1,22 @@
+*{
+  color:#1D2445;
+}
+h6{
+  font-weight: lighter;
+}
+img{
+  border-radius: 50%;
+}
+.notification:hover{
+  background-color: #e0e0e0;
+  transition: ease 0.2s;
+}
+.notification:active{
+  background-color: #bdbdbd;
+}
+.notification{
+  padding: 15px 15px 10px 15px;
+  margin-bottom: 10px;
+  align-content: center;
+  border-radius: 10px;
+}
