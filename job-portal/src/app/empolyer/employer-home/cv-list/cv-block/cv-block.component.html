@@ -1,0 +1,27 @@
+<div class="container mb-1 ">
+
+  <div class="card mb-3 cv-block" style="max-width: 540px; height: 6rem; overflow: hidden;">
+    <div class="row g-0 h-100">
+      <div class="col-4">
+        <div class="h-100 w-100 overflow-hidden">
+          <img
+            src="{{candidate.imageURL}}"
+            class="img-fluid h-100 w-100 object-fit-cover"
+            alt="...">
+        </div>
+      </div>
+      <div class="col-8">
+        <div class="card-body py-2 px-3">
+          <h6 class="card-title mb-1" style="font-size: 14px;">{{candidate.name}}</h6>
+          <p class="card-text mb-0" style="font-size: 12px;">{{candidate.specialty}}</p>
+          <p class="card-text mb-0">
+            <small class="text-body-secondary" style="font-size: 12px;">
+              {{candidate.experience}}
+            </small>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
