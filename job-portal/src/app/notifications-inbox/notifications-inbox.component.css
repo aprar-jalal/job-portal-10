@@ -1,0 +1,39 @@
+*{
+  color:#1D2445;
+}
+.notifications-inbox{
+  width: 400px;
+  height: 380px;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  padding: 10px;
+  border: 2px solid #757575;
+  border-radius: 25px;
+}
+.viewAllNotification{
+  background-color: #F4F4F6;
+  color:#1D2445;
+  border: 1px solid #9c9c9c;
+  border-radius: 10px;
+  margin-right:-10px;
+}
+.viewAllNotification:hover{
+  background-color: #d6d4d4;
+}
+.viewAllNotification:active{
+  background-color: #686868;
+  color: #fff;
+  border:1px solid #9c9c9c
+}
+.notifications-inbox-header{
+  padding: 10px;
+  cursor:move;
+}
+.notification:hover{
+  background-color: #e0e0e0;
+  transition: ease 0.5s ;
+}
+.notification:active{
+  background-color: #bdbdbd;
+}
+
