@@ -1,0 +1,23 @@
+<div >
+  <div class="d-flex flex-column align-items-start container">
+    <select  
+      class="form-select w-auto  mt-5 location-selected " 
+      [(ngModel)]="selectedLocation" 
+      (change)="filterByLocation(selectedLocation)">
+      <option value="All">All Locations</option>
+      <option *ngFor="let loc of uniqueLocations" [value]="loc">{{ loc }}</option>
+    </select>
+  </div>
+  <div  class="d-flex align-items-center justify-content-between" >
+    <div class="row container  g-3 m-auto"   >
+      <div class=" col-12 col-lg-4 col-md-6 col-sm-12 " *ngFor="let job of filteredJobs">
+        <app-job-card [job]="job"></app-job-card>
+      </div>
+    </div>
+    </div>
+
+</div>
+
+
+
+

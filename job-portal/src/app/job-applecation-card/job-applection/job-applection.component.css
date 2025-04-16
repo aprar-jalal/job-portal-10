@@ -1,0 +1,19 @@
+*{
+    background-color: rgb(244, 244, 246);
+    overflow: hidden;
+}
+
+.location-selected{
+ cursor: pointer;
+ background-color: rgb(255, 255, 255);
+}
+
+.location-selected:focus{
+   
+    box-shadow: none;
+    outline: none;
+    border: 1px rgb(29, 36, 69) solid;
+}
+.location-selected:hover{
+    background-color:rgb(244, 244, 246);
+}

@@ -1,0 +1,12 @@
+.card-translate{
+
+    transition: all .5s;
+    cursor:pointer;
+    }
+    
+    .card-translate:hover{
+    /* transform: translate(0,-10px); */
+    background-color: rgb(244, 244, 246);
+    }
+    
+    
