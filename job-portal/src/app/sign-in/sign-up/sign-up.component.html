@@ -1,0 +1,180 @@
+<div class="sign-in-container d-flex justify-content-center align-items-center" style="min-height: 100vh; background-color: #1a1a2e;">
+  <div class="form-section p-4 rounded shadow" style="background-color: #16213e; width: 100%; max-width: 600px;">
+
+    <h2 class="text-center mb-4 text-white">Sign Up</h2>
+
+    <div class="d-flex justify-content-center mb-3">
+      <button class="btn btn-primary mx-2" (click)="onRoleSelect('job-seeker')">Job Seeker</button>
+      <button class="btn btn-success mx-2" (click)="onRoleSelect('employer')">Employer</button>
+    </div>
+
+   
+
+  
+     
+      <div *ngIf="selectedRole === 'job-seeker'">
+        <form [formGroup]="jobSeekerForm" (ngSubmit)="onSubmit()">
+        
+          <div class="mb-3">
+            <input type="text" class="form-control" formControlName="name" placeholder="Full Name" />
+            <div class="text-danger" *ngIf="jobSeekerControls['name'].invalid && jobSeekerControls['name'].touched">Name is required</div>
+          </div>
+  
+     
+          <div class="mb-3">
+            <input type="email" class="form-control" formControlName="email" placeholder="Email" />
+            <div class="text-danger" *ngIf="jobSeekerControls['email'].invalid && jobSeekerControls['email'].touched">
+              <div *ngIf="jobSeekerControls['email'].hasError('required')">Email is required</div>
+              <div *ngIf="jobSeekerControls['email'].hasError('email')">Invalid email address</div>
+            </div>
+          </div>
+  
+       
+          <div class="mb-3">
+            <input type="password" class="form-control" formControlName="password" placeholder="Password" />
+            <div class="text-danger" *ngIf="jobSeekerControls['password'].invalid && jobSeekerControls['password'].touched">Password must be at least 8 characters</div>
+          </div>
+  
+          
+          <div class="mb-3">
+            <input type="password" class="form-control" formControlName="confirmPassword" placeholder="Confirm Password" />
+            <div class="text-danger" *ngIf="jobSeekerControls['confirmPassword'].invalid && jobSeekerControls['confirmPassword'].touched">Passwords must match</div>
+          </div>
+  
+          
+          <div class="mb-3">
+            <input type="text" class="form-control" formControlName="phone" placeholder="Phone Number" />
+            <div class="text-danger" *ngIf="jobSeekerControls['phone'].invalid && jobSeekerControls['phone'].touched">Phone number is required</div>
+          </div>
+  
+          <div class="mb-3">
+            <input type="date" class="form-control" formControlName="dob" placeholder="Date of Birth" />
+          </div>
+  
+    
+          <div class="mb-3">
+            <select class="form-control" formControlName="gender">
+              <option value="" disabled selected>Gender</option>
+              <option value="Male">Male</option>
+              <option value="Female">Female</option>
+            </select>
+          </div>
+  
+         
+          <div class="mb-3">
+            <input type="text" class="form-control" formControlName="city" placeholder="City" />
+          </div>
+  
+
+          <div class="mb-3">
+            <select class="form-control" formControlName="educationLevel">
+              <option value="" disabled selected>Education Level</option>
+              <option value="High School">High School</option>
+              <option value="Bachelor's">Bachelor's</option>
+              <option value="Master's">Master's</option>
+              <option value="PhD">PhD</option>
+            </select>
+          </div>
+  
+
+          <div class="mb-3">
+            <input type="text" class="form-control" formControlName="major" placeholder="Major" />
+          </div>
+  
+        
+          <div class="mb-3">
+            <input type="number" class="form-control" formControlName="experience" placeholder="Years of Experience" />
+          </div>
+  
+      
+          <div class="mb-3">
+            <input type="file" class="form-control" formControlName="resume" />
+            <div class="text-danger" *ngIf="jobSeekerControls['resume'].invalid && jobSeekerControls['resume'].touched">Resume is required</div>
+            <small class="form-text text-muted">Please attach your resume (PDF, DOC, etc.).</small>
+          </div>
+  
+       
+          <div class="mb-3">
+            <input type="url" class="form-control" formControlName="linkedin" placeholder="LinkedIn Profile URL" />
+            <div class="text-danger" *ngIf="jobSeekerControls['linkedin'].invalid && jobSeekerControls['linkedin'].touched">LinkedIn URL is required</div>
+          </div>
+  
+          <button type="submit" class="btn btn-success w-100" [disabled]="jobSeekerForm.invalid">Sign Up as Job Seeker</button>
+        </form>
+  
+        <div class="text-center mt-3">
+          <button class="btn btn-primary w-100 mt-2" [routerLink]="['/']">Back to Sign In</button>
+        </div>
+      </div>
+  
+      
+<div *ngIf="selectedRole === 'employer'">
+    <form [formGroup]="employerForm" (ngSubmit)="onSubmit()">
+      
+      <div class="mb-3">
+        <input type="text" class="form-control" formControlName="companyName" placeholder="Company Name" />
+        <div class="text-danger" *ngIf="employerControls['companyName'].invalid && employerControls['companyName'].touched">
+          Company name is required
+        </div>
+      </div>
+  
+   
+      <div class="mb-3">
+        <input type="email" class="form-control" formControlName="email" placeholder="Company Email Address" />
+        <div class="text-danger" *ngIf="employerControls['email'].invalid && employerControls['email'].touched">
+          <div *ngIf="employerControls['email'].hasError('required')">Email is required</div>
+          <div *ngIf="employerControls['email'].hasError('email')">Invalid email address</div>
+        </div>
+      </div>
+  
+     
+      <div class="mb-3">
+        <input type="password" class="form-control" formControlName="password" placeholder="Password" />
+        <div class="text-danger" *ngIf="employerControls['password'].invalid && employerControls['password'].touched">
+          Password must be at least 8 characters
+        </div>
+      </div>
+  
+     
+      <div class="mb-3">
+        <input type="password" class="form-control" formControlName="confirmPassword" placeholder="Confirm Password" />
+        <div class="text-danger" *ngIf="employerControls['confirmPassword'].invalid && employerControls['confirmPassword'].touched">
+          Passwords must match
+        </div>
+      </div>
+  
+      <div class="mb-3">
+        <input type="text" class="form-control" formControlName="phone" placeholder="Phone Number" />
+        <div class="text-danger" *ngIf="employerControls['phone'].invalid && employerControls['phone'].touched">Phone number is required</div>
+      </div>
+  
+
+      <div class="mb-3">
+        <input type="url" class="form-control" formControlName="website" placeholder="Company Website (Optional)" />
+      </div>
+ 
+      <div class="mb-3">
+        <input type="text" class="form-control" formControlName="location" placeholder="Company Location (City and Country)" />
+        <div class="text-danger" *ngIf="employerControls['location'].invalid && employerControls['location'].touched">Company location is required</div>
+      </div>
+  
+
+      <div class="mb-3">
+        <input type="text" class="form-control" formControlName="industry" placeholder="Industry" />
+        <div class="text-danger" *ngIf="employerControls['industry'].invalid && employerControls['industry'].touched">Industry is required</div>
+      </div>
+  
+     
+      <div class="mb-3">
+        <input type="url" class="form-control" formControlName="linkedin" placeholder="LinkedIn Profile URL" />
+        <div class="text-danger" *ngIf="employerControls['linkedin'].invalid && employerControls['linkedin'].touched">LinkedIn profile URL is required</div>
+      </div>
+  
+      <button type="submit" class="btn btn-primary w-100" [disabled]="employerForm.invalid">Sign Up as Employer</button>
+    </form>
+  
+    <div class="text-center mt-3">
+      <button class="btn btn-primary w-100 mt-2" [routerLink]="['/']">Back to Sign In</button>
+    </div>
+  </div>
+  
