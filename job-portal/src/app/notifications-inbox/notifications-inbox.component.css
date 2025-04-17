@@ -27,7 +27,7 @@
 }
 .notifications-inbox-header{
   padding: 10px;
-  cursor:move;
+  cursor:default;
 }
 .notification:hover{
   background-color: #e0e0e0;

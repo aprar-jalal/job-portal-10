@@ -54,15 +54,6 @@
   position: relative;
   z-index: 1;
 }
-
-.notifications-dropdown {
-  position: absolute;
-  right: 0;
-  top: 100%;
-  z-index: 1000;
-  width: 420px;
-}
-
 @media (max-width: 992px) {
   .notifications-dropdown {
     position: static;
@@ -105,7 +96,10 @@ justify-content: center;
   right: 0;
   top: 100%;
   z-index: 1000;
-  width: 400px;
+  width: 420px;
 }
-
-
+.naav{
+  position:sticky;
+  top:0;
+  z-index: 1000;
+}

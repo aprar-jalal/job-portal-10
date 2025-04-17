@@ -1,0 +1,19 @@
+.notifications-page{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  flex: 1 1 auto;
+  width:100vh;
+  border: 1px solid #1D2445;
+  border-radius: 10px;
+  overflow-y: scroll;
+  max-height: 80vh;
+  max-width: 80vw;
+  box-shadow: 1rem 1rem 1rem 1rem rgba(0, 0, 0, 0.1);
+}
+*{
+  color:#1D2445;
+}
+
+
