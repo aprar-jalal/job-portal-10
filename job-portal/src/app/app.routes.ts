@@ -21,6 +21,6 @@ export const routes: Routes = [
   {path:'notifications-page',component:NotificationsPageComponent},
   { path: 'home-page', component: HomePageComponent },
   {path:'job-seeker',component:JobMainComponent},
-  {path: 'job-description', component:JobDescriptionComponent,},
-  {path: 'Applection-form', component: ApplectionFormComponent,}
+ { path: 'job-description/:id', component:JobDescriptionComponent},
+  {path: 'Applection-form', component: ApplectionFormComponent},
 ];
