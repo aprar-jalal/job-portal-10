@@ -1,5 +1,4 @@
-
-<div class="card  job-card-aprar fst-italic rounded-4 card-translate ">
+<div class="card  job-card-aprar  rounded-4 card-translate ">
     <div class="card-body container fs-6 ">
         <div class=" mb-3 d-flex justify-content-between">
             <span
@@ -8,42 +7,18 @@
                     class="bi bi-geo-alt"></i> {{job.JobLocation}}</span>
         </div>
         <div class="d-flex justify-content-start align-items-center ">
-            <img src='{{job.JobLogo}}' class="rounded-circle"  alt="logo" style="width:60px ; height:60px;">
+            <img *ngIf="job.JobLogo" [src]="job.JobLogo" class="rounded-circle" alt="logo"
+                style="width:60px ; height:60px;">
             <h5 class="m-3 fs-3">{{job.CompanyName}}</h5>
         </div>
         <h5 class="card-title mt-3 fs-5 fw-medium">{{job.JobName}}</h5>
         <p class="card-text fw-lighter">{{job.AboutJop}} </p>
         <div class="d-flex justify-content-between ">
-            <a href="#" [routerLink]="'/job-description'" class="btn text-light ps-4 pe-4 "
+            <a href="#" [routerLink]="['/job-description', job.id]" class="btn text-light ps-4 pe-4 "
                 style="background-color: rgb(29, 36, 69);">Details</a>
-            <!-- Button trigger modal -->
-            <button type="button" class="btn " data-bs-toggle="modal" data-bs-target="#exampleModal"
-                (click)=" changColor()">
+            <button type="button" class="btn " (click)=" changColor()">
                 <i class="bi" [ngClass]="isFavorite ? 'bi-heart-fill text-danger' : 'bi-heart'"></i>
             </button>
-
-            <!-- Modal -->
-            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
-                aria-hidden="true">
-                <div class="modal-dialog d-flex align-items-center">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h1 class="modal-title " id="exampleModalLabel">favorites</h1>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-                        <div class="modal-body">
-                            <p> {{favoriteMessage}}</p>
-                        </div>
-
-                        <div class="modal-footer">
-                            <button type="button" class="btn " style="background-color: rgb(29, 36, 69); color:white"
-                                data-bs-dismiss="modal">Close</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
         </div>
-
     </div>
-
 </div>
