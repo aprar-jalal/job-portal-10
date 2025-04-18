@@ -1,6 +1,6 @@
 import { Component, HostListener, Inject, PLATFORM_ID, OnInit } from '@angular/core';
 import {isPlatformBrowser, NgClass, NgForOf, NgIf} from '@angular/common';
-import { Router } from '@angular/router';
+import {Router, RouterLink} from '@angular/router';
 import {NotificationsInboxComponent} from '../notifications-inbox/notifications-inbox.component';
 
 @Component({
@@ -10,7 +10,8 @@ import {NotificationsInboxComponent} from '../notifications-inbox/notifications-
     NotificationsInboxComponent,
     NgClass,
     NgIf,
-    NgForOf
+    NgForOf,
+    RouterLink
   ],
   styleUrls: ['./navbar.component.css']
 })
@@ -60,8 +61,17 @@ export class NavbarComponent implements OnInit {
       }
     }
     else if(item === 'home'){
-      this.router.navigate(['/home-page']);
+      this.router.navigate(['/']);
+
+    }else if(item === 'me'){
+      this.router.navigate(['/job-seeker']);
     }
+    // else if(item === 'favorites'){
+    //   this.router.navigate(['/favorites-page']);
+    // }
+    // else if(item === 'reports'){
+    //   this.router.navigate(['/reports-page']);
+    // }
     else {
       this.showNotificationsDropdown = false;
     }
