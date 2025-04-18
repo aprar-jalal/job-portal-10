@@ -1,7 +1,7 @@
 <div class="profile-app">
     <div class="profile-top">
         <button class="edit-background"><i class="bi bi-pencil"> </i></button>
-        <img class="backgrond-profile-pic" src="assets/backgrond-profile-pic.jpeg" alt="backgrond">
+        <img class="backgrond-profile-pic" src="assets/backgrond-profile-pic.jpeg" alt="background">
        
     </div>
         <div class="profile-pic-wrapper">
@@ -15,11 +15,11 @@
             
     <div class="top-bar">
         <ul class="nav-list">
-            <li><a (click)="selectComponent('applied')">Applied jobs</a></li>
-            <li><a (click)="selectComponent('form')">Form</a></li>
-            <li><a (click)="selectComponent('favorite')">Favorite</a></li>
-            <li><a (click)="selectComponent('status')">Status</a></li>
-            <li><a (click)="selectComponent('save')">Save</a></li>
+            <li><a class="applied" (click)="selectComponent('applied')">Applied jobs</a></li>
+            <li><a class="form" (click)="selectComponent('form')">Form</a></li>
+            <li><a class="favorite" (click)="selectComponent('favorite')">Favorite</a></li>
+            <li><a class="status" (click)="selectComponent('status')">Status</a></li>
+            <!-- <li><a (click)="selectComponent('save')">Save</a></li> -->
         </ul>
     </div>
     
@@ -28,7 +28,7 @@
         <app-form *ngIf="selectedComponent === 'form'"></app-form>
         <app-favorite *ngIf="selectedComponent === 'favorite'"></app-favorite>
         <app-status *ngIf="selectedComponent === 'status'"></app-status>
-        <app-save *ngIf="selectedComponent === 'save'"></app-save>
+        <!-- <app-save *ngIf="selectedComponent === 'save'"></app-save> -->
     </div>
 
         </div>
