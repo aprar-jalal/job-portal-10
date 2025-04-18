@@ -9,8 +9,11 @@ import { SignUpComponent } from './sign-in/sign-up/sign-up.component';
 // import { JobApplectionComponent } from './job-applecation-card/job-applection/job-applection.component';
 import { JobDescriptionComponent } from './job-applecation-card/job-description/job-description.component';
 import { ApplectionFormComponent } from './job-applecation-card/applection-form/applection-form.component';
+import {EmployerHomeComponent} from './empolyer/employer-home/employer-home.component';
+
 export const routes: Routes = [
   // {path: 'job-application', component: JobApplectionComponent},
+  {path:'employer',component: EmployerHomeComponent},
   { path: 'login', component: LogInComponent },
   {path:'',component:HomePageComponent},
   { path: 'forgot-password', component: ForgotPasswordComponent},
