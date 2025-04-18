@@ -8,7 +8,6 @@ import {NotificationComponent} from '../notification/notification.component';
   styleUrls: ['./notifications-page.component.css'],
   imports: [
     NotificationComponent,
-    NavbarComponent
   ]
 })
 export class NotificationsPageComponent {
