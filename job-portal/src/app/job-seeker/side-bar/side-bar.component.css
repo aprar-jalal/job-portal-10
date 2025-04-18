@@ -101,22 +101,165 @@
 
 
 
-@media (max-width: 992px) {
-    .social-media {
-        gap: 30px;
-        font-size: 20px;
-    }
 
-    .skill-item {
-        font-size: 14px;
+
+
+
+@media (min-width: 0) and (max-width: 480px) {
+    .side {
         width: 120px;
+        margin-top: 20px;
     }
 
     .information {
-        font-size: 11px;
-        padding-left: 8%;
+        font-size: 10px;
+        padding-left: 5%;
+        padding-top: 5%;
+    }
+
+    .my-icon {
+        top: 5px;
+        right: 5%;
+    }
+
+    .title-1 {
+        font-size: 13px;
+    }
+    .gmail{
+        font-size:8px;
+       padding-left: 0px;
+    }
+    .phone{
+        padding-left: 0px;
+    }
+    .social-media {
+        gap: 20px;
+        font-size: 18px;
+        margin-top: 10%;
+    }
+
+    .skills {
+        margin-top: 10%;
+    }
+
+    .skills-list {
+        margin-left: 5%;
+    }
+
+    .skill-item {
+        width: 120px;
+        font-size: 12px;
+    }
+
+    .title-2 {
+        font-size: 16px;
+    }
+
+    .my-icon-2 {
+        top: 5%;
+        right: 5%;
     }
 }
 
+@media (min-width: 481px) and (max-width: 768px) {
+    .side {
+        width: 120px;
+        margin-top: 20px;
+    }
 
+    .information {
+        font-size: 9px;
+        padding-left: 0;
+        padding-top: 6%;
+    }
 
+    .my-icon {
+        top: 5px;
+        right: 5%;
+    }
+    
+
+    .title-1 {
+        font-size: 14px;
+        margin-left: 5px;
+    }
+
+    .social-media {
+        gap: 20px;
+        font-size: 20px;
+        margin-top: 12%;
+    }
+
+    .skills {
+        margin-top: 15%;
+    }
+
+    .skills-list {
+        margin-left: 6%;
+    }
+
+    .skill-item {
+        width: 130px;
+        font-size: 15px;
+    }
+
+    .title-2 {
+        font-size: 17px;
+    }
+
+    .my-icon-2 {
+        top: 4%;
+        right: 5%;
+    }
+}
+
+@media (min-width: 769px) and (max-width: 1279px) {
+    .side {
+        width: 100%;
+        margin-top: 25px;
+    }
+
+    .information {
+        font-size: 12px;
+        padding-left: 0;
+        padding-top: 8%;
+    }
+
+    .my-icon {
+        top: 10px;
+        right: 0px;
+    }
+
+    .title-1 {
+        font-size: 18px;
+        padding-left: 5px;
+    }
+
+    .social-media {
+        gap: 30px;
+        font-size: 22px;
+        margin-top: 15%;
+    }
+
+    .skills {
+        margin-top: 20%;
+    }
+
+    .skills-list {
+        margin-left: 8%;
+    }
+
+    .skill-item {
+        width: 150px;
+        font-size: 16px;
+    }
+
+    .title-2 {
+        font-size: 18px;
+    }
+
+    .my-icon-2 {
+        top: 5%;
+        right: 5%;
+    }
+}
