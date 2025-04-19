@@ -1,0 +1,35 @@
+.all-jobs-card{
+    width:900px;
+    transition: all .5s;
+    cursor:pointer;
+}
+.all-jobs-card:hover{
+    background-color: rgb(244, 244, 246);
+}
+
+.details-button{
+    margin-bottom: 0;
+}
+@media screen and (max-width: 935px) {
+    .all-jobs-card {
+        width: 700px;
+    }
+}
+
+@media screen and (max-width: 770px) {
+    .all-jobs-card {
+        width: 500px;
+    }
+    .details-button{
+        margin-bottom: 10px;
+    }
+}
+
+@media screen and (max-width: 527px) {
+    .all-jobs-card {
+        width: 300px;
+    }
+    .details-button{
+        margin-bottom: 10px;
+    }
+}
