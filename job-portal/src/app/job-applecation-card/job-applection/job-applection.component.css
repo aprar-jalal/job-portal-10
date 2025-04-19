@@ -17,3 +17,10 @@
 .location-selected:hover{
     background-color:rgb(244, 244, 246);
 }
+
+.link-hover{
+    transition: all ease;
+}
+.link-hover:hover{
+    text-shadow: -.1px .1px  rgb(29, 36, 69);
+}

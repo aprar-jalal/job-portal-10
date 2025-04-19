@@ -1,0 +1,21 @@
+.hero-section-title{
+    font-size: 65px; 
+    font-weight: 700;
+}
+
+@media screen and (max-width: 1237px) {
+    .hero-section-title{
+        font-size: 50px; 
+        font-weight: 700;
+    }
+  }
+
+  @media screen and (max-width:984px) {
+    .hero-section-title{
+        font-size: 35px; 
+        font-weight: 700;
+    }
+  }
+
+  
+  

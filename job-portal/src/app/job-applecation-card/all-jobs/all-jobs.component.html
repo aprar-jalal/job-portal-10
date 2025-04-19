@@ -1,0 +1,23 @@
+<div>
+  
+    <div class="card  container-fluid " style="height: 300px;" >
+      <div class="card-body d-flex   flex-column align-items-center justify-content-center">
+        <h1 class="card-title">Find Your Dream Job with</h1>
+        <h3 class="card-text fs-5">Quick Hier</h3>
+      </div>
+    </div>
+    <div class="row m-auto" style="background-color: rgb(244, 244, 246); overflow: hidden;">
+      <div class="d-flex flex-wrap justify-content-center" style="padding: 20px;">
+        <select  
+          class="form-select w-auto location-selected" 
+          [(ngModel)]="selectedLocation" 
+          (change)="filterByLocation(selectedLocation)">
+          <option value="All">All Locations</option>
+          <option *ngFor="let loc of uniqueLocations" [value]="loc">{{ loc }}</option>
+        </select>
+      </div>
+      <div class=" col-12 d-flex align-items-center justify-content-center" *ngFor="let job of filteredJobs">
+        <app-all-jobs-card [job]="job"></app-all-jobs-card>
+      </div>
+    </div>
+    </div>
