@@ -5,7 +5,7 @@ import {NgForOf} from '@angular/common';
 
 @Component({
   selector: 'app-last-applications',
-  imports: [LastApplicationsBlockComponent, CvBlockComponent, NgForOf],
+  imports: [LastApplicationsBlockComponent, NgForOf],
   templateUrl: './last-applications.component.html',
   styleUrl: './last-applications.component.css'
 })
