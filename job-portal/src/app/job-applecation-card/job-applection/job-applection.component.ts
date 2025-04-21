@@ -4,11 +4,12 @@ import { CommonModule } from '@angular/common';
 import { JobDataService } from '../serves/job-data.service';
 import { JobDataLocation } from '../models/job-data-location';
 import {RouterLink } from '@angular/router';
+import {FormsModule} from '@angular/forms';
 
 @Component({
   selector: 'app-job-applection',
   standalone: true,
-  imports: [JobCardComponent,CommonModule,RouterLink],
+  imports: [JobCardComponent, CommonModule, RouterLink, FormsModule],
   templateUrl: './job-applection.component.html',
   styleUrl: './job-applection.component.css',
 })

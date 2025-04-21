@@ -6,7 +6,6 @@ import { HeroSectionComponent } from './hero-section/hero-section.component';
 @Component({
   selector: 'app-home-page',
   imports: [
-    NavbarComponent,
     JobApplectionComponent,
     HeroSectionComponent
   ],
