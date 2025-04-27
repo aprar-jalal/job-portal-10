@@ -1,5 +1,18 @@
 <div class="save">
-
-
-
+    <div class="skills-div">
+        <h2 class="title-1">Skills</h2>
+        <button class="edit-skills"><i class="bi bi-pencil"> </i></button>
+        <div class="skills-list">
+            <span class="skill-tag" *ngFor="let skill of skills">
+                {{ skill }}
+                <button class="remove-btn" (click)="removeSkill(skill)">✕</button>
+            </span>
+        </div>
+        <div class="add-skill">
+            <input type="text" placeholder="Add a skill" [(ngModel)]="newSkill" (keyup.enter)="addSkill()" />
+            <button class="Add" (click)="addSkill()">Add</button>
+            <button class="save-btn">Save</button>
+        </div>
+    </div>
 </div>
+

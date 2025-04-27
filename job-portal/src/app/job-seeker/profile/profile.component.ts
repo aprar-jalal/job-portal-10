@@ -16,8 +16,12 @@ import { CommonModule } from '@angular/common';
 export class ProfileComponent {
   selectedComponent = ''; 
 
-  selectComponent(name: string) {
+ selectComponent(name: string) {
+  if (this.selectedComponent === name) {
+    this.selectedComponent = ''; 
+  } else {
     this.selectedComponent = name;
   }
+}
 
 }

@@ -19,16 +19,15 @@
             <li><a class="form" (click)="selectComponent('form')">Form</a></li>
             <li><a class="favorite" (click)="selectComponent('favorite')">Favorite</a></li>
             <li><a class="status" (click)="selectComponent('status')">Status</a></li>
-            <!-- <li><a (click)="selectComponent('save')">Save</a></li> -->
         </ul>
     </div>
     
     <div>
+        <app-save *ngIf="selectedComponent === ''"></app-save>
         <app-applied *ngIf="selectedComponent === 'applied'"></app-applied>
         <app-form *ngIf="selectedComponent === 'form'"></app-form>
         <app-favorite *ngIf="selectedComponent === 'favorite'"></app-favorite>
         <app-status *ngIf="selectedComponent === 'status'"></app-status>
-        <!-- <app-save *ngIf="selectedComponent === 'save'"></app-save> -->
     </div>
 
         </div>
