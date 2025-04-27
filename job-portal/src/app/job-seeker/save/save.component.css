@@ -5,8 +5,86 @@
     height: 585px;
     border-radius: 20px;
     border: none;
-    background-color: white;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.20);
     font-size: 15px;
     left: -5%;
+}
+.skills-div {
+    position: relative;
+    min-height: 100px;
+    background-color: white;
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+    width: 100%;
+}
+
+.title-1 {
+    margin-bottom: 16px;
+    font-size: 24px;
+}
+
+.edit-skills{
+    position: absolute;
+    border: none;
+    top: 0;
+    right: 0;
+}
+.skills-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 16px;
+}
+
+.skill-tag {
+    width: fit-content;
+    background-color:rgb(244, 244, 246) ;
+    color: rgb(29, 36, 69);
+    padding: 7px 16px;
+    border-radius: 12px;
+    font-size: 15px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    word-break: break-word;
+}
+
+.remove-btn {
+    background: none;
+    border: none;
+    color: rgb(29, 36, 69);
+    font-weight: 900;
+    margin-left: 8px;
+    cursor: pointer;
+}
+
+.add-skill {
+    display: flex;
+    justify-content: end;
+    gap: 10px;
+    margin-top: 16px;
+}
+
+.add-skill input {
+    padding: 8px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+}
+
+.Add{
+    margin-left: 10px;
+    background-color: rgb(29, 36, 69);
+    padding: 8px 16px;
+    border: none;
+    border-radius: 8px;
+    color: white;
+    cursor: pointer;
+}
+.save-btn{
+    background-color: rgb(29, 36, 69);
+    padding: 8px 16px;
+    border: none;
+    border-radius: 8px;
+    color: white;
+    cursor: pointer;
 }
