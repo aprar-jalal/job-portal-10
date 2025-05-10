@@ -8,36 +8,76 @@
     font-size: 15px;
     left: -5%;
 }
+
+/* -------------------------------------------- */
+.description-div {
+    background-color: white;
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.10);
+    margin-bottom: 20px;
+    width: 100%;
+}
+
+.title-1 {
+    font-weight: bold;
+    margin-bottom: 12px;
+    font-size: 24px;
+    color: #1d2445;
+}
+textarea {
+    width: 80%;
+    max-height: 100px;
+    padding: 10px;
+    font-size: 15px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    margin-bottom: 10px;
+}
+
+.save-btn,
+.edit-btn {
+    display: block;
+    background-color: #1d2445;
+    color: white;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.save-btn:hover,
+.edit-btn:hover {
+    background-color: #2e386a;
+}
+
+.description-text {
+    font-size: 16px;
+    color: #333;
+    width: 90%;
+    white-space: pre-wrap;
+}
+/* --------------------------------------- */
 .skills-div {
     position: relative;
     min-height: 100px;
     background-color: white;
     padding: 20px;
     border-radius: 20px;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.10);
     width: 100%;
 }
 
-.title-1 {
-    margin-bottom: 16px;
-    font-size: 24px;
-}
 
-.edit-skills{
-    position: absolute;
-    border: none;
-    top: 0;
-    right: 0;
-}
 .skills-list {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     gap: 10px;
     margin-bottom: 16px;
 }
 
 .skill-tag {
-    width: fit-content;
     background-color:rgb(244, 244, 246) ;
     color: rgb(29, 36, 69);
     padding: 7px 16px;
@@ -46,7 +86,6 @@
     display: flex;
     align-items: center;
     gap: 8px;
-    word-break: break-word;
 }
 
 .remove-btn {
@@ -80,11 +119,38 @@
     color: white;
     cursor: pointer;
 }
-.save-btn{
-    background-color: rgb(29, 36, 69);
-    padding: 8px 16px;
-    border: none;
-    border-radius: 8px;
-    color: white;
-    cursor: pointer;
+
+
+@media (min-width: 0) and (max-width: 480px) {
+    .title-1{
+        font-size: 15px;
+    }
+    textarea {
+         font-size: 8px;
+    }
+    .description-text{
+        font-size: 10px;
+    }
+    .edit-btn{
+        font-size: 10px;
+        width: 60px;
+        height: 20px;
+        padding: 0;
+    }
+    .skill-tag{
+        font-size: 10px;
+    }
+    .skills-list{
+        flex-direction: column;
+    }
+    .Add{
+        width: 40px;
+        padding: 5px 10px;
+        display: block;
+        font-size: 10px;
+    }
 }
+
+@media (min-width: 481px) and (max-width: 768px) {}
+
+@media (min-width: 769px) and (max-width: 1279px) {}

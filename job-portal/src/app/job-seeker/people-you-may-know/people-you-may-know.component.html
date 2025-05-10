@@ -1,0 +1,7 @@
+<h3 class="section-title">People You May Know</h3>
+<div class="people">
+    <app-person-card *ngFor="let person of people" [name]="person.name" [image]="person.image"
+        [description]="person.description">
+    </app-person-card>
+</div>
+

@@ -1,7 +1,26 @@
 <div class="save">
+    <!-- description-DIV -->
+<div class="description-div">
+    <h2 class="title-1">Description</h2>
+
+    <div *ngIf="!isEditingDescription">
+        <p class="description-text">
+            {{ description || '' }}
+        </p>
+        <button class="edit-btn" (click)="toggleEditDescription()">
+            <i class="bi bi-pencil"></i> Edit
+        </button>
+    </div>
+
+    <div *ngIf="isEditingDescription">
+        <textarea [(ngModel)]="tempDescription" placeholder="Add a description" rows="4"></textarea>
+        <button class="save-btn" (click)="saveDescription()">Save</button>
+    </div>
+</div>
+
+<!-- SLILLS DIV -->
     <div class="skills-div">
         <h2 class="title-1">Skills</h2>
-        <button class="edit-skills"><i class="bi bi-pencil"> </i></button>
         <div class="skills-list">
             <span class="skill-tag" *ngFor="let skill of skills">
                 {{ skill }}
@@ -11,7 +30,6 @@
         <div class="add-skill">
             <input type="text" placeholder="Add a skill" [(ngModel)]="newSkill" (keyup.enter)="addSkill()" />
             <button class="Add" (click)="addSkill()">Add</button>
-            <button class="save-btn">Save</button>
         </div>
     </div>
 </div>
