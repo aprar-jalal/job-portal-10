@@ -1,7 +1,7 @@
 .profile-app {
     width: 100%;
     height: 400px;
-    margin-top: 40px;
+    margin-top: 65px;
     position: relative;
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
     border-radius: 16px;
@@ -25,7 +25,7 @@
 .edit-background {
     background-color: #1d2445;
     color: white;
-    padding: 5px 8px;
+    padding: 5px 9px;
     border: none;
     position: absolute;
     border: none;
@@ -94,7 +94,7 @@
 
 
 
-
+/* ---------------------------------------------- NavBar ------------------------------------------- */
 
 
 .top-bar {
@@ -135,9 +135,7 @@
 }
 
 
-
-
-
+/* RESPONSIVE SECTION FOR PROFILE COMPONENT */
 
 
 @media (min-width: 0) and (max-width: 480px) {
@@ -270,7 +268,7 @@
 @media (min-width: 769px) and (max-width: 1279px) {
     .profile-app {
         height: 400px;
-        margin-top: 20px;
+        margin-top: 65px;
     }
 
 

@@ -9,12 +9,12 @@
     left: -5%;
 }
 
-/* -------------------------------------------- */
+/* -------------------------------------- Description div --------------------------  */
 .description-div {
     background-color: white;
     padding: 20px;
     border-radius: 20px;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.10);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.20);
     margin-bottom: 20px;
     width: 100%;
 }
@@ -58,14 +58,14 @@ textarea {
     width: 90%;
     white-space: pre-wrap;
 }
-/* --------------------------------------- */
+/* -------------------------------------- Skills div --------------------------  */
 .skills-div {
     position: relative;
     min-height: 100px;
     background-color: white;
     padding: 20px;
     border-radius: 20px;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.10);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.20);
     width: 100%;
 }
 
@@ -73,6 +73,7 @@ textarea {
 .skills-list {
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
     gap: 10px;
     margin-bottom: 16px;
 }
@@ -99,6 +100,7 @@ textarea {
 
 .add-skill {
     display: flex;
+    flex-wrap: wrap ;
     justify-content: end;
     gap: 10px;
     margin-top: 16px;
@@ -119,8 +121,51 @@ textarea {
     color: white;
     cursor: pointer;
 }
+/* -------------------------------- Information Div ----------------------------- */
+.Information {
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 20px;
+    padding: 30px;
+    width: 100%;
+    height: 76%;
+    margin: 20px 0 ;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.20);
+}
 
+.Information h3 {
+    margin-bottom: 25px;
+    font-size: 24px;
+    color: #2c3e50;
+    text-align: center;
+}
 
+.profile-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+    border-bottom: 1px solid #eee;
+    font-size: 16px;
+    color: #333;
+}
+
+.profile-item:last-child {
+    border-bottom: none;
+}
+
+.profile-item span.label {
+    font-weight: 600;
+    color: #555;
+}
+
+.profile-item span.value {
+    color: #777;
+    text-align: right;
+    max-width: 60%;
+    overflow-wrap: break-word;
+}
+
+/* --------------------------------- Responsive code ------------------------- */
 @media (min-width: 0) and (max-width: 480px) {
     .title-1{
         font-size: 15px;
