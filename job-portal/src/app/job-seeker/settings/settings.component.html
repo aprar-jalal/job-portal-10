@@ -1,0 +1,36 @@
+<div class="settings-container-main">
+    <div class="settings-container">
+        <h2>Settings</h2>
+        <form [formGroup]="profileForm">
+            <label>Full Name:</label>
+            <input type="text" formControlName="fullName" />
+
+            <label>Phone Number:</label>
+            <input type="text" formControlName="phone" />
+
+            <label>Gender:</label>
+            <select formControlName="gender">
+                <option value="">Select Gender</option>
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+            </select>
+
+            <label>City:</label>
+            <input type="text" formControlName="city" />
+
+            <label>Education Level:</label>
+            <input type="text" formControlName="educationLevel" />
+
+            <label>Major:</label>
+            <input type="text" formControlName="major" />
+
+            <label>Years of Experience:</label>
+            <input type="text" formControlName="experienceYears" />
+
+            <button type="button" >Save</button>
+        </form>
+    </div>
+</div>
+  
+  
+  

@@ -1,5 +1,13 @@
 <div class="side">
-
+    <!-------------------------- Settings ------------------------------- -->
+    <button (click)="toggleSettings()" class="btn btn-light settings-btn">
+        <i class="bi bi-gear" [class.spin]="showSettings"></i> Settings
+    </button>
+    
+    <app-settings *ngIf="showSettings"></app-settings>
+      
+      
+      <!----------------------------------------------------------------------------- -->
     <div class="job-ad1-pic">
         <img class="ad1" src="\assets\job-seeker-ad1.jpg" alt="ad1">
         <div class="see-who">See who's hiring</div>
