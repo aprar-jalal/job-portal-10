@@ -1,15 +1,18 @@
 import { Component } from '@angular/core';
-import {LastApplicationsBlockComponent} from './last-applications-block/last-applications-block.component';
-import {CvBlockComponent} from '../cv-list/cv-block/cv-block.component';
-import {NgForOf, SlicePipe} from '@angular/common';
+import {JobApplicationsBlockComponent} from './job-applications-block/job-applications-block.component';
+import {NgForOf} from '@angular/common';
 
 @Component({
-  selector: 'app-last-applications',
-  imports: [LastApplicationsBlockComponent, CvBlockComponent, NgForOf, SlicePipe],
-  templateUrl: './last-applications.component.html',
-  styleUrl: './last-applications.component.css'
+  selector: 'app-job-applications-list',
+  imports: [
+    JobApplicationsBlockComponent,
+    NgForOf
+  ],
+  templateUrl: './job-applications-list.component.html',
+  styleUrl: './job-applications-list.component.css'
 })
-export class LastApplicationsComponent {
+export class JobApplicationsListComponent {
+
   jobApplications = [
     {
       id: 1,
@@ -53,4 +56,20 @@ export class LastApplicationsComponent {
     }
   ];
 
+  filteredApplications = [...this.jobApplications];
+  selectedStatus = 'All';
+
+  filterStatus(status: string)
+  {
+    this.selectedStatus = status;
+
+    if (this.selectedStatus == 'All')
+    {
+      this.filteredApplications = [...this.jobApplications];
+    }
+
+    else {
+      this.filteredApplications = this.jobApplications.filter(app => app.status === status);
+    }
+  }
 }

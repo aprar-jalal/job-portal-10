@@ -1,10 +1,11 @@
 import {Component, Input} from '@angular/core';
-import {NgClass} from '@angular/common';
+import {NgClass, NgIf} from '@angular/common';
 
 @Component({
   selector: 'app-last-applications-block',
   imports: [
-    NgClass
+    NgClass,
+    NgIf
   ],
   templateUrl: './last-applications-block.component.html',
   styleUrl: './last-applications-block.component.css'
