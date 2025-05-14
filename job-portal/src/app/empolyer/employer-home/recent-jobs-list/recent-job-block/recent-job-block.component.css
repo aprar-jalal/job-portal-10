@@ -1,0 +1,5 @@
+.recent-job-block:hover{
+  background-color: #f8f8f8;
+  cursor: pointer;
+  transform: scale(1.01);
+}

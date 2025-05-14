@@ -1,0 +1,8 @@
+<div class="container p-1">
+
+  <div class="col-12">
+
+    <app-recent-job-block *ngFor="let job of jobs |  slice:0:3" [job] = 'job '></app-recent-job-block>
+
+  </div>
+</div>
