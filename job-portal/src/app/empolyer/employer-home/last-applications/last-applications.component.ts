@@ -1,16 +1,16 @@
 import { Component } from '@angular/core';
 import {LastApplicationsBlockComponent} from './last-applications-block/last-applications-block.component';
 import {CvBlockComponent} from '../cv-list/cv-block/cv-block.component';
-import {NgForOf} from '@angular/common';
+import {NgForOf, SlicePipe} from '@angular/common';
 
 @Component({
   selector: 'app-last-applications',
-  imports: [LastApplicationsBlockComponent, CvBlockComponent, NgForOf],
+  imports: [LastApplicationsBlockComponent, CvBlockComponent, NgForOf, SlicePipe],
   templateUrl: './last-applications.component.html',
   styleUrl: './last-applications.component.css'
 })
 export class LastApplicationsComponent {
-  recentApplications = [
+  jobApplications = [
     {
       id: 1,
       title: 'Web Development Internship',

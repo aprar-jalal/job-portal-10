@@ -1,0 +1,40 @@
+<div>
+
+  <div class="d-flex justify-content-center gap-2 mb-4 flex-wrap">
+
+    <button class="btn btn-outline-primary"
+
+            [class.active]="selectedStatus === 'All'"
+            (click)="filterStatus('All')"
+    >
+      All
+    </button>
+
+    <button class="btn btn-outline-success"
+            [class.active]="selectedStatus === 'Accepted'"
+            (click)="filterStatus('Accepted')"
+    >
+      Accepted
+    </button>
+
+    <button class="btn btn-outline-warning text-dark"
+            [class.active]="selectedStatus === 'Under Review'"
+            (click)="filterStatus('Under Review')"
+    >
+      Under Review
+    </button>
+
+    <button class="btn btn-outline-danger"
+            [class.active]="selectedStatus === 'Rejected'"
+            (click)="filterStatus('Rejected')"
+    >
+      Rejected
+    </button>
+
+  </div>
+  <div class="row">
+    <div class="col-md-4" *ngFor="let j of filteredApplications">
+      <app-job-applications-block [jobApplications]="j"></app-job-applications-block>
+    </div>
+  </div>
+</div>

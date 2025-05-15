@@ -1,24 +1,28 @@
 <div class="side">
-    <div class="information">
-       <button class="my-icon"><i class="bi bi-pencil "> </i></button> 
-        <div class="title-1">Information : </div>
-        <div class="gmail"><span style="font-weight: 900;">Gmail</span> : amrasmar42&#64;gmail.com</div>
-        <div class="phone"><span style="font-weight: 900;">Phone</span> : 0595014146</div>
-        <div class="social-media">
-           <a href=""> <i class="bi bi-facebook facebook" ></i></a>
-            <a href=""><i class="bi bi-instagram instagram" ></i></a>
-           <a href=""> <i class="bi bi-linkedin linkedin" ></i></a>
-        </div>
+    <!-------------------------- Settings ------------------------------- -->
+    <button (click)="toggleSettings()" class="btn btn-light settings-btn">
+        <i class="bi bi-gear" [class.spin]="showSettings"></i> Settings
+    </button>
+    
+    <app-settings *ngIf="showSettings"></app-settings>
+      
+      
+      <!----------------------------------------------------------------------------- -->
+    <div class="job-ad1-pic">
+        <img class="ad1" src="\assets\job-seeker-ad1.jpg" alt="ad1">
+        <div class="see-who">See who's hiring</div>
+        <div class="quick-hire">On Quick Hire</div>   
     </div>
 
-    <div class="skills">
-        <button class="my-icon-2"><i class="bi bi-pencil "> </i></button>
-        <p class="title-2">Skills : </p>
-        <ul class="skills-list">
-            <li class="skill-item">JavaScript</li>
-            <li class="skill-item">Angular</li>
-            <li class="skill-item">React</li>
-        </ul>
+
+
+    <div class="may-know">
+        <app-people-you-may-know></app-people-you-may-know>
+    
     </div>
+    
+
+
+
 
 </div>

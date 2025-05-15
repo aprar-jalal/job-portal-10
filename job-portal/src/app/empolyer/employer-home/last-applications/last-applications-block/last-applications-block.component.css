@@ -1,3 +1,11 @@
+.last-app-block{
+  cursor: pointer;
+  box-shadow: 0 0 5px 1px rgba(0,0,0,0.2);
+  border-radius: 5px;
+}
+
+
+
 .last-app-block:hover{
   background-color: #f8f8f8;
   transform: scale(1.01);

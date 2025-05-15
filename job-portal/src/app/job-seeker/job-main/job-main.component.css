@@ -1,0 +1,19 @@
+@media (max-width: 480px) {
+    .row {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .col-9{
+        width: 100% !important;
+        max-width: 100%;
+        order: 1;
+    }
+    .col-3 {
+        width: 100% !important;
+        max-width: 100%;
+        order: 2;
+        margin-top: 350px;
+    }
+
+}

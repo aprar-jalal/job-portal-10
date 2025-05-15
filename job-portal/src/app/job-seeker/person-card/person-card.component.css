@@ -1,0 +1,72 @@
+.card {
+    background: white;
+    border-radius: 12px;
+    padding: 16px;
+    margin-top: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition:  0.2s;
+    width: 275px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    cursor: pointer;
+}
+
+
+
+.header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.profile-img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+
+.name {
+    font-size: 16px;
+    font-weight: bold;
+    margin: 0;
+}
+
+.description {
+    font-size: 14px;
+    margin: 0 0 12px 0;
+}
+
+.connect-btn {
+    background-color: #1d2445;
+    color: white;
+    border: 1px solid #1d2445;
+    padding: 6px 16px;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: 300ms;
+}
+
+.connect-btn:hover {
+    background-color: rgb(244, 244, 246);
+    color: #1d2445;
+    border: 1px solid #1d2445;
+}
+
+@media (min-width: 0) and (max-width: 480px){
+    .card{
+        width: 305px;
+    }
+}
+
+@media (min-width: 481px) and (max-width: 768px){
+    .card {
+            width: 170px;
+    }
+}
+@media (min-width: 769px) and (max-width: 1279px){
+    .card {
+            width: 250px;
+    }
+}

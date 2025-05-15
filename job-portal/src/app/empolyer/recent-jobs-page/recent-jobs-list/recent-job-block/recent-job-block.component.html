@@ -1,0 +1,63 @@
+
+
+<div class="card job-card" style="box-shadow: 0 0 5px rgba(0,0,0.75); ">
+  <div class="card-body">
+    <div class="d-flex justify-content-between">
+      <div>
+        <h3 class="h5">{{ job.title }}</h3>
+        <p class="text-muted mb-2"><i class="bi bi-geo-alt"></i> {{ job.location }}</p>
+        <p class="mb-3"> {{ job.description.split(' ').length > 30 ? (job.description.split(' ').slice(0, 30).join(' ') + '...') : job.description }}
+          <a [routerLink]="['/job-details', job.id]">more</a>
+        </p>
+
+        <div class="d-flex gap-2 mb-3">
+          <span class="badge"  *ngFor="let tag of job.tags" style="font-size: 12px ; background-color: #1D2445">
+            {{ tag }}
+          </span>
+        </div>
+
+        <div class="d-flex gap-2 text-muted small">
+          <span><i class="bi bi-eye"></i> 56 views</span>
+          <span><i class="bi bi-people"></i> 12 applications</span>
+          <span><i class="bi bi-clock"></i> Posted 2 days ago</span>
+        </div>
+
+      </div>
+
+
+      <div class="d-flex flex-column gap-2">
+
+        <div class="dropdown">
+          <button class="btn btn-sm btn-light rounded-circle p-2" type="button"
+                  data-bs-toggle="dropdown" style="width:34px;height:34px;">
+            <i class="bi bi-three-dots-vertical"></i>
+          </button>
+          <ul class="dropdown-menu shadow" >
+            <li>
+              <a class="dropdown-item py-2" href="#">
+                <i class="bi bi-pencil me-2 text-primary"></i>
+                Edit
+              </a>
+            </li>
+            <li>
+              <a class="dropdown-item py-2" href="#">
+                <i class="bi bi-people me-2 text-success"></i>
+                View Applications
+              </a>
+            </li>
+            <li>
+              <a class="dropdown-item py-2" href="#">
+                <i class="bi bi-trash me-2 text-danger"></i>
+                Delete
+              </a>
+            </li>
+            </ul>
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+</div>
+
