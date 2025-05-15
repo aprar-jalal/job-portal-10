@@ -1,5 +1,5 @@
 import { Routes } from '@angular/router';
-import { NotificationsPageComponent } from './notifications-page/notifications-page.component';
+import { NotificationsPageComponent } from './Notifications/notifications-page/notifications-page.component';
 import { HomePageComponent } from './home-page/home-page.component';
 import { JobMainComponent } from './job-seeker/job-main/job-main.component';
 import { LogInComponent } from './sign-in/log-in/log-in.component';
@@ -11,11 +11,8 @@ import { JobDescriptionComponent } from './job-applecation-card/job-description/
 import { ApplectionFormComponent } from './job-applecation-card/applection-form/applection-form.component';
 import { EmployerHomeComponent } from './empolyer/employer-home/employer-home.component';
 import { AllJobsComponent } from './job-applecation-card/all-jobs/all-jobs.component';
-import {AllJobApplicationsComponent} from './empolyer/all-job-applications/all-job-applications.component';
-import {JobDetailsComponent} from './empolyer/job-details/job-details.component';
-import {RecentJobsPageComponent} from './empolyer/recent-jobs-page/recent-jobs-page.component';
-import {PostJobComponent} from './empolyer/post-job/post-job.component';
-
+import { AboutUsComponent } from './about-us/about-us.component';
+import {AdminReportsComponent} from './admin-reports/admin-reports.component';
 export const routes: Routes = [
   // {path: 'job-application', component: JobApplectionComponent},
   { path: 'employer', component: EmployerHomeComponent },
@@ -29,8 +26,4 @@ export const routes: Routes = [
   { path: 'job-description/:id', component: JobDescriptionComponent },
   { path: 'Applection-form', component: ApplectionFormComponent },
   {path:'all-jobs' , component:AllJobsComponent},
-  {path:'postJob', component: PostJobComponent},
-  {path:'recentJobs', component: RecentJobsPageComponent},
-  {path:'job-details/:id', component: JobDetailsComponent},
-  {path: 'allJobApplications', component: AllJobApplicationsComponent},
 ];

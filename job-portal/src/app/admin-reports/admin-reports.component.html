@@ -1,0 +1,150 @@
+<div class="container my-5" id="report-content">
+  <div class="d-flex flex-column flex-md-row justify-content-between align-items-start align-items-md-center mb-5">
+    <h2 class="mb-3 mb-md-0" style="color: #1D2445; font-weight: 600;">
+      <i class="bi bi-graph-up me-2"></i> Admin Analytics Dashboard
+    </h2>
+    <div class="d-flex gap-2 align-items-center">
+      <div class="dropdown">
+        <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown">
+          {{ selectedTimeRange === '7d' ? 'Last 7 Days' : selectedTimeRange === '30d' ? 'Last 30 Days' : 'Last 90 Days' }}
+        </button>
+        <ul class="dropdown-menu">
+          <li><a class="dropdown-item" (click)="updateTimeRange('7d')">Last 7 Days</a></li>
+          <li><a class="dropdown-item" (click)="updateTimeRange('30d')">Last 30 Days</a></li>
+          <li><a class="dropdown-item" (click)="updateTimeRange('90d')">Last 90 Days</a></li>
+        </ul>
+      </div>
+      <button class="btn btn-outline-success" (click)="exportExcel()">
+        <i class="bi bi-file-earmark-excel me-1"></i> Excel
+      </button>
+      <button class="btn btn-outline-primary" (click)="exportPDF()">
+        <i class="bi bi-file-earmark-pdf me-1"></i> PDF
+      </button>
+    </div>
+  </div>
+
+  <div class="row mb-5">
+    <div class="col-md-3 col-sm-6 mb-3" *ngFor="let card of cards">
+      <div class="card text-white {{card.bg}} shadow-sm h-100 animate-card">
+        <div class="card-body d-flex align-items-center">
+          <i class="bi {{card.icon}} me-3" style="font-size: 2rem;"></i>
+          <div>
+            <h6 class="card-title mb-1">{{card.title}}</h6>
+            <h3 class="mb-0">{{card.value}}</h3>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-5">
+    <div class="col-lg-6 mb-4">
+      <div class="card shadow-sm h-100 animate-card">
+        <div class="card-body p-4">
+          <h5 class="card-title text-center mb-4" style="color: #1D2445;">User & Job Distribution</h5>
+          <apx-chart
+            [series]="pieChartOptions.series!"
+            [chart]="pieChartOptions.chart!"
+            [labels]="pieChartOptions.labels!"
+            [legend]="pieChartOptions.legend!"
+            [responsive]="pieChartOptions.responsive!"
+            [dataLabels]="pieChartOptions.dataLabels!"
+            [colors]="pieChartOptions.colors!"
+            [tooltip]="pieChartOptions.tooltip!">
+          </apx-chart>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-lg-6 mb-4">
+      <div class="card shadow-sm h-100 animate-card">
+        <div class="card-body p-4">
+          <h5 class="card-title text-center mb-4" style="color: #1D2445;">Application Status</h5>
+          <apx-chart
+            [series]="donutChartOptions.series!"
+            [chart]="donutChartOptions.chart!"
+            [labels]="donutChartOptions.labels!"
+            [legend]="donutChartOptions.legend!"
+            [responsive]="donutChartOptions.responsive!"
+            [dataLabels]="donutChartOptions.dataLabels!"
+            [colors]="donutChartOptions.colors!"
+            [tooltip]="donutChartOptions.tooltip!">
+          </apx-chart>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-5">
+    <div class="col-lg-6 mb-4">
+      <div class="card shadow-sm h-100 animate-card">
+        <div class="card-body p-4">
+          <h5 class="card-title text-center mb-4" style="color: #1D2445;">Jobs Posted per Month</h5>
+          <apx-chart
+            [series]="barChartOptions.series!"
+            [chart]="barChartOptions.chart!"
+            [xaxis]="barChartOptions.xaxis!"
+            [colors]="barChartOptions.colors!"
+            [dataLabels]="barChartOptions.dataLabels!"
+            [tooltip]="barChartOptions.tooltip!">
+          </apx-chart>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-lg-6 mb-4">
+      <div class="card shadow-sm h-100 animate-card">
+        <div class="card-body p-4">
+          <h5 class="card-title text-center mb-4" style="color: #1D2445;">Top Job Categories</h5>
+          <apx-chart
+            [series]="horizontalBarChartOptions.series!"
+            [chart]="horizontalBarChartOptions.chart!"
+            [xaxis]="horizontalBarChartOptions.xaxis!"
+            [yaxis]="horizontalBarChartOptions.yaxis!"
+            [colors]="horizontalBarChartOptions.colors!"
+            [dataLabels]="horizontalBarChartOptions.dataLabels!"
+            [tooltip]="horizontalBarChartOptions.tooltip!"
+            [fill]="horizontalBarChartOptions.fill!">
+          </apx-chart>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-5">
+    <div class="col-12 mb-4">
+      <div class="card shadow-sm animate-card">
+        <div class="card-body p-4">
+          <h5 class="card-title text-center mb-4" style="color: #1D2445;">Applications Over Time</h5>
+          <apx-chart
+            [series]="lineChartOptions.series!"
+            [chart]="lineChartOptions.chart!"
+            [xaxis]="lineChartOptions.xaxis!"
+            [stroke]="lineChartOptions.stroke!"
+            [colors]="lineChartOptions.colors!"
+            [tooltip]="lineChartOptions.tooltip!">
+          </apx-chart>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-5">
+    <div class="col-12 mb-4">
+      <div class="card shadow-sm animate-card">
+        <div class="card-body p-4">
+          <h5 class="card-title text-center mb-4" style="color: #1D2445;">Daily Active Users</h5>
+          <apx-chart
+            [series]="sparklineOptions.series!"
+            [chart]="sparklineOptions.chart!"
+            [xaxis]="sparklineOptions.xaxis!"
+            [stroke]="sparklineOptions.stroke!"
+            [fill]="sparklineOptions.fill!"
+            [colors]="sparklineOptions.colors!"
+            [tooltip]="sparklineOptions.tooltip!">
+          </apx-chart>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

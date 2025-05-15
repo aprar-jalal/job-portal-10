@@ -1,0 +1,84 @@
+.card {
+  border-radius: 0.75rem;
+  transition: transform 0.3s, box-shadow 0.3s;
+  border: none;
+}
+
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15) !important;
+}
+
+.card-body {
+  padding: 1.5rem;
+}
+
+h5.card-title, h6.card-title {
+  margin-bottom: 1rem;
+  font-weight: 500;
+}
+
+.card.text-white {
+  color: #fff !important;
+}
+
+.card.bg-dark h6,
+.card.bg-dark h3 {
+  color: #fff !important;
+}
+
+.container {
+  max-width: 1400px;
+}
+
+.btn-outline-success,
+.btn-outline-primary,
+.btn-outline-secondary {
+  border-width: 2px;
+  font-weight: 500;
+  transition: all 0.3s;
+}
+
+.btn-outline-success:hover,
+.btn-outline-primary:hover,
+.btn-outline-secondary:hover {
+  transform: scale(1.05);
+}
+
+.dropdown-menu {
+  border-radius: 0.5rem;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.animate-card {
+  animation: fadeInUp 0.5s ease-out;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 576px) {
+  .card-body {
+    padding: 1rem;
+  }
+
+  h3 {
+    font-size: 1.5rem;
+  }
+
+  h6.card-title {
+    font-size: 0.9rem;
+  }
+
+  .btn {
+    font-size: 0.85rem;
+  }
+}
