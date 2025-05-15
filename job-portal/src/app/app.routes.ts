@@ -8,7 +8,6 @@ import { ForgotPasswordComponent } from './sign-in/forgot-password/forgot-passwo
 import { SignUpComponent } from './sign-in/sign-up/sign-up.component';
 // import { JobApplectionComponent } from './job-applecation-card/job-applection/job-applection.component';
 import { JobDescriptionComponent } from './job-applecation-card/job-description/job-description.component';
-import { ApplectionFormComponent } from './job-applecation-card/applection-form/applection-form.component';
 import { EmployerHomeComponent } from './empolyer/employer-home/employer-home.component';
 import { AllJobsComponent } from './job-applecation-card/all-jobs/all-jobs.component';
 import { AboutUsComponent } from './about-us/about-us.component';
@@ -28,7 +27,6 @@ export const routes: Routes = [
   { path: 'home-page', component: HomePageComponent },
   { path: 'job-seeker', component: JobMainComponent },
   { path: 'job-description/:id', component: JobDescriptionComponent },
-  { path: 'Applection-form', component: ApplectionFormComponent },
   {path:'all-jobs' , component:AllJobsComponent},
   {path:'postJob', component: PostJobComponent},
   {path:'recentJobs', component: RecentJobsPageComponent},
