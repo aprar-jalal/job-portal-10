@@ -1,54 +1,61 @@
+<div class="sign-in-container d-flex" style="min-height: 100vh; background-image: url('assets/fjob.jpg'); background-size: cover; background-position: center;">
+  <div class="form-section d-flex justify-content-center align-items-center" style="flex: 1; background-color: rgba(0, 0, 0, 0.5); height: 100vh;">
+    <div class="p-4 rounded"
+         style="width: 100%; max-width: 550px; background-color: #ffffff; border: 1px solid rgba(0, 0, 0, 0.2); box-shadow: 0 4px 20px rgba(0,0,0,0.7);">
 
-<div class="sign-in-container d-flex" style="min-height: 100vh; background-color: #1a1a2e;">
-    <div class="form-section mx-auto my-auto p-4 rounded" style="background-color: #16213e; width: 100%; max-width: 400px;">
-      <h2 class="mb-4 text-white text-center">Welcome </h2>
-  
-    
+      <h2 class="mb-4 text-dark text-center">Sign In</h2>
+
       <form [formGroup]="signInForm" (ngSubmit)="onSubmit()">
-  
         <div class="mb-3">
           <input
             type="email"
             class="form-control"
             formControlName="username"
             placeholder="Email"
+            style="border: 1px solid rgba(0,0,0,0.15); box-shadow: 0 2px 10px rgba(0,0,0,0.1);"
           />
           <small class="text-danger" *ngIf="username?.invalid && username?.touched">
             <span *ngIf="username?.errors?.['required']">Email is required</span>
             <span *ngIf="username?.errors?.['email']">Please enter a valid email</span>
           </small>
         </div>
-  
- 
-        <div class="mb-3">
+
+        <div class="mb-3 position-relative">
           <input
-            type="password"
+            [type]="showPassword ? 'text' : 'password'"
             class="form-control"
             formControlName="password"
             placeholder="Password"
+            style="border: 1px solid rgba(0,0,0,0.15); box-shadow: 0 2px 10px rgba(0,0,0,0.1);"
           />
           <small class="text-danger" *ngIf="password?.invalid && password?.touched">
             <span *ngIf="password?.errors?.['required']">Password is required</span>
             <span *ngIf="password?.errors?.['minlength']">Password must be at least 8 characters</span>
           </small>
-          
+
+          <button
+            type="button"
+            (click)="togglePasswordVisibility()"
+            class="btn btn-sm btn-outline-light position-absolute"
+            style="top: 50%; right: 10px; transform: translateY(-50%); background: transparent; border: none;"
+            tabindex="-1"
+          >
+            <i class="bi" [ngClass]="showPassword ? 'bi-eye-slash' : 'bi-eye'"></i>
+          </button>
         </div>
-  
-   
+
         <div class="mb-3 text-end">
-       <a [routerLink]="['/forgot-password']" class="text-light">Forgot password?</a>
+          <a [routerLink]="['/forgot-password']" class="text-dark">Forgot password?</a>
         </div>
-  
-  
-        <button class="btn btn-primary w-100" type="submit" [disabled]="signInForm.invalid">
+
+        <button class="btn w-100" type="submit" [disabled]="signInForm.invalid" style="background-color: #1D2445; color: white;">
           Sign In
         </button>
       </form>
-  
- 
-      <div class="text-center mt-4 text-white">
-        New user? <a [routerLink]="['/sign-up']" class="text-white text-decoration-underline">Sign Up</a>
+
+      <div class="text-center mt-4 text-dark">
+        New user? <a [routerLink]="['/sign-up']" class="text-dark text-decoration-underline">Sign Up</a>
       </div>
     </div>
   </div>
-  
+</div>
