@@ -1,101 +1,9 @@
-// import {Component, HostListener, Inject, PLATFORM_ID, OnInit, ViewChildren, QueryList, ElementRef} from '@angular/core';
-// import {isPlatformBrowser, NgClass, NgForOf, NgIf} from '@angular/common';
-// import {Router, RouterLink} from '@angular/router';
-// import {NotificationsInboxComponent} from '../notifications-inbox/notifications-inbox.component';
-//
-// @Component({
-//   selector: 'app-navbar',
-//   templateUrl: './navbar.component.html',
-//   imports: [
-//     NotificationsInboxComponent,
-//     NgClass,
-//     NgIf,
-//     NgForOf,
-//     RouterLink
-//   ],
-//   styleUrls: ['./navbar.component.css']
-// })
-// export class NavbarComponent implements OnInit {
-//   activeItem: string = 'home';
-//   showNotificationsDropdown: boolean = false;
-//   isMobileView: boolean = false;
-//   private isBrowser: boolean = false;
-//
-//   navItems = [
-//     { name: 'home', label: 'Home', icon: 'bi bi-house' },
-//     { name: 'favorites', label: 'Favorites', icon: 'bi bi-heart' },
-//     { name: 'reports', label: 'Reports', icon: 'bi bi-file-earmark-bar-graph' },
-//     { name: 'notifications', label: 'Notifications', icon: 'bi bi-bell' },
-//     { name: 'me', label: 'Me', icon: 'bi bi-person' }
-//   ];
-//
-//   constructor(
-//     protected router: Router,
-//     @Inject(PLATFORM_ID) private platformId: Object
-//   ) {
-//     this.isBrowser = isPlatformBrowser(this.platformId);
-//   }
-//
-//   ngOnInit() {
-//     if (this.isBrowser) {
-//       this.checkViewport();
-//     }
-//   }
-//
-//   @HostListener('window:resize')
-//   checkViewport() {
-//     if (this.isBrowser) {
-//       this.isMobileView = window.innerWidth < 990;
-//     }
-//   }
-//
-//   @ViewChildren('dropdownRef') dropdownRefs!: QueryList<ElementRef>;
-//   @HostListener('document:click', ['$event'])
-//   handleClickOutside(event: Event) {
-//     const clickedInside = this.dropdownRefs.some(ref => ref.nativeElement.contains(event.target));
-//     if (!clickedInside) {
-//       this.showNotificationsDropdown = false;
-//     }
-//   }
-//
-//   setActive(item: string) {
-//     if (item === 'notifications') {
-//
-//       if (this.isMobileView) {
-//         this.router.navigate(['/notifications-page']);
-//         this.showNotificationsDropdown = false;
-//       }
-//       else {
-//         this.showNotificationsDropdown = !this.showNotificationsDropdown;
-//       }
-//     }
-//     else if(item === 'home'){
-//       this.router.navigate(['/']);
-//
-//     }else if(item === 'me'){
-//       this.router.navigate(['/job-seeker']);
-//     }
-//     // else if(item === 'favorites'){
-//     //   this.router.navigate(['/favorites-page']);
-//     // }
-//     else if(item === 'reports'){
-//       this.router.navigate(['/reports']);
-//     }
-//     else {
-//       this.showNotificationsDropdown = false;
-//     }
-//     this.activeItem = item;
-//   }
-// }
-//First Version
 import {Component, HostListener, Inject, PLATFORM_ID, OnInit, ViewChildren, QueryList, ElementRef} from '@angular/core';
 import {isPlatformBrowser, NgClass, NgForOf, NgIf} from '@angular/common';
 import {Router, RouterLink} from '@angular/router';
 import {NotificationsInboxComponent} from '../Notifications/notifications-inbox/notifications-inbox.component';
-import { UserTypeService}  from './services/userType.service'; // Import the service
-
-
-
+import { UserTypeService}  from './services/userType.service';
+import {AllJobApplicationsComponent} from '../empolyer/all-job-applications/all-job-applications.component'
 interface UserService {
   getUserType(): 'guest' | 'jobSeeker' | 'employer' | 'admin';
 }
@@ -121,7 +29,6 @@ export class NavbarComponent implements OnInit {
   navItems: { name: string; label: string; icon: string }[] = [];
 
   constructor(
-
     protected router: Router,
     @Inject(PLATFORM_ID) private platformId: Object,
     @Inject(UserTypeService) private userTypeService: UserTypeService
@@ -157,15 +64,14 @@ export class NavbarComponent implements OnInit {
       case 'employer':
         this.navItems = [
           { name: 'home', label: 'Home', icon: 'bi bi-house' },
-          { name: 'favorites', label: 'Favorites', icon: 'bi bi-heart' },
-          { name: 'jobApplications ', label: 'Job Applications', icon: 'bi bi-file-earmark-bar-graph' },
+          { name: 'jobApplications', label: 'Job Applications', icon: 'bi bi-file-earmark-bar-graph' },
           { name: 'notifications', label: 'Notifications', icon: 'bi bi-bell' },
           { name: 'me', label: 'Me', icon: 'bi bi-person' }
         ]; break;
       case 'admin':
         this.navItems = [
           { name: 'home', label: 'Home', icon: 'bi bi-house' },
-          { name: 'reports', label: 'Reports', icon: 'bi bi-file-earmark-bar-graph' },
+          { name: 'adminReports', label: 'Reports', icon: 'bi bi-file-earmark-bar-graph' },
           { name: 'notifications', label: 'Notifications', icon: 'bi bi-bell' },
           { name: 'me', label: 'Me', icon: 'bi bi-person' }
         ];
@@ -199,6 +105,8 @@ export class NavbarComponent implements OnInit {
     }
   }
   setActive(item: string) {
+    const userType = this.userTypeService.getUserType();
+
     if (item === 'notifications') {
       if (this.isMobileView) {
         this.router.navigate(['/notifications-page']);
@@ -206,10 +114,12 @@ export class NavbarComponent implements OnInit {
       } else {
         this.showNotificationsDropdown = !this.showNotificationsDropdown;
       }
-    } else if (item === 'home') {
+
+    }
+    else if (item === 'home') {
       this.router.navigate(['/']);
-    } else if (item === 'me') {
-      const userType = this.userTypeService.getUserType();
+    }
+    else if (item === 'me') {
       if (userType === 'jobSeeker') {
         this.router.navigate(['/job-seeker']);
       } else if (userType === 'employer') {
@@ -217,22 +127,27 @@ export class NavbarComponent implements OnInit {
       } else if (userType === 'admin') {
         this.router.navigate(['/admin']);
       }
-    } else if (item === 'reports') {
-      const userType = this.userTypeService.getUserType();
+    } else if (item === 'adminReports') {
       if (userType === 'admin') {
-        this.router.navigate(['/admin/reports']);
-      } else if (userType === 'employer') {
-        this.router.navigate(['/employer/reports']);
+        this.router.navigate(['/adminReports']);
       }
-    } else if (item === 'contact-us') {
+    }
+   else if (item === 'jobApplications'){
+       this.router.navigate(['/allJobApplications']);
+   }
+     else if (item === 'contact-us') {
       this.router.navigate(['/contact-us']);
-    } else if (item === 'about-us') {
+    }
+     else if (item === 'about-us') {
       this.router.navigate(['/about-us']);
-    } else if (item === 'login') {
+    }
+     else if (item === 'login') {
       this.router.navigate(['/login']);
-    } else if (item === 'favorites') {
+    }
+     else if (item === 'favorites') {
       this.router.navigate(['/favorites']);
-    } else {
+    }
+     else {
       this.showNotificationsDropdown = false;
     }
     this.activeItem = item;
