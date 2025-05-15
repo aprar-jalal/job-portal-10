@@ -23,14 +23,12 @@ export class SignUpComponent {
       password: ['', [Validators.required, Validators.minLength(8)]],
       confirmPassword: ['', Validators.required],
       phone: ['', Validators.required],
-      dob: ['', Validators.required],
       gender: ['', Validators.required],
       city: ['', Validators.required],
       educationLevel: ['', Validators.required],
       major: ['', Validators.required],
       experience: ['', Validators.required],
-      resume: ['', Validators.required],
-      linkedin: ['', Validators.required]
+
     });
 
     this.employerForm = this.fb.group({
@@ -40,10 +38,10 @@ export class SignUpComponent {
       confirmPassword: ['', Validators.required],
       phone: ['', Validators.required],
       website: [''],
-      location: ['', Validators.required], 
+      location: ['', Validators.required],
       industry: ['', Validators.required],
-      linkedin: ['', Validators.required]  
-   
+
+
     });
   }
 
