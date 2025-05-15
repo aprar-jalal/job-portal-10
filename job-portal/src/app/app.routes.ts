@@ -13,6 +13,10 @@ import { EmployerHomeComponent } from './empolyer/employer-home/employer-home.co
 import { AllJobsComponent } from './job-applecation-card/all-jobs/all-jobs.component';
 import { AboutUsComponent } from './about-us/about-us.component';
 import {AdminReportsComponent} from './admin-reports/admin-reports.component';
+import {PostJobComponent} from './empolyer/post-job/post-job.component';
+import {RecentJobsPageComponent} from './empolyer/recent-jobs-page/recent-jobs-page.component';
+import {JobDetailsComponent} from './empolyer/job-details/job-details.component';
+import {AllJobApplicationsComponent} from './empolyer/all-job-applications/all-job-applications.component';
 export const routes: Routes = [
   // {path: 'job-application', component: JobApplectionComponent},
   { path: 'employer', component: EmployerHomeComponent },
@@ -26,4 +30,9 @@ export const routes: Routes = [
   { path: 'job-description/:id', component: JobDescriptionComponent },
   { path: 'Applection-form', component: ApplectionFormComponent },
   {path:'all-jobs' , component:AllJobsComponent},
+  {path:'postJob', component: PostJobComponent},
+  {path:'recentJobs', component: RecentJobsPageComponent},
+  {path:'job-details/:id', component: JobDetailsComponent},
+  {path: 'allJobApplications', component: AllJobApplicationsComponent},
+  {path:'adminReports', component: AdminReportsComponent},
 ];
