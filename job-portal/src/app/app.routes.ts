@@ -1,5 +1,5 @@
 import { Routes } from '@angular/router';
-import { NotificationsPageComponent } from './notifications-page/notifications-page.component';
+import { NotificationsPageComponent } from './Notifications/notifications-page/notifications-page.component';
 import { HomePageComponent } from './home-page/home-page.component';
 import { JobMainComponent } from './job-seeker/job-main/job-main.component';
 import { LogInComponent } from './sign-in/log-in/log-in.component';
@@ -10,11 +10,12 @@ import { SignUpComponent } from './sign-in/sign-up/sign-up.component';
 import { JobDescriptionComponent } from './job-applecation-card/job-description/job-description.component';
 import { EmployerHomeComponent } from './empolyer/employer-home/employer-home.component';
 import { AllJobsComponent } from './job-applecation-card/all-jobs/all-jobs.component';
-import {AllJobApplicationsComponent} from './empolyer/all-job-applications/all-job-applications.component';
-import {JobDetailsComponent} from './empolyer/job-details/job-details.component';
-import {RecentJobsPageComponent} from './empolyer/recent-jobs-page/recent-jobs-page.component';
+import { AboutUsComponent } from './about-us/about-us.component';
+import {AdminReportsComponent} from './admin-reports/admin-reports.component';
 import {PostJobComponent} from './empolyer/post-job/post-job.component';
-
+import {RecentJobsPageComponent} from './empolyer/recent-jobs-page/recent-jobs-page.component';
+import {JobDetailsComponent} from './empolyer/job-details/job-details.component';
+import {AllJobApplicationsComponent} from './empolyer/all-job-applications/all-job-applications.component';
 export const routes: Routes = [
   // {path: 'job-application', component: JobApplectionComponent},
   { path: 'employer', component: EmployerHomeComponent },
@@ -31,4 +32,5 @@ export const routes: Routes = [
   {path:'recentJobs', component: RecentJobsPageComponent},
   {path:'job-details/:id', component: JobDetailsComponent},
   {path: 'allJobApplications', component: AllJobApplicationsComponent},
+  {path:'adminReports', component: AdminReportsComponent},
 ];

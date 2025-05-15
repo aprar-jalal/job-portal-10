@@ -1,0 +1,31 @@
+<!--<main>-->
+<!--<div class="notifications-page container mt-3">-->
+<!--<h1 class="text-start">Notifications</h1>-->
+<!--  <hr>-->
+<!--  <app-notification class="col-12"></app-notification>-->
+<!--  <app-notification class="col-12"></app-notification>-->
+<!--  <app-notification class="col-12"></app-notification>-->
+<!--  <app-notification class="col-12"></app-notification>-->
+<!--  <app-notification class="col-12"></app-notification>-->
+<!--  <app-notification class="col-12"></app-notification>-->
+<!--  <app-notification class="col-12"></app-notification>-->
+<!--  <app-notification class="col-12"></app-notification>-->
+<!--</div>-->
+
+<!--</main>-->
+
+
+<main class="container my-4">
+  <div class="notifications-wrapper p-4">
+    <h1 class="mb-3">Notifications</h1>
+    <hr>
+    <div *ngIf="notifications.length > 0; else noNotifications">
+      <div class="notification-list">
+        <app-notification class="notification-item" *ngFor="let notification of notifications"></app-notification>
+      </div>
+    </div>
+    <ng-template #noNotifications>
+      <p class="text-muted text-center">You have no notifications.</p>
+    </ng-template>
+  </div>
+</main>

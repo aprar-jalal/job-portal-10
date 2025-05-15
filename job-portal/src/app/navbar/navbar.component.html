@@ -1,42 +1,47 @@
 <div class="naav">
-<nav class="navbar navbar-expand-lg bg-white border-bottom position-relative">
-  <div class="container justify-content-between">
-    <a class="navbar-brand fw-bold fs-3" routerLink="/">Quick Hire</a>
+  <nav class="navbar navbar-expand-lg bg-white border-bottom position-relative">
+    <div class="container justify-content-between">
+      <a class="navbar-brand fw-bold fs-3" routerLink="/">Quick Hire</a>
+<div>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarNav"
+        aria-controls="navbarNav"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
 
-    <button
-      class="navbar-toggler"
-      type="button"
-      data-bs-toggle="collapse"
-      data-bs-target="#navbarNav"
-      aria-controls="navbarNav"
-      aria-expanded="false"
-      aria-label="Toggle navigation"
-    >
-      <span class="navbar-toggler-icon"></span>
-    </button>
-
-    <div class="collapse navbar-collapse three-item-nav" id="navbarNav">
-      <ul class="navbar-nav ms-auto flex-lg-row flex-column gap-3 mt-3 mt-lg-0 three-item-nav">
-        <li
-          *ngFor="let item of navItems"
-          class="nav-item text-center"
-          [ngClass]="{ active: activeItem === item.name }"
-          (click)="setActive(item.name)"
-        >
-          <span (click)="item.name === 'notifications' && isMobileView ? router.navigate(['/notifications']) : null">
+      <div class="collapse navbar-collapse three-item-nav justify-content-center" id="navbarNav">
+        <ul class="navbar-nav ms-auto flex-lg-row flex-column gap-3 mt-3 mt-lg-0 three-item-nav">
+          <li
+            *ngFor="let item of navItems"
+            class="nav-item text-center"
+            [ngClass]="{ active: activeItem === item.name }"
+            (click)="setActive(item.name)"
+            #dropdownRef
+          >
+          <span>
             <i [class]="item.icon" class="fs-4 d-block"></i>
             <span class="fw-medium">{{ item.label }}</span>
           </span>
 
-          <div
-            class="notifications-dropdown shadow p-3 bg-white rounded mt-2"
-            *ngIf="item.name === 'notifications' && showNotificationsDropdown && !isMobileView"
-          >
-            <app-notifications-inbox></app-notifications-inbox>
-          </div>
-        </li>
-      </ul>
+            <div
+              class="notifications-dropdown shadow p-3 bg-white rounded mt-2"
+              *ngIf="item.name === 'notifications' && showNotificationsDropdown && !isMobileView"
+            >
+              <app-notifications-inbox></app-notifications-inbox>
+            </div>
+          </li>
+        </ul>
+      </div>
+</div>
+      <div>
+<!--        empty div just to center navbar-->
+      </div>
     </div>
-  </div>
-</nav>
+  </nav>
 </div>
