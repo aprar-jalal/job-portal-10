@@ -17,5 +17,40 @@
     }
   }
 
-  
+  .girl-img{
+    animation:slideInFromLeft 2s;
+  }
+  @keyframes slideInFromLeft{
+    from{
+        transform:translateX(-100%);
+    }
+    to{
+        transform: translateX(0);
+    }
+  }
+
+
+  .boy-img{
+    animation:slideInFromRight 2s;
+  }
+  @keyframes slideInFromRight{
+    from{
+        transform:translateX(100%);
+    }
+    to{
+        transform: translateX(0);
+    }
+  }
+
+  .hero-disc{
+    animation:slideInFromBottom 2s;
+  }
+  @keyframes slideInFromBottom{
+    from{
+        transform:translateY(100%);
+    }
+    to{
+        transform: translateY(0);
+    }
+  }
   
