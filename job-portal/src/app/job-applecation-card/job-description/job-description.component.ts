@@ -3,6 +3,7 @@ import { Component ,OnInit } from '@angular/core';
 import {ActivatedRoute, RouterLink} from '@angular/router';
 import { JobDataService } from '../serves/job-data.service';
 import { JobDataLocation } from '../models/job-data-location';
+import Swal from 'sweetalert2';
 
 
 @Component({
@@ -23,4 +24,12 @@ export class JobDescriptionComponent implements OnInit {
     this.job = this.jobService.getJobById(jobId);
   }
  
+  showApplecationMsg(){
+  Swal.fire({
+  title: "Applection Done!",
+  icon: "success",
+  draggable: true
+ });
+}
+
 }
