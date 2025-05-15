@@ -11,6 +11,7 @@ import { RouterLink } from '@angular/router';
   styleUrls: ['./log-in.component.css']
 })
 export class LogInComponent {
+  showPassword: boolean = false;
   signInForm: FormGroup;
 
   constructor(private fb: FormBuilder) {
@@ -28,6 +29,9 @@ export class LogInComponent {
     return this.signInForm.get('password');
   }
 
+  togglePasswordVisibility() {
+    this.showPassword = !this.showPassword;
+  }
   onSubmit() {
     if (this.signInForm.valid) {
       alert('You signed in successful!');
@@ -37,3 +41,4 @@ export class LogInComponent {
     }
   }
 }
+
