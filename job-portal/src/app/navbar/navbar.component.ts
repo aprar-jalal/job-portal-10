@@ -3,10 +3,6 @@ import {isPlatformBrowser, NgClass, NgForOf, NgIf} from '@angular/common';
 import {Router, RouterLink} from '@angular/router';
 import {NotificationsInboxComponent} from '../Notifications/notifications-inbox/notifications-inbox.component';
 import { UserTypeService}  from './services/userType.service';
-import {AllJobApplicationsComponent} from '../empolyer/all-job-applications/all-job-applications.component'
-interface UserService {
-  getUserType(): 'guest' | 'jobSeeker' | 'employer' | 'admin';
-}
 
 @Component({
   selector: 'app-navbar',
@@ -39,11 +35,8 @@ export class NavbarComponent implements OnInit {
     this.setNavItems(userType);
   }
 
-  private getUserTypePlaceholder(): 'guest' | 'jobSeeker' | 'employer' | 'admin' {
-    return 'guest';
-  }
-
   private setNavItems(userType: string) {
+
     switch (userType) {
       case 'guest':
         this.navItems = [
