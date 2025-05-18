@@ -4,7 +4,7 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class UserTypeService {
-  private currentUserType = 'jobSeeker';
+  private currentUserType = 'admin';
   constructor() {
   }
   getUserType(): string {

@@ -11,13 +11,11 @@
 .logo{
   color:#1D2445;
 }
-
 .navbar-nav .nav-item span,
 .navbar-nav .nav-item i {
   color: #1D2445;
   transition: color 0.3s ease;
 }
-
 .navbar-nav .nav-item::after {
   content: '';
   position: absolute;
@@ -30,7 +28,6 @@
   transform-origin: center;
   transition: transform 0.3s ease;
 }
-
 .navbar-nav .nav-item:hover::after {
   transform: scaleX(1);
 }
@@ -40,17 +37,14 @@
   color: #1D2445;
   transform: scale(1.05);
 }
-
 .navbar-nav .nav-item.active span,
 .navbar-nav .nav-item.active i {
   color: #1D2445;
   font-weight: bold;
 }
-
 .navbar-nav .nav-item.active::after {
   transform: scaleX(1);
 }
-
 .navbar {
   overflow: visible !important;
   position: relative;
@@ -69,11 +63,11 @@
 }
 .three-item-nav{
 align-content: center;
-  align-items: center;
-  justify-items: center;
+align-items: center;
+justify-items: center;
 justify-content: center;
 }
-@media (max-width: 900px) {
+@media (max-width: 992px) {
   .navbar-nav.mx-auto,
   .navbar-nav.ms-auto {
     position: static;
