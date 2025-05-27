@@ -3,10 +3,6 @@ import {isPlatformBrowser, NgClass, NgForOf, NgIf} from '@angular/common';
 import {Router, RouterLink} from '@angular/router';
 import {NotificationsInboxComponent} from '../Notifications/notifications-inbox/notifications-inbox.component';
 import { UserTypeService}  from './services/userType.service';
-import {AllJobApplicationsComponent} from '../empolyer/all-job-applications/all-job-applications.component'
-interface UserService {
-  getUserType(): 'guest' | 'jobSeeker' | 'employer' | 'admin';
-}
 
 @Component({
   selector: 'app-navbar',
@@ -39,18 +35,15 @@ export class NavbarComponent implements OnInit {
     this.setNavItems(userType);
   }
 
-  private getUserTypePlaceholder(): 'guest' | 'jobSeeker' | 'employer' | 'admin' {
-    return 'guest';
-  }
-
   private setNavItems(userType: string) {
+
     switch (userType) {
       case 'guest':
         this.navItems = [
           { name: 'home', label: 'Home', icon: 'bi bi-house' },
           { name: 'contact-us', label: 'Contact Us', icon: 'bi bi-envelope' },
           { name: 'about-us', label: 'About Us', icon: 'bi bi-info-circle' },
-          { name: 'login', label: 'Login', icon: 'bi bi-box-arrow-in-right' }
+          { name: 'login', label: 'Login', icon: 'bi bi-box-arrow-in-right' },
         ];
         break;
       case 'jobSeeker':
@@ -71,6 +64,7 @@ export class NavbarComponent implements OnInit {
       case 'admin':
         this.navItems = [
           { name: 'home', label: 'Home', icon: 'bi bi-house' },
+          { name: 'dashboard', label: 'Dashboard', icon: 'bi-grid' },
           { name: 'adminReports', label: 'Reports', icon: 'bi bi-file-earmark-bar-graph' },
           { name: 'notifications', label: 'Notifications', icon: 'bi bi-bell' },
           { name: 'me', label: 'Me', icon: 'bi bi-person' }
@@ -130,6 +124,11 @@ export class NavbarComponent implements OnInit {
     } else if (item === 'adminReports') {
       if (userType === 'admin') {
         this.router.navigate(['/adminReports']);
+      }
+    }
+    else if (item === 'dashboard') {
+      if (userType === 'admin') {
+        this.router.navigate(['/admin-dashboard']);
       }
     }
    else if (item === 'jobApplications'){

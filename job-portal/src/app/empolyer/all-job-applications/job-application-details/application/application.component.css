@@ -1,0 +1,10 @@
+.job-details-card{
+  border-left: #1d2445 solid 10px;
+  border-right: #1d2445 solid 10px;
+  transition: 0.5s;
+}
+
+
+.job-details-card:hover{
+  transform: translateY(-5px);
+}

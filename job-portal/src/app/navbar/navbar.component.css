@@ -5,17 +5,17 @@
   cursor: pointer;
   transition: all 0.3s ease;
 }
-
+.navbar-toggler {
+  margin-left: auto;
+}
 .logo{
   color:#1D2445;
 }
-
 .navbar-nav .nav-item span,
 .navbar-nav .nav-item i {
   color: #1D2445;
   transition: color 0.3s ease;
 }
-
 .navbar-nav .nav-item::after {
   content: '';
   position: absolute;
@@ -28,7 +28,6 @@
   transform-origin: center;
   transition: transform 0.3s ease;
 }
-
 .navbar-nav .nav-item:hover::after {
   transform: scaleX(1);
 }
@@ -38,17 +37,14 @@
   color: #1D2445;
   transform: scale(1.05);
 }
-
 .navbar-nav .nav-item.active span,
 .navbar-nav .nav-item.active i {
   color: #1D2445;
   font-weight: bold;
 }
-
 .navbar-nav .nav-item.active::after {
   transform: scaleX(1);
 }
-
 .navbar {
   overflow: visible !important;
   position: relative;
@@ -60,13 +56,18 @@
     width: 100%;
   }
 }
+  @media (max-width: 992px) {
+    .par2{
+      display:none;
+    }
+}
 .three-item-nav{
 align-content: center;
-  align-items: center;
-  justify-items: center;
+align-items: center;
+justify-items: center;
 justify-content: center;
 }
-@media (max-width: 900px) {
+@media (max-width: 992px) {
   .navbar-nav.mx-auto,
   .navbar-nav.ms-auto {
     position: static;
@@ -76,10 +77,16 @@ justify-content: center;
   }
 
   .navbar-collapse {
-    background-color: white;
-    padding: 1rem;
-    border-radius: 0.5rem;
-    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+    position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        width: 100vw;
+        background-color: white;
+        padding: 1rem;
+        border-radius: 0 ;
+        box-shadow: 0 1rem 1rem rgba(0, 0, 0, 0.1);
+        z-index: 1000;
   }
 
   .nav-item {
@@ -98,8 +105,10 @@ justify-content: center;
   z-index: 1000;
   width: 420px;
 }
-.naav{
-  position:sticky;
-  top:0;
+
+
+.naav {
+  position: sticky;
+  top: 0;
   z-index: 1000;
 }

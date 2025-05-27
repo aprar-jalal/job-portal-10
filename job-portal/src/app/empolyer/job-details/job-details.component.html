@@ -1,1 +1,10 @@
-<p>job-details works!</p>
+<div class="container">
+
+<div *ngIf="job">
+  <h2>{{ job.job_title }}</h2>
+  <p><strong>Location:</strong> {{ job.location }}</p>
+  <p><strong>Description:</strong> {{ job.description }}</p>
+</div>
+
+
+</div>
