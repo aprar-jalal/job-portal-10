@@ -1,16 +1,25 @@
-<div class="quick-cv-search-form">
+<div class="quick-cv-search-form d-flex flex-column justify-content-between"
+  style="height: 25rem"
+>
 
-  <label for="exampleDataList" class="form-label">Search</label>
+  <div>
+    <label for="exampleDataList" class="form-label">Search</label>
 
-  <input class="form-control" list="datalistOptions" id="exampleDataList" placeholder="Type to search...">
-  <datalist id="datalistOptions">
-    <option value="San Francisco">
-    <option value="New York">
-    <option value="Seattle">
-    <option value="Los Angeles">
-    <option value="Chicago">
-  </datalist>
+    <div class="input-group">
+      <input class="form-control" list="datalistOptions" id="exampleDataList" placeholder="Type to search...">
+      <button class="btn btn-outline-secondary" type="button">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
 
+    <datalist id="datalistOptions">
+      <option value="San Francisco">
+      <option value="New York">
+      <option value="Seattle">
+      <option value="Los Angeles">
+      <option value="Chicago">
+    </datalist>
+  </div>
 
   <div class="mb-3">
     <label for="location" class="form-label">Location</label>
@@ -276,7 +285,7 @@
   </div>
 
   <div class="d-flex justify-content-between mt-4">
-    <button type="submit" class="btn btn-primary">Search CVs</button>
+    <button type="submit" class="btn btn-primary" style="background-color: #1d2445">Search CVs</button>
     <a href="#" class="advanced-search">Advanced Search</a>
   </div>
 </div>

@@ -1,4 +1,4 @@
-<div class="container mb-3 last-app-block shadow-sm">
+<div class="container mb-3 last-app-block shadow-sm" [routerLink]="'/applicationDetails'">
 
 
   <div class="row g-0">
@@ -23,12 +23,10 @@
             'bg-success text-light': jobApplications.status == 'Accepted',
             'bg-danger text-light': jobApplications.status == 'Rejected',
             'bg-warning text-dark': jobApplications.status == 'Under Review',
-            'bg-primary text-light': jobApplications.status == 'Interview Scheduled'
           }">
                 <i class="bi bi-check-circle-fill me-1" *ngIf="jobApplications.status == 'Accepted'"></i>
           <i class="bi bi-x-circle-fill me-1" *ngIf="jobApplications.status == 'Rejected'"></i>
           <i class="bi bi-hourglass-split me-1" *ngIf="jobApplications.status == 'Under Review'"></i>
-          <i class="bi bi-calendar-event-fill me-1" *ngIf="jobApplications.status == 'Interview Scheduled'"></i>
                {{ jobApplications.status }}
         </span>
         </p>
