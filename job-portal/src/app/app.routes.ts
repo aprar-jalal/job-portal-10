@@ -34,7 +34,7 @@ export const routes: Routes = [
   {path:'all-jobs' , component:AllJobsComponent},
   {path:'postJob', component: PostJobComponent},
   {path:'recentJobs', component: RecentJobsPageComponent},
-  // {path:'job-details/:id', component: JobDetailsComponent},
+  {path:'job-details', component: JobDetailsComponent},
   {path: 'allJobApplications', component: AllJobApplicationsComponent},
   {path:'adminReports', component: AdminReportsComponent},
   {path:'about-us', component: AboutUsComponent},
