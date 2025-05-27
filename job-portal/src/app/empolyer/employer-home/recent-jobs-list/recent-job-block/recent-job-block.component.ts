@@ -1,5 +1,4 @@
 import {Component, Input, input} from '@angular/core';
-import {NgForOf, SlicePipe} from '@angular/common';
 import {RouterLink} from '@angular/router';
 
 @Component({
@@ -11,6 +10,7 @@ import {RouterLink} from '@angular/router';
   styleUrl: './recent-job-block.component.css'
 })
 export class RecentJobBlockComponent {
+
 
   @Input() job: any;
 

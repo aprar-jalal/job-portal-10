@@ -1,0 +1,16 @@
+.post-job-btn {
+  transition: 0.3s;
+  color: #1D2445;
+  border: 1px solid #1D2445;
+}
+
+.post-job-btn:hover {
+  background-color: #1D2445;
+  color: #fff;
+  transform: translateY(-3px);
+}
+
+
+.post-job-btn:active {
+  transform: scale(0.95);
+}

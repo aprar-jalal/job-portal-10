@@ -1,0 +1,40 @@
+
+<div class="top-header-panel py-3 mb-5">
+  <div class="container">
+    <div class="row g-3 text-white align-items-center">
+
+      <div class="col-lg-3 col-md-6 col-12">
+        <div class="stat-box p-3 shadow-sm text-center" style="background-color: #1d2445">
+          <div class="fw-bold fs-3 mb-1" aria-label="Number of applicants in inbox">0</div>
+          <small class="text-light">Applicants in inbox</small>
+        </div>
+      </div>
+
+
+      <div class="col-lg-3 col-md-6 col-12">
+        <div class="stat-box p-3  shadow-sm text-center" style="background-color: #1d2445">
+          <div class="fw-bold fs-3 mb-1" aria-label="Number of active jobs">0</div>
+          <small class="text-light">Active jobs</small>
+        </div>
+      </div>
+
+
+      <div class="col-lg-3 col-md-6 col-12">
+        <div class="stat-box p-3  shadow-sm text-center" style="background-color: #1d2445">
+          <div class="fw-bold fs-3 mb-1" aria-label="Number of jobs posted">0</div>
+          <small class="text-light">Jobs posted</small>
+        </div>
+      </div>
+
+      <div class="col-lg-3 col-md-6 col-12 d-flex align-items-center justify-content-center">
+        <button
+          class="btn fw-bold w-100 py-2 post-job-btn"
+          [routerLink]="['/postJob']"
+          aria-label="Post a new job"
+        >
+          <i class="bi bi-pencil-square me-2"></i> Post a Job
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
