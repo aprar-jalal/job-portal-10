@@ -5,7 +5,7 @@ import {NgForOf, SlicePipe} from '@angular/common';
 
 @Component({
   selector: 'app-last-applications',
-  imports: [LastApplicationsBlockComponent, CvBlockComponent, NgForOf, SlicePipe],
+  imports: [LastApplicationsBlockComponent, NgForOf, SlicePipe],
   templateUrl: './last-applications.component.html',
   styleUrl: './last-applications.component.css'
 })

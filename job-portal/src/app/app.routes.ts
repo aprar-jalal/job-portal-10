@@ -17,7 +17,14 @@ import {RecentJobsPageComponent} from './empolyer/recent-jobs-page/recent-jobs-p
 import {JobDetailsComponent} from './empolyer/job-details/job-details.component';
 import {AllJobApplicationsComponent} from './empolyer/all-job-applications/all-job-applications.component';
 
+
 import { ResetPasswordComponent } from './sign-in/reset-password/reset-password.component';
+
+import {CompanyProfileComponent} from './empolyer/company-profile/company-profile.component';
+import {JobApplicationDetailsComponent} from './empolyer/all-job-applications/job-application-details/job-application-details.component';
+
+
+
 export const routes: Routes = [
   // {path: 'job-application', component: JobApplectionComponent},
   { path: 'employer', component: EmployerHomeComponent },
@@ -32,10 +39,16 @@ export const routes: Routes = [
   {path:'all-jobs' , component:AllJobsComponent},
   {path:'postJob', component: PostJobComponent},
   {path:'recentJobs', component: RecentJobsPageComponent},
-  // {path:'job-details/:id', component: JobDetailsComponent},
+  {path:'job-details', component: JobDetailsComponent},
   {path: 'allJobApplications', component: AllJobApplicationsComponent},
   {path:'adminReports', component: AdminReportsComponent},
   {path:'about-us', component: AboutUsComponent},
-   { path: 'forgot-password', component: ForgotPasswordComponent },
+
+  
   { path: 'reset-password', component: ResetPasswordComponent },
+
+  {path:'job-details/:id', component: JobDetailsComponent},
+  {path: 'companyProfile', component: CompanyProfileComponent},
+  {path: 'applicationDetails', component: JobApplicationDetailsComponent},
+
 ];

@@ -1,0 +1,5 @@
+
+<app-view-profile *ngIf="!isEditMode" (editClicked)="toggleEditMode()"></app-view-profile>
+<app-edit-profile *ngIf="isEditMode" (cancelClicked) = "toggleEditMode()"></app-edit-profile>
+
+
