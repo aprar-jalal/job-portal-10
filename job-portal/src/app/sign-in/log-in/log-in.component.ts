@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
+import Swal from 'sweetalert2';
+
 
 @Component({
   selector: 'app-log-in',
@@ -29,16 +31,20 @@ export class LogInComponent {
     return this.signInForm.get('password');
   }
 
-  togglePasswordVisibility() {
-    this.showPassword = !this.showPassword;
-  }
+
   onSubmit() {
-    if (this.signInForm.valid) {
-      alert('You signed in successful!');
-      console.log(this.signInForm.value);
-    } else {
-      this.signInForm.markAllAsTouched();
-    }
+  if (this.signInForm.valid) {
+    Swal.fire({
+      position: 'center',
+      icon: 'success',
+      title: 'Signed in successfully!',
+      showConfirmButton: false,
+      timer: 3000
+    });
+    console.log(this.signInForm.value);
+  } else {
+    this.signInForm.markAllAsTouched();
   }
+}
 }
 
