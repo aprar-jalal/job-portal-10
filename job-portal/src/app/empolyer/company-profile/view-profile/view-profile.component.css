@@ -1,0 +1,39 @@
+.profile-view{
+  border-left: #1d2445 solid 10px;
+  border-right: #1d2445 solid 10px;
+  transition: 0.5s;
+}
+
+
+.profile-view:hover{
+  transform: translateY(-5px);
+}
+
+.greeting-profile{
+  color: #1d2445;
+  font-weight: bold;
+  font-size: 36px;
+  transition: .3s;
+}
+
+.greeting-profile:hover{
+  transform: translateY(-5px);
+}
+
+.edit-btn
+{
+  max-height: 50px;
+  border: #1d2445 solid 1px;
+  background-color: #1d2445;
+  color: white;
+
+
+}
+
+.edit-btn:hover{
+  color: #1d2445;
+  background-color: white;
+}
+
+
+

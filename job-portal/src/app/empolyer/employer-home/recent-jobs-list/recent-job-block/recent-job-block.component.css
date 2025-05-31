@@ -1,3 +1,11 @@
+
+
+
+.recent-job-block{
+  transition: 0.3s;
+}
+
+
 .recent-job-block:hover{
   background-color: #f8f8f8;
   cursor: pointer;

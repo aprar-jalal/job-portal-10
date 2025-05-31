@@ -1,52 +1,20 @@
 
-<div class="container mt-5 pt-5" style=" ">
+<div style=" background-color: #F4F4F6 ">
+<div class="container pt-5" >
 
-  <div class="col-12 mb-4 d-flex justify-content-between p-3 text-white" style="
-   background-color: #1D2445;
-   border-radius: 10px;
-">
-
-    <div class="d-flex gap-2 flex-column">
-      <div class="fw-bold fs-5 d-flex align-self-center">0</div>
-      <small>
-        Applicants in inbox
-      </small>
-    </div>
-
-    <div class="d-flex gap-2 flex-column">
-          <div class="fw-bold fs-5 d-flex align-self-center">0</div>
-          <small>
-            Active jobs
-          </small>
-      </div>
-
-    <div class="d-flex gap-2 flex-column">
-      <div class="fw-bold fs-5 d-flex align-self-center">0</div>
-        <p>Jobs posted</p>
-    </div>
-
-
-    <button class="btn" style="
-    border: white solid 5px;
-    color: white;
-
-    font-weight: bolder;
-" [routerLink]="'/postJob'">
-      <i class="bi-pencil-square"></i> Post a job
-    </button>
-
+  <div class=" greeting-employer mt-0 mb-3 ">
+    <strong >
+      Welcome <span style="color: #3c4670">{{employerName}}</span>! <br> Let’s make hiring your next advantage.
+    </strong>
+  </div>
+  <div>
+    <app-top-header-panel></app-top-header-panel>
   </div>
 
 
   <div class="row mb-4">
-    <div class="col-md-4">
-      <div class="card"
-           style="height: 30rem;
-            width: 100%;
-       border-left: 10px solid #1D2445;
-       border-right: 10px solid #1D2445;
-             box-shadow:0 0 3px 2px rgba(0,0,0,.075);
-">
+    <div class="col-md-4 mb-sm-4">
+      <div class="card employer-windows">
 
         <div class="card-body">
           <div class="d-flex justify-content-between" style="color: #1D2445">
@@ -72,16 +40,9 @@
 
     </div>
     <div class="col-md-8">
-      <div class="card mb-3" style="
-      height: 30rem;
-       width: 100%;
-       border-left: 10px solid #1D2445;
-       border-right: 10px solid #1D2445;
-        box-shadow:0 0 3px 2px rgba(0,0,0,.075);
-
-">
+      <div class="card mb-3 employer-windows">
         <div class="card-body">
-          <h5 class="card-title">Quick CV Search</h5>
+          <h5 class="card-title">Quick CV Search <span class="bg-danger text-white p-1 rounded-3">static</span></h5>
 
           <app-quick-cv-search></app-quick-cv-search>
 
@@ -96,13 +57,7 @@
 
   <div class="row">
     <div class="col-md-6">
-      <div class="card mb-3"
-           style="height: 30rem;
-           width: 100%;
-       border-left: 10px solid #1D2445;
-       border-right: 10px solid #1D2445;
-            box-shadow:0 0 3px 2px rgba(0,0,0,.075);
-">
+      <div class="card mb-3 employer-windows">
         <div class="card-body">
 
           <div class="d-flex justify-content-between" style="color: #1D2445">
@@ -123,21 +78,16 @@
       </div>
     </div>
     <div class="col-md-6">
-      <div class="card mb-3" style="
-      height: 30rem;
-      width: 100%;
-      box-shadow:0 0 3px 2px rgba(0,0,0,.075);
-      border-left: 10px solid #1D2445;
-      border-right: 10px solid #1D2445;
-
-">
+      <div class="card mb-3 employer-windows">
         <div class="card-body">
-          <h5 class="card-title">Recommended CVs</h5>
+          <h5 class="card-title">Recommended CVs <span class="bg-danger text-white p-1 rounded-3">static</span></h5>
           <app-cv-list></app-cv-list>
         </div>
       </div>
     </div>
   </div>
 
+
+</div>
 
 </div>
