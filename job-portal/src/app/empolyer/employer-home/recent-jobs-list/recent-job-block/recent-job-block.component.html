@@ -8,8 +8,16 @@
     <p class="text-muted mb-2" style="font-size: 12px"><i class="bi bi-geo-alt-fill me-1"></i> {{ job.location }}</p>
     <p class="mb-0" style="font-size: 12px">
       {{ job.description.split(' ').length > 5 ? (job.description.split(' ').slice(0, 5).join(' ')) : job.description }}
+<<<<<<< HEAD
+<<<<<<< HEAD
+      <a [routerLink]="['/jobs']">more</a>
+=======
+      <a [routerLink]="['/job-details', job.job_id]">more</a>
+>>>>>>> d505ae0f463522a6851929ef33db36a0417b0b9b
+=======
       <a [routerLink]="['/jobs']">more</a>
       <a [routerLink]="['/job-details', job.job_id]">more</a>
+>>>>>>> 69da44592c39447532db874287cb063e84d88adb
     </p>
 
 
