@@ -37,10 +37,8 @@ export const routes: Routes = [
   {path:'postJob', component: PostJobComponent},
   {path:'recentJobs', component: RecentJobsPageComponent},
   {path:'job-details', component: JobDetailsComponent},
-<<<<<<< HEAD
-=======
+
   {path: 'allJobApplications', component: AllJobApplicationsComponent},
->>>>>>> 69da44592c39447532db874287cb063e84d88adb
   {path:'adminReports', component: AdminReportsComponent},
   {path:'about-us', component: AboutUsComponent},
 
@@ -49,11 +47,9 @@ export const routes: Routes = [
 
   {path:'job-details/:id', component: JobDetailsComponent},
   {path: 'companyProfile', component: CompanyProfileComponent},
-<<<<<<< HEAD
+
   {path: 'allJobApplications', component: AllJobApplicationsComponent},
   {path:'job-application', component: JobApplectionComponent}
-=======
-  {path: 'applicationDetails', component: JobApplicationDetailsComponent},
 
->>>>>>> 69da44592c39447532db874287cb063e84d88adb
+
 ];
