@@ -2,8 +2,12 @@
     <div class="settings-container">
         <h2>Settings</h2>
         <form [formGroup]="profileForm">
-            <label>Full Name:</label>
-            <input type="text" formControlName="fullName" />
+            <label>First Name:</label>
+            <input type="text" formControlName="firstName" />
+            
+            <label>Last Name:</label>
+            <input type="text" formControlName="lastName" />
+            
 
             <label>Phone Number:</label>
             <input type="text" formControlName="phone" />
@@ -27,28 +31,20 @@
             <label>Years of Experience:</label>
             <input type="text" formControlName="experienceYears" />
 
-
-            <div class="changePassword"> do you want to change your password ?</div>
-
             <label>Current Password:</label>
             <input type="password" formControlName="currentPassword" />
-
+            
             <label>New Password:</label>
             <input type="password" formControlName="newPassword" />
-
-            <label>Confirm New Password:</label>
-            <input type="password" formControlName="confirmNewPassword" />
-
-            <button type="button">Save</button>
+            
+            <label>Confirm Password:</label>
+            <input type="password" formControlName="confirmPassword" />
+            
+            <button type="button" (click)="onSave()">Save</button>
         </form>
 
-        <button class="logout">
-            <i class="bi bi-box-arrow-right"></i> Log Out
-        </button>
-          
+    
+        </div>
           
     </div>
-</div>
-  
-  
   
