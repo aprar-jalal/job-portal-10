@@ -12,23 +12,27 @@ export class AuthService {
 
   constructor(private http: HttpClient) {}
 
-  login(credentials: LoginRequest): Observable<LoginResponse> {
-    return this.http.post<any>(`${this.apiUrl}/log-in`, credentials)
-      .pipe(
-        map(response => {
-         
-          const user = new User(response.user.id, response.user.email);
-          return new LoginResponse(response.message, user, response.token);
-        })
-      );
-  }
+ login(credentials: LoginRequest): Observable<LoginResponse> {
+  return this.http.post<any>(`${this.apiUrl}/log-in`, credentials).pipe(
+    map(response => {
+      const token = response.token;
+      const userData = response.user;
+
+    
+      localStorage.setItem('authToken', token);
+console.log(token);
+    
+      const user = new User(userData.id, userData.email);
+      return new LoginResponse(response.message, user, token);
+    })
+  );
+}
+  
 
   logout() {
     localStorage.removeItem('authToken');
    
   }
 
-  getToken(): string | null {
-    return localStorage.getItem('authToken');
-  }
+
 }
