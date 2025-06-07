@@ -86,7 +86,7 @@ export class SignUpComponent {
         text: 'Employer Sign Up Successfully!',
         confirmButtonColor: '#1d2445'
       });
-      this.router.navigate(['/employer']);
+      this.router.navigate(['/login']);
     });
 
   } else if (this.selectedRole === 'job-seeker' && this.jobSeekerForm.valid) {
@@ -113,7 +113,7 @@ export class SignUpComponent {
         text: 'Job Seeker Sign Up Successfully!',
         confirmButtonColor: '#1d2445'
       });
-      this.router.navigate(['/job-seeker']);
+      this.router.navigate(['/login']);
     });
   }
 }
