@@ -47,11 +47,22 @@
       <div *ngIf="selectedRole === 'job-seeker'">
   <form [formGroup]="jobSeekerForm" (ngSubmit)="onSubmit()">
 
+    
+<div class="mb-3 position-relative">
+  <i class="bi bi-person position-absolute fs-5" style="right: 12px; top: 6px; color: #1d2445;"></i>
+  <input type="text" class="form-control pe-5" formControlName="firstName" placeholder="First Name" />
+  <div class="text-danger small mt-1" *ngIf="jobSeekerControls['firstName'].invalid && jobSeekerControls['firstName'].touched">
+    First name is required
+  </div>
+</div>
+
     <div class="mb-3 position-relative">
-      <i class="bi bi-person position-absolute fs-5" style="right: 12px; top: 6px; color: #1d2445;"></i>
-      <input type="text" class="form-control pe-5" formControlName="name" placeholder="Full Name" />
-      <div class="text-danger small mt-1" *ngIf="jobSeekerControls['name'].invalid && jobSeekerControls['name'].touched">Name is required</div>
-    </div>
+  <i class="bi bi-person position-absolute fs-5" style="right: 12px; top: 6px; color: #1d2445;"></i>
+  <input type="text" class="form-control pe-5" formControlName="lastName" placeholder="Last Name" />
+  <div class="text-danger small mt-1" *ngIf="jobSeekerControls['lastName'].invalid && jobSeekerControls['lastName'].touched">
+    Last name is required
+  </div>
+</div>
 
     <div class="mb-3 position-relative">
       <i class="bi bi-envelope position-absolute fs-5" style="right: 12px; top: 6px; color: #1d2445;"></i>
@@ -97,10 +108,13 @@
     <div class="mb-3 position-relative">
       <i class="bi bi-gender-ambiguous position-absolute fs-5" style="right: 12px; top: 6px; color: #1d2445;"></i>
       <select class="form-control pe-5" formControlName="gender">
-        <option value="" disabled selected>Gender</option>
-        <option value="Male">Male</option>
-        <option value="Female">Female</option>
+        <option value="" disabled >Gender</option>
+        <option value="male">male</option>
+        <option value="female">female</option>
       </select>
+      <div *ngIf="jobSeekerControls['gender'].touched && jobSeekerControls['gender'].hasError('required')" class="text-danger small mt-1">
+    Gender is required
+  </div>
     </div>
 
    <div class="mb-3 position-relative">
@@ -117,12 +131,15 @@
     <div class="mb-3 position-relative">
       <i class="bi bi-mortarboard position-absolute fs-5" style="right: 12px; top: 6px; color: #1d2445;"></i>
       <select class="form-control pe-5" formControlName="educationLevel">
-        <option value="" disabled selected>Education Level</option>
+        <option value="" disabled >Education Level</option>
         <option value="High School">High School</option>
         <option value="Bachelor's">Bachelor's</option>
         <option value="Master's">Master's</option>
         <option value="PhD">PhD</option>
       </select>
+      <div *ngIf="jobSeekerControls['educationLevel'].touched && jobSeekerControls['educationLevel'].hasError('required')" class="text-danger small mt-1">
+  Education level is required
+</div>
     </div>
 
     <div class="mb-3 position-relative">
@@ -133,8 +150,6 @@
   </div>
 </div>
 
-   
-
     <div class="mb-3 position-relative">
       <i class="bi bi-briefcase position-absolute fs-5" style="right: 12px; top: 6px; color: #1d2445;"></i>
       <input type="number" class="form-control pe-5" formControlName="experience" placeholder="Years of Experience" />
@@ -142,7 +157,7 @@
 
  <button
   type="submit"
-  class="btn w-100"
+   class="btn w-100"
   style="background-color: #1d2445; color: white;"
   [disabled]="jobSeekerForm.invalid"
 >
@@ -200,14 +215,6 @@
     </div>
 
   
-    <div class="mb-3 position-relative">
-      <i class="bi bi-link-45deg position-absolute fs-5" style="right: 12px; top: 6px; color: #1d2445;"></i>
-      <input type="url" class="form-control pe-5" formControlName="website" placeholder="Company Website (Optional)" />
-      <div *ngIf="employerForm.get('website')?.touched && employerForm.get('website')?.invalid" class="text-danger small mt-1">
-         Please enter a valid URL
-      </div>
-    </div>
-
   
     <div class="mb-3 position-relative">
       <i class="bi bi-geo-alt position-absolute fs-5" style="right: 12px; top: 6px; color: #1d2445;"></i>
@@ -226,11 +233,17 @@
       </div>
     </div>
 
-    <button type="submit" class="btn w-100" style="background-color: #1d2445; color: white;" [disabled]="employerForm.invalid">
-      Sign Up as Employer
-    </button>
+    <button
+    type="submit"
+    class="btn w-100"
+    style="background-color: #1d2445; color: white;"
+    [disabled]="employerForm.invalid"
+  >
+    Sign Up as Employer
+  </button>
   </form>
 </div>
+
 
 
 <div class="text-center mt-4">
