@@ -1,6 +1,5 @@
 .may-know{  
     position: relative;
-    background-color: white;
     border-radius: 20px;
     margin-top: 25px;
     /* box-shadow: 0 2px 6px rgba(0, 0, 0, 0.20); */
@@ -104,7 +103,7 @@
     }
 
     .ad1 {
-        margin-top: 470px;
+        margin-top: 1000px;
         border-radius: 10px;
         width: 320px;
         height: 300px;
@@ -197,7 +196,7 @@
     }
     .may-know {
         margin-top: 18px;
-        width: 190px;
+        width: 270px;
         height: 900px;
     }
 
