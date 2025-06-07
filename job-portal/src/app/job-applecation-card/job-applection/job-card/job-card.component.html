@@ -2,23 +2,23 @@
     <div class="card-body container fs-6 ">
         <div class=" mb-3 d-flex justify-content-between">
             <span
-                class="card-text border  p-1  border-opacity-10 rounded fw-medium ps-3 pe-3 me-3 ">{{job.JobType}}</span>
+                class="card-text border  p-1  border-opacity-10 rounded fw-medium ps-3 pe-3 me-3 ">{{job.job_type}}</span>
             <span class="card-text border  p-1 border-opacity-10 rounded fw-medium ps-3 pe-3"> <i
-                    class="bi bi-geo-alt"></i> {{job.JobLocation}}</span>
+                    class="bi bi-geo-alt"></i> {{job.location}}</span>
         </div>
         <div class="d-flex justify-content-start align-items-center ">
-            <img *ngIf="job.JobLogo" [src]="job.JobLogo" class="rounded-circle" alt="logo"
+            <img *ngIf="job.logo_url" [src]="job.logo_url" class="rounded-circle" alt="logo"
                 style="width:60px ; height:60px;">
-            <h5 class="m-3 fs-3">{{job.CompanyName}}</h5>
+            <h5 class="m-3 fs-3">{{job.company_name}}</h5>
         </div>
-        <h5 class="card-title mt-3 fs-5 fw-medium">{{job.JobName}}</h5>
-        <p class="card-text fw-lighter">{{job.AboutJop}} </p>
+        <h5 class="card-title mt-3 fs-5 fw-medium">{{job.job_title}}</h5>
+        <p class="card-text fw-lighter">{{job.description}} </p>
         <div class="d-flex justify-content-between ">
-            <a href="#" [routerLink]="['/job-description', job.id]" class="btn text-light ps-4 pe-4 "
+            <a href="#" [routerLink]="['/job-description', job.job_id]" class="btn text-light ps-4 pe-4 "
                 style="background-color: rgb(29, 36, 69);">Details</a>
-            <button type="button" class="btn " (click)=" changColor()">
-                <i class="bi" [ngClass]="isFavorite ? 'bi-heart-fill text-danger' : 'bi-heart'"></i>
-            </button>
+            <button type="button" class="btn" (click)="toggelFavaorate()">
+        <i class="bi" [ngClass]="IsFavoratieJobs ? 'bi-heart-fill text-danger' : 'bi-heart'"></i>
+      </button>
         </div>
     </div>
 </div>
