@@ -61,11 +61,11 @@ export class JobSeekerApiService {
   }
 
   removeFavoriteJob(jobId: number) {
-    return this.http.delete(`${this.baseUrl}/user/Favorite`, {
-      headers: this.getAuthHeaders(),
-      body: { job_id: jobId }
+    return this.http.delete(`${this.baseUrl}/jobseeker/favorite/${jobId}`, {
+      headers: this.getAuthHeaders()
     });
   }
+  
   changePassword(data: any) {
     return this.http.post(`${this.baseUrl}/jobseeker/change-password`, data, {
       headers: this.getAuthHeaders()

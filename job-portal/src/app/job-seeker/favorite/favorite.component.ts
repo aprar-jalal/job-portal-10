@@ -21,13 +21,14 @@ export class FavoriteComponent implements OnInit {
   loadFavorites(): void {
     this.jobSeekerApi.getFavoriteJobs().subscribe({
       next: (res: any) => {
-        this.favoriteJobs = res as any[];
+        this.favoriteJobs = res.favorite_jobs || []; 
       },
       error: (err) => {
         console.error('Error fetching favorite jobs:', err);
       }
     });
   }
+  
 
   removeFromFavorites(jobId: number): void {
     if (confirm('Are you sure you want to remove this job from favorites?')) {
