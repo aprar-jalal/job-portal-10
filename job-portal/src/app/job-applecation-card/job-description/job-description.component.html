@@ -8,7 +8,7 @@
 <div class="container-fluid " style=" background-color: rgb(244, 244, 246); overflow: hidden;">
 <div  style="margin-top: 70px;">
   <div class="row d-flex justify-content-evenly" *ngIf="job">
-    <div class="col-lg-3 shadow rounded-4 " style="background-color:  rgb(255, 255, 255); height: 260px;">
+    <div class="col-lg-3 shadow rounded-4 " style="background-color:  rgb(255, 255, 255); height: 280px;">
       <div class=" mb-2 d-flex justify-content-between mt-2">
         <span
             class="card-text border  p-1  border-opacity-10 rounded fw-medium ps-3 pe-3 me-3 ">{{job.job_type}}</span>
@@ -17,7 +17,7 @@
     </div>
       <div class="d-flex justify-content-start align-items-center ">
         <img *ngIf="job.logo_url" [src]="job.logo_url" class="rounded-circle "  alt="logo" style="width:60px ; height:60px;">
-        <h5 class="ms-5 fs-3">{{job.company_name}}</h5>
+        <h5 class="ms-5 fs-5">{{job.company_name}}</h5>
     </div>
     <h5 class="card-title mt-3 fs-5 fw-medium">{{job.job_title}}</h5>
     <p class="card-text fw-lighter mt-2">{{job.description}} </p>
@@ -26,23 +26,20 @@
     <div class="col-lg-5 "  >
       <h5 class="fw-bolder mb-3">Job Description</h5>
       <p class="mb-5 text-body-secondary fw-medium lh-2">
-        {{job.job_full_disc?.JobDescription}}
+        {{job.job_full_disc}}
       </p>
-
-      <h6 class="fw-bold mb-3">Key Responsibilities</h6>
+ <div class="d-flex ">
+      <h6 class="fw-bold mb-1">Salary</h6>
       <ul class="mb-5 text-body-secondary fw-medium">
-        <li *ngFor="let responsibility of job.job_full_disc?.KeyResponsibilities | keyvalue">
-          {{ responsibility.value }}
-        </li>
+       {{job.salary}}
       </ul>
-
-      <h6 class="fw-bold mb-3">Skills and Experience</h6>
+</div>
+      <div class="d-flex ">
+      <h6 class="fw-bold mb-1">Job Work Place :</h6>
       <ul class="mb-5 text-body-secondary fw-medium">
-        <li *ngFor="let skill of job.job_full_disc?.SkillandExperience | keyvalue">
-           {{ skill.value }}
-        </li>
+        {{job.workplace}}
       </ul>
-
+     </div>
       <div class="d-flex justify-content-start gap-2 mt-4">
         <button class="btn btn-dark w-50" (click)="showApplecationMsg()" type="submit">Apply Now</button>
       </div>

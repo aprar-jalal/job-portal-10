@@ -27,10 +27,15 @@ export class JobDescriptionComponent implements OnInit {
       });
     }
   }
+  checkToken(){
+      const token = localStorage.getItem('authToken');
+      return token;
+    }
   showApplecationMsg() {
     if (!this.job?.job_id) {
       return;
     }
+    if (this.checkToken()){
     this.ApplicationService.JobSeekerAppliesForJobs(this.job.job_id).subscribe({
       next: (result) => {
         Swal.fire({
@@ -47,5 +52,14 @@ export class JobDescriptionComponent implements OnInit {
         });
       },
     });
+  }else{
+    Swal.fire({
+          title: 'please sign in first',
+          icon: 'error',
+          draggable: true,
+        });
   }
+}
+  
+  
 }

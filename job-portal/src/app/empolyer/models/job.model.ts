@@ -12,9 +12,7 @@ export class Job {
   //aprar
   company_name:string='';
   logo_url:string='';
- job_full_disc?: {
-    JobDescription?: string;
-    KeyResponsibilities?: string[];
-    SkillandExperience?: string[];
-  };
+  job_full_disc:string='';
+  workplace:string='';
+  category:string='';
 }

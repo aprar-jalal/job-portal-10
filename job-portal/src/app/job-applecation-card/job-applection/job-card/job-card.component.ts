@@ -64,7 +64,7 @@ export class JobCardComponent implements OnChanges {
             this.favoriteChanged.emit();
           },
           error: () => {
-            Swal.fire('Something went wrong');
+            Swal.fire('please sign in first :)');
           },
         });
     }
