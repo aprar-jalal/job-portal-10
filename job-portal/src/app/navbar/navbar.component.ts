@@ -56,7 +56,7 @@ export class NavbarComponent implements OnInit {
         break;
       case 'employer':
         this.navItems = [
-          { name: 'home', label: 'Home', icon: 'bi bi-house' },
+          { name: 'employer', label: 'Home', icon: 'bi bi-house' },
           { name: 'jobApplications', label: 'Job Applications', icon: 'bi bi-file-earmark-bar-graph' },
           { name: 'notifications', label: 'Notifications', icon: 'bi bi-bell' },
           { name: 'me', label: 'Me', icon: 'bi bi-person' }
@@ -117,7 +117,7 @@ export class NavbarComponent implements OnInit {
       if (userType === 'jobSeeker') {
         this.router.navigate(['/job-seeker']);
       } else if (userType === 'employer') {
-        this.router.navigate(['/employer']);
+        this.router.navigate(['/companyProfile']);
       } else if (userType === 'admin') {
         this.router.navigate(['/admin']);
       }

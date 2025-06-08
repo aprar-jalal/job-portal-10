@@ -8,12 +8,27 @@ import {Job} from '../models/job.model'
 
 export class JobService {
   constructor(private http: HttpClient) { }
-  getJobs(employerId:number): Observable<Job[]>
+  getJobs(): Observable<Job[]>
   {
-    return this.http.get<Job[]>(`http://127.0.0.1:8000/api/employers/${employerId}/jobs`)
+    return this.http.get<Job[]>('http://127.0.0.1:8000/api/jobs')
   }
+
   getJobById(jobId: number): Observable<Job>
   {
     return this.http.get<Job>(`http://127.0.0.1:8000/api/jobs/${jobId}`);
+  }
+
+  postJob(job: Job): Observable<Job>
+  {
+    return this.http.post<Job>(`http://127.0.0.1:8000/api/jobs`, job);
+  }
+
+  deleteJob(jobId: number): Observable<any>{
+    return this.http.delete(`http://127.0.0.1:8000/api/jobs/${jobId}`);
+  }
+
+  updateJob(jobId : number ,newJob: Job): Observable<any>
+  {
+    return this.http.put(`http://127.0.0.1:8000/api/jobs/${jobId}`, newJob);
   }
 }

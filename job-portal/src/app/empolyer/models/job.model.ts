@@ -6,6 +6,7 @@ export class Job {
   location: string = '';
   salary: string = '';
   job_type: string = '';
+  workplace: string = '';
   availability: number = 0;
   created_at: string = '';
   updated_at: string = '';

@@ -3,7 +3,6 @@ import { NotificationsPageComponent } from './Notifications/notifications-page/n
 import { HomePageComponent } from './home-page/home-page.component';
 import { JobMainComponent } from './job-seeker/job-main/job-main.component';
 import { LogInComponent } from './sign-in/log-in/log-in.component';
-import { NgModule } from '@angular/core';
 import { ForgotPasswordComponent } from './sign-in/forgot-password/forgot-password.component';
 import { SignUpComponent } from './sign-in/sign-up/sign-up.component';
 // import { JobApplectionComponent } from './job-applecation-card/job-applection/job-applection.component';
@@ -18,7 +17,7 @@ import {JobDetailsComponent} from './empolyer/job-details/job-details.component'
 import {AllJobApplicationsComponent} from './empolyer/all-job-applications/all-job-applications.component';
 import {CompanyProfileComponent} from './empolyer/company-profile/company-profile.component';
 import {JobApplicationDetailsComponent} from './empolyer/all-job-applications/job-application-details/job-application-details.component';
-
+import {EditJobComponent} from './empolyer/recent-jobs-page/edit-job/edit-job.component';
 
 export const routes: Routes = [
   // {path: 'job-application', component: JobApplectionComponent},
@@ -41,4 +40,5 @@ export const routes: Routes = [
   {path:'job-details/:id', component: JobDetailsComponent},
   {path: 'companyProfile', component: CompanyProfileComponent},
   {path: 'applicationDetails', component: JobApplicationDetailsComponent},
+  {path:'edit-job/:id', component: EditJobComponent},
 ];

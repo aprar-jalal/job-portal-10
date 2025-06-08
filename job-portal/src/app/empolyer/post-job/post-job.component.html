@@ -16,101 +16,63 @@
 
     <hr>
 
-    <div class="d-flex flex-column align-content-between">
+    <form [formGroup]="postJobForm" (ngSubmit)="submitPost()" class="d-flex flex-column align-content-between">
       <div>
         <div class="mb-4">
           <label for="formGroupJobTitle" class="form-label"><strong>Job Title</strong> </label>
-          <input type="text" class="form-control" id="formGroupJobTitle" placeholder="Example input placeholder">
+          <input type="text" class="form-control" id="formGroupJobTitle" placeholder="Example input placeholder" formControlName = "job_title">
         </div>
+
 
         <div class="mb-4">
           <label for = "formGroupJobIndustry" class="mb-2"><strong>Job Industry</strong> </label>
-          <select id = "formGroupJobIndustry" class="form-select" aria-label="Default select example">
-            <option selected>Open this select menu</option>
-            <option value="1">One</option>
-            <option value="2">Two</option>
-            <option value="3">Three</option>
-          </select>
+          <input type="text" class="form-control" id="formGroupJobIndustry" placeholder="Example input placeholder" formControlName = "industry">
         </div>
 
 
         <div class="mb-4">
-          <label class="mb-2"> <strong>Job Location</strong>
-          </label>
-          <select class="form-select" aria-label="Default select example">
-            <option selected>Open this select menu</option>
-            <option value="1">One</option>
-            <option value="2">Two</option>
-            <option value="3">Three</option>
-          </select>
+          <label class="mb-2" for="formGroupLocation"> <strong>Job Location</strong>
+          </label >
+          <input type="text" class="form-control" id="formGroupLocation" placeholder="Example input placeholder" formControlName = "location">
+
         </div>
 
 
         <div class="mb-5">
-          <label class="mb-2"> <strong>Monthly Salary Range</strong> </label>
-          <select class="form-select" aria-label="Default select example">
-            <option selected>Open this select menu</option>
-            <option value="1">One</option>
-            <option value="2">Two</option>
-            <option value="3">Three</option>
-          </select>
+          <label class="mb-2" for="formGroupSalary"> <strong>Monthly Salary</strong> </label>
+          <input type="text" class="form-control" id="formGroupSalary" placeholder="Example input placeholder" formControlName = "salary">
+
         </div>
 
         <hr>
 
         <div class="d-flex justify-content-between">
-          <label> <strong>Employment Type</strong> </label>
+          <label><strong>Employment Type</strong></label>
           <div class="mb-3">
-            <div class="form-check form-check-inline">
-              <input class="form-check-input" type="radio" name="inlineRadioOptions" id="Full Time" value="option1">
-              <label class="form-check-label" for="Full Time">Full Time</label>
-            </div>
-            <div class="form-check form-check-inline">
-              <input class="form-check-input" type="radio" name="inlineRadioOptions" id="Part Time" value="option2">
-              <label class="form-check-label" for="Part Time">Part Time</label>
-            </div>
-            <div class="form-check form-check-inline">
-              <input class="form-check-input" type="radio" name="inlineRadioOptions" id="Contractor" value="option3">
-              <label class="form-check-label" for="Contractor">Contractor</label>
-            </div>
-            <div class="form-check form-check-inline">
-              <input class="form-check-input" type="radio" name="inlineRadioOptions" id="Temporary" value="option4">
-              <label class="form-check-label" for="Temporary">Temporary</label>
-            </div>
-            <div class="form-check form-check-inline">
-              <input class="form-check-input" type="radio" name="inlineRadioOptions" id="Internship" value="option5">
-              <label class="form-check-label" for="Internship">Internship</label>
+            <div class="form-check form-check-inline" *ngFor="let type of ['full-time', 'Part Time', 'Contractor', 'Temporary', 'Internship']">
+              <input class="form-check-input" type="radio" [value]="type" formControlName="job_type" [id]="type">
+              <label class="form-check-label" [for]="type">{{ type }}</label>
             </div>
           </div>
-
           <div></div>
-
         </div>
+
 
         <hr>
         <div class="d-flex justify-content-between mb-3">
           <label><strong>Work Location</strong></label>
           <div class="mb-3">
-            <div class="form-check form-check-inline">
-              <input class="form-check-input" type="radio" name="workLocation" id="Onsite" value="Onsite">
-              <label class="form-check-label" for="Onsite">Onsite</label>
-            </div>
-            <div class="form-check form-check-inline">
-              <input class="form-check-input" type="radio" name="workLocation" id="Hybrid" value="Hybrid">
-              <label class="form-check-label" for="Hybrid">Hybrid</label>
-            </div>
-            <div class="form-check form-check-inline">
-              <input class="form-check-input" type="radio" name="workLocation" id="Remote" value="Remote">
-              <label class="form-check-label" for="Remote">Remote</label>
+            <div class="form-check form-check-inline" *ngFor="let loc of ['onsite', 'hybrid', 'remote']">
+              <input class="form-check-input" type="radio" [value]="loc" formControlName="location_type" [id]="loc">
+              <label class="form-check-label" [for]="loc">{{ loc }}</label>
             </div>
           </div>
-          <div></div>
           <div></div>
         </div>
 
           <div>
             <label><strong>Description</strong></label>
-            <textarea class="form-control" id="jobDescription" rows="5" placeholder="Write job details here..."></textarea>
+            <textarea class="form-control" id="jobDescription" rows="5" placeholder="Write job details here..." formControlName="description"></textarea>
 
           </div>
       </div>
@@ -118,10 +80,10 @@
       <hr>
 
       <div class="d-flex justify-content-end gap-2 mt-2">
-        <div class="btn btn-secondary" (click)="cancelPost()" >Cansel</div>
-        <div class="btn btn-primary">Post</div>
+        <button class="btn btn-secondary" (click)="cancelPost()" >Cansel</button>
+        <button class="btn btn-primary"   (click)="submitPost()">Post</button>
       </div>
-    </div>
+    </form>
 
   </div>
 </div>

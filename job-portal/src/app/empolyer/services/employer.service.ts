@@ -13,8 +13,13 @@ export class EmployerService {
   {
     return this.http.get<Employer>(`http://127.0.0.1:8000/api/employers/${employerId}`);
   }
-  updateEmployer(employerId: number, employer: Employer): Observable<Employer> {
+
+  getEmployerInfo(): Observable<Employer>
+  {
+    return this.http.get<Employer>('http://127.0.0.1:8000/api/employer');
+  }
+  updateEmployer(employer: FormData): Observable<Employer> {
       return this.http.put<Employer>
-      (`http://127.0.0.1:8000/api/employers/${employerId}`, employer);
+      ('http://127.0.0.1:8000/api/employer', employer);
   }
 }

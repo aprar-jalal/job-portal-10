@@ -17,50 +17,74 @@ export class EditProfileComponent implements OnInit {
   constructor(private employerService: EmployerService) { }
 
   employerForm!: FormGroup;
+
   ngOnInit()
   {
     this.employerForm = new FormGroup({
-      companyName: new FormControl ("" , Validators.minLength(3)),
+      company_name: new FormControl ("" , Validators.minLength(3)),
       industry: new FormControl (""),
-      establishedDate: new FormControl (""),
-      companySize: new FormControl (""),
+      established_date: new FormControl (""),
+      company_size: new FormControl (""),
       description: new FormControl (""),
     });
 
-    const employerId = 1; //Temp !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    // const employerId = 1; //Temp !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    //
+    // this.employerService.getEmployerById(employerId).subscribe({
+    //   next: (data) => {
+    //     this.employerForm.patchValue({
+    //       company_name: data.company_name,
+    //       industry: data.industry,
+    //       established_date: data.established_date,
+    //       company_size: data.company_size,
+    //       description: data.description
+    //     });
+    //   },
+    // });
 
-    this.employerService.getEmployerById(employerId).subscribe({
-      next: (data) => {
-        this.employerForm.patchValue({
-          companyName: data.company_name,
-          industry: data.industry,
-          establishedDate: data.established_date,
-          companySize: data.company_size,
-          description: data.description
-        });
-      },
-    });
+    this.employerService.getEmployerInfo().subscribe({
+        next: (data) => {
+          this.employerForm.patchValue({
+            company_name: data.company_name,
+            industry: data.industry,
+            established_date: data.established_date,
+            company_size: data.company_size,
+            description: data.description
+          });
+        },
+    })
 
   }
 
+  selectedFile: File|null = null;
+  onFileSelected(event:any)
+  {
+    this.selectedFile = event.target.files[0];
+
+  }
 
   onUpdate() {
     if (this.employerForm.valid) {
-      const employerId = 1 //Temp !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-      const employerFromForm = this.employerForm.value;
-      const dataToUpdate:Employer ={
-        employer_id: employerId,
-        company_name: employerFromForm.companyName,
-        industry: employerFromForm.industry,
-        logo_url: null,
-        established_date: employerFromForm.establishedDate,
-        company_size: employerFromForm.companySize,
-        description: employerFromForm.description,
-        verified: false,
+      const formValue = this.employerForm.value;
+      const dataToUpdate = new FormData();
+
+      dataToUpdate.append('company_name', formValue.companyName);
+      dataToUpdate.append('industry', formValue.industry);
+      dataToUpdate.append('established_date', formValue.establishedDate);
+      dataToUpdate.append('company_size', formValue.companySize);
+      dataToUpdate.append('description', formValue.description);
+
+      if (this.selectedFile) {
+        dataToUpdate.append('logo_url', this.selectedFile);
       }
 
-      this.employerService.updateEmployer(employerId, dataToUpdate).subscribe(
+      if (this.selectedFile) {
+        dataToUpdate.append('logo_url', this.selectedFile);
+      }
+
+      this.employerService.updateEmployer(dataToUpdate).subscribe(
         (data) => {
+          alert("مبروووووك")
         }
       )
     }
@@ -69,6 +93,7 @@ export class EditProfileComponent implements OnInit {
   onCancel() {
     this.employerForm.reset();
     this.cancelClicked.emit();
+
   }
 
 

@@ -5,18 +5,18 @@
     <div class="d-flex justify-content-between">
       <div>
         <h3 class="h5">{{ job.job_title }} </h3>
-        <h2>{{job.employer_id}}</h2>
         <p class="text-muted mb-2"><i class="bi bi-geo-alt"></i> {{ job.location }}</p>
         <p class="mb-3"> {{ job.description.split(' ').length > 30 ? (job.description.split(' ').slice(0, 30).join(' ') + '...') : job.description }}
           <a [routerLink]="['/job-details', job.job_id]">more</a>
         </p>
 
 
-        <div class="d-flex gap-2 text-muted small">
-          <span><i class="bi bi-eye"></i> 56 views</span>
-          <span><i class="bi bi-people"></i> 12 applications</span>
-          <span><i class="bi bi-clock"></i> Posted 2 days ago</span>
+        <div class="d-flex gap-2 mb-2 text-white">
+          <span class="p-2 rounded-2" style="background-color: #1d2445" ><i class="bi bi-person-workspace  "></i> {{job.job_type}}</span>
+          <span class="p-2 rounded-2" style="background-color: #1d2445" ><i class="bi bi-people  "></i> {{job.workplace}} </span>
         </div>
+<!--        <div class="rounded-2 text-muted small"><i class="bi bi-clock  "></i> Posted  Posted {{ job.created_at | timeago }}-->
+<!--        </div>-->
 
       </div>
 
@@ -30,7 +30,7 @@
           </button>
           <ul class="dropdown-menu shadow" >
             <li>
-              <a class="dropdown-item py-2" href="#">
+              <a class="dropdown-item py-2" [routerLink]="['/edit-job' , job.job_id]">
                 <i class="bi bi-pencil me-2 text-primary"></i>
                 Edit
               </a>
@@ -42,7 +42,7 @@
               </a>
             </li>
             <li>
-              <a class="dropdown-item py-2" href="#">
+              <a class="dropdown-item py-2" (click)="onDeleteJob()">
                 <i class="bi bi-trash me-2 text-danger"></i>
                 Delete
               </a>
