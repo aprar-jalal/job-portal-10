@@ -10,4 +10,12 @@ export class Job {
   availability: number = 0;
   created_at: string = '';
   updated_at: string = '';
+  //aprar
+  company_name:string='';
+  logo_url:string='';
+ job_full_disc?: {
+    JobDescription?: string;
+    KeyResponsibilities?: string[];
+    SkillandExperience?: string[];
+  };
 }

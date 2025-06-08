@@ -1,24 +1,24 @@
 <div class="save">
-    <!-- -------------------------------------- Description div -------------------------- -->
-<div class="description-div">
-    <h2 class="title-1">Description</h2>
+    <!-- --------------------- Description Section --------------------- -->
+    <div class="description-div">
+        <h2 class="title-1">Description</h2>
 
-    <div *ngIf="!isEditingDescription">
-        <p class="description-text">
-            {{ description || '' }}
-        </p>
-        <button class="edit-btn" (click)="toggleEditDescription()">
-            <i class="bi bi-pencil"></i> Edit
-        </button>
+        <div *ngIf="!isEditingDescription">
+            <p class="description-text">
+                {{ description || 'No description yet.' }}
+            </p>
+            <button class="edit-btn" (click)="toggleEditDescription()">
+                <i class="bi bi-pencil"></i> Edit
+            </button>
+        </div>
+
+        <div *ngIf="isEditingDescription">
+            <textarea [(ngModel)]="tempDescription" placeholder="Add a description" rows="4"></textarea>
+            <button class="save-btn" (click)="saveDescription()">Save</button>
+        </div>
     </div>
 
-    <div *ngIf="isEditingDescription">
-        <textarea [(ngModel)]="tempDescription" placeholder="Add a description" rows="4"></textarea>
-        <button class="save-btn" (click)="saveDescription()">Save</button>
-    </div>
-</div>
-
-<!----------------------------------------------- SKILLS DIV --------------------------------------------------->
+    <!-- ---------------------- Skills Section ---------------------- -->
     <div class="skills-div">
         <h2 class="title-1">Skills</h2>
         <div class="skills-list">
@@ -32,19 +32,37 @@
             <button class="Add" (click)="addSkill()">Add</button>
         </div>
     </div>
-    <!-- ---------------------------------------- Information ---------------------------------------------------->
+
+    <!-- ---------------------- Information Section ---------------------- -->
     <div class="Information">
         <h3>Information</h3>
-        
-        <div class="profile-item"><span>Full Name:</span> _______</div>
-        <div class="profile-item"><span>Phone Number:</span> _______</div>
-        <div class="profile-item"><span>Gender:</span> _______</div>
-        <div class="profile-item"><span>City:</span> _______</div>
-        <div class="profile-item"><span>Education Level:</span> _______</div>
-        <div class="profile-item"><span>Major:</span> _______</div>
-        <div class="profile-item"><span>Years of Experience:</span> _______</div>
-      </div>
-      
-</div>
 
+        <div *ngIf="profileData.job_seeker; else noJobSeeker">
+            <div class="profile-item">
+                <span>Full Name:</span>
+                {{
+                profileData.job_seeker.first_name && profileData.job_seeker.last_name
+                ? (profileData.job_seeker.first_name + ' ' + profileData.job_seeker.last_name)
+                : 'N/A'
+                }}
+            </div>
+
+            <div class="profile-item"><span>Major:</span> {{ profileData.job_seeker.major ?? 'N/A' }}</div>
+            <div class="profile-item">
+                <span>Years of Experience:</span> {{ profileData.job_seeker.years_of_experience ?? 'N/A' }}
+            </div>
+        </div>
+
+        <ng-template #noJobSeeker>
+            <div class="profile-item">Job seeker data is not available</div>
+        </ng-template>
+        
+        <hr class="divider" />
+        <div class="profile-item"><span>Phone Number:</span> {{ profileData.phone ?? 'N/A' }}</div>
+        <div class="profile-item"><span>Gender:</span> {{ profileData.gender ?? 'N/A' }}</div>
+        <div class="profile-item"><span>City:</span> {{ profileData.location ?? 'N/A' }}</div>
+        <div class="profile-item"><span>Education Level:</span> {{ profileData.degree ?? 'N/A' }}</div>
+    </div>
+</div>
+  
 

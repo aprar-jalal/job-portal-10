@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { AllJobsCardComponent } from './all-jobs-card.component';
+import { ResetPasswordComponent } from './reset-password.component';
 
-describe('AllJobsCardComponent', () => {
-  let component: AllJobsCardComponent;
-  let fixture: ComponentFixture<AllJobsCardComponent>;
+describe('ResetPasswordComponent', () => {
+  let component: ResetPasswordComponent;
+  let fixture: ComponentFixture<ResetPasswordComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [AllJobsCardComponent]
+      imports: [ResetPasswordComponent]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(AllJobsCardComponent);
+    fixture = TestBed.createComponent(ResetPasswordComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

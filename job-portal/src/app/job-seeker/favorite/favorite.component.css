@@ -3,11 +3,111 @@
     margin-top: 2%;
     width: 100%;
     height: 585px;
-    border-radius: 20px;
-    border: none;
-    background-color: white;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.20);
     font-size: 15px;
     left: -5%;
+    background-color: #F4F4F6;
+    padding: 20px;
+    border-radius: 20px;
 }
 
+.favorite-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.favorite-col {
+    width: calc(50% - 10px);
+}
+
+.favorite-card {
+    background-color: white;
+    border-radius: 20px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease;
+    position: relative;
+    padding: 16px;
+    border: 1px solid #ddd;
+    margin-bottom: 16px;
+}
+
+.favorite-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+}
+
+.favorite-body {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.favorite-title {
+    color: #1D2445;
+    margin-bottom: 10px;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.view-btn {
+    margin-top: auto;
+    padding: 10px;
+    border: 2px solid #1D2445;
+    background-color: transparent;
+    color: #1D2445;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    width: 100%;
+}
+
+.view-btn:hover {
+    background-color: #4A506A;
+    color: white;
+    border-color: #4A506A;
+}
+
+.delete-btn {
+    position: absolute;
+    top: 20px;
+    right: 10px;
+    border: none;
+    background: transparent;
+    font-size: 18px;
+    color: #1D2445;
+    cursor: pointer;
+}
+
+/* Responsive CSS */
+
+@media (max-width: 992px) {
+    .favorite-col {
+        width: 100%;
+    }
+
+    .favorite {
+        height: auto;
+        left: 0;
+        padding: 15px;
+    }
+}
+
+@media (max-width: 576px) {
+    .favorite-title {
+        font-size: 18px;
+    }
+
+    .view-btn {
+        padding: 8px;
+        font-size: 14px;
+    }
+
+    .favorite {
+        font-size: 14px;
+        padding: 10px;
+    }
+}

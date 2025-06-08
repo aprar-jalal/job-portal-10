@@ -2,11 +2,6 @@
     position: relative;
     z-index: 1;
 }
-
-.changePassword{
-    font-size: 20px;
-    margin: 40px 0 20px;
-}
 .settings-container {
     height: 1300px;
     position: absolute;
@@ -67,8 +62,6 @@
     font-weight: 600 !important;
     border-radius: 8px !important;
     cursor: pointer !important;
-
-
 }
 
 

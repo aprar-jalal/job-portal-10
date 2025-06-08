@@ -9,10 +9,10 @@
                 <p class="fw-medium mb-3 fs-5">Find Your Dream Job Today!</p>
             </div>
             <div>
-                <form class="d-flex flex-column flex-sm-row" role="search">
+                <form class="d-flex flex-column flex-sm-row" role="search" >
                     <input class="form-control rounded-start mb-2 mb-sm-0" type="search"
-                        placeholder="Search Jobs..." aria-label="Search">
-                    <button class="btn btn-dark  w-sm-auto ps-5 pe-5 ms-2" type="submit">
+                        placeholder="Search Jobs..." aria-label="Search"  [(ngModel)]="searchQuery" [ngModelOptions]="{standalone: true}" (keyup.enter)="onSearch()"  > <!--to take the input [(ngModel)]="query" (ngModelChange)="onSearchInput($event)" -->
+                    <button class="btn btn-dark  w-sm-auto ps-5 pe-5 ms-2"  type="submit" (click)="onSearch()" name="searchQuery"><!--(ngSubmit)="onSearch()"-->
                         Search
                     </button>
                 </form>
