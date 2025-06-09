@@ -99,8 +99,8 @@ export class NavbarComponent implements OnInit {
     }
   }
   handleLogout() {
-    localStorage.removeItem('token');
-    let currentUser = 'guest'
+    localStorage.removeItem('authToken');
+    let currentUser = 'guest';
     this.setNavItems(currentUser);
     this.router.navigate(['login']);
   }
