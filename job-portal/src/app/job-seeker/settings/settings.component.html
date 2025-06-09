@@ -30,15 +30,28 @@
 
             <label>Years of Experience:</label>
             <input type="text" formControlName="experienceYears" />
-
+            
             <label>Current Password:</label>
-            <input type="password" formControlName="currentPassword" />
+            <div class="password-field">
+                <input [type]="showCurrentPassword ? 'text' : 'password'" formControlName="currentPassword" />
+                <i class="bi" [ngClass]="showCurrentPassword ? 'bi-eye-slash' : 'bi-eye'"
+                    (click)="togglePasswordVisibility('current')"></i>
+            </div>
             
             <label>New Password:</label>
-            <input type="password" formControlName="newPassword" />
+            <div class="password-field">
+                <input [type]="showNewPassword ? 'text' : 'password'" formControlName="newPassword" />
+                <i class="bi" [ngClass]="showNewPassword ? 'bi-eye-slash' : 'bi-eye'" (click)="togglePasswordVisibility('new')"></i>
+            </div>
             
             <label>Confirm Password:</label>
-            <input type="password" formControlName="confirmPassword" />
+            <div class="password-field">
+                <input [type]="showConfirmPassword ? 'text' : 'password'" formControlName="confirmPassword" />
+                <i class="bi" [ngClass]="showConfirmPassword ? 'bi-eye-slash' : 'bi-eye'"
+                    (click)="togglePasswordVisibility('confirm')"></i>
+            </div>
+            
+
             
             <button type="button" (click)="onSave()">Save</button>
         </form>

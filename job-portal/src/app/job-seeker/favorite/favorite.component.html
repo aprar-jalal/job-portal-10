@@ -11,7 +11,8 @@
                         <p><strong>Location:</strong> {{ item.location || 'N/A' }}</p>
                         <p><strong>Salary:</strong> {{ item.salary ? ('$' + item.salary) : 'N/A' }}</p>
                         <p><strong>Requirements:</strong> {{ item.job_full_disc?.dda || 'N/A' }}</p>
-                        <button class="view-btn">View Details</button>
+                        <a class="view" [routerLink]="['/job-description', item.job_id]">View Details</a>
+
                     </div>
                 </div>
             </ng-container>
