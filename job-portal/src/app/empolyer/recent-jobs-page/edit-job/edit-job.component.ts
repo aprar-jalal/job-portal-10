@@ -9,52 +9,71 @@ import {ActivatedRoute} from '@angular/router';
   selector: 'app-edit-job',
     imports: [
         FormsModule,
-        NgForOf,
         ReactiveFormsModule
     ],
   templateUrl: './edit-job.component.html',
   styleUrl: './edit-job.component.css'
 })
 export class EditJobComponent {
+
+
+  editJobForm!: FormGroup;
+  jobId!: number;
+
   constructor(private location: Location , private jobService: JobService, private route: ActivatedRoute) {
+    this.editJobForm = new FormGroup({
+      job_title: new FormControl(''),
+      description: new FormControl(''),
+      location: new FormControl(''),
+      salary: new FormControl(''),
+      job_type: new FormControl(''),
+      workplace: new FormControl(''),
+      industry: new FormControl(''),
+      job_category: new FormControl(''),
+    });
+
+    this.jobId = +this.route.snapshot.params['id'];
 
   }
-
-  postJobForm !: FormGroup;
 
 
   ngOnInit(): void {
 
-    const jobId = this.route.snapshot.params['id'];
-    if (jobId) {
-      this.jobService.getJobById(jobId).subscribe(job => {
-        this.postJobForm = new FormGroup({
-          job_title: new FormControl(job.job_title),
-          description: new FormControl(job.description),
-          location: new FormControl(job.location),
-          salary: new FormControl(job.salary),
-          job_type: new FormControl(job.job_type),
-          workplace: new FormControl(job.workplace),
+    if (this.jobId)
+    {
+    this.jobService.getJobById(this.jobId).subscribe({
+      next: (job) => {
+        this.editJobForm.patchValue({
+          job_title: job.job_title,
+          description: job.description,
+          location: job.location,
+          salary: job.salary,
+          job_type: job.job_type,
+          workplace: job.workplace,
+          job_category: job.job_category,
         });
-      })
-    }
+      },
+      error: () => {
+        alert("please try again later");
+        // this.location.back();
+      }
+    });
+  }
   }
 
   cancelPost(){
     this.location.back();
   }
 
-  submitPost(){
+  submitEdit(){
 
-    const jobData = {
-      ...this.postJobForm.value
-    }
+    const jobData = this.editJobForm.value;
 
-    this.jobService.postJob(jobData).subscribe(
-      data => {
-        console.log(data);
+    this.jobService.updateJob(this.jobId, jobData).subscribe({
+      next: (data) => {
+        console.log('Job updated', data);
         this.location.back();
-      }
-    )
+      },
+    });
   }
 }

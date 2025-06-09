@@ -28,22 +28,9 @@ export class EditProfileComponent implements OnInit {
       description: new FormControl (""),
     });
 
-    // const employerId = 1; //Temp !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-    //
-    // this.employerService.getEmployerById(employerId).subscribe({
-    //   next: (data) => {
-    //     this.employerForm.patchValue({
-    //       company_name: data.company_name,
-    //       industry: data.industry,
-    //       established_date: data.established_date,
-    //       company_size: data.company_size,
-    //       description: data.description
-    //     });
-    //   },
-    // });
-
     this.employerService.getEmployerInfo().subscribe({
         next: (data) => {
+          console.log(data);
           this.employerForm.patchValue({
             company_name: data.company_name,
             industry: data.industry,
@@ -59,39 +46,37 @@ export class EditProfileComponent implements OnInit {
   selectedFile: File|null = null;
   onFileSelected(event:any)
   {
-    this.selectedFile = event.target.files[0];
-
+    this.selectedFile = event.target.files?.[0] || null;
   }
 
   onUpdate() {
-    if (this.employerForm.valid) {
-      const formValue = this.employerForm.value;
-      const dataToUpdate = new FormData();
+    const formValue:Employer = this.employerForm.value;
+    const dataToUpdate = {
+      company_name: formValue.company_name || '',
+      industry: formValue.industry || '',
+      established_date: formValue.established_date || Date,
+      company_size: formValue.company_size|| '',
+      description: formValue.description|| '',
+    };
 
-      dataToUpdate.append('company_name', formValue.companyName);
-      dataToUpdate.append('industry', formValue.industry);
-      dataToUpdate.append('established_date', formValue.establishedDate);
-      dataToUpdate.append('company_size', formValue.companySize);
-      dataToUpdate.append('description', formValue.description);
+    console.log('data to be sent:', dataToUpdate);
 
-      if (this.selectedFile) {
-        dataToUpdate.append('logo_url', this.selectedFile);
+    this.employerService.updateEmployer(dataToUpdate).subscribe({
+      next: ()  =>
+      {
+        alert('Update successful');
+        this.cancelClicked.emit();
+      },
+      error: () => {
+        alert('Update failed');
       }
-
-      if (this.selectedFile) {
-        dataToUpdate.append('logo_url', this.selectedFile);
-      }
-
-      this.employerService.updateEmployer(dataToUpdate).subscribe(
-        (data) => {
-          alert("مبروووووك")
-        }
-      )
-    }
+    });
   }
+
 
   onCancel() {
     this.employerForm.reset();
+    this.selectedFile = null;
     this.cancelClicked.emit();
 
   }

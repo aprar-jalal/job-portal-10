@@ -29,6 +29,7 @@ export class PostJobComponent {
       job_type: new FormControl(''),
       workplace: new FormControl(''),
       industry: new FormControl(''),
+      job_category: new FormControl(''),
     });
 
   }
@@ -43,10 +44,14 @@ export class PostJobComponent {
       ...this.postJobForm.value
     }
 
-    this.jobService.postJob(jobData).subscribe(
-      data => {
-        console.log(data);
+    this.jobService.postJob(jobData).subscribe({
+      next: (result) => {
+        console.log(result);
         this.location.back();
+      },
+      error: (error) => {
+        console.log(error);
+      }
       }
     )
   }

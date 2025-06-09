@@ -23,7 +23,7 @@ export class EmployerHomeComponent {
 
   employerName: string = "";
   ngOnInit() {
-    this.employerService.getEmployerById(1).subscribe((employer) => {
+    this.employerService.getEmployerInfo().subscribe((employer) => {
       this.employerName = employer.company_name;
     })
   }

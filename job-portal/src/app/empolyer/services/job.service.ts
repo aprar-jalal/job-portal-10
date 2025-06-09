@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {HttpClient} from '@angular/common/http';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {Job} from '../models/job.model'
 @Injectable({
@@ -10,7 +10,12 @@ export class JobService {
   constructor(private http: HttpClient) { }
   getJobs(): Observable<Job[]>
   {
-    return this.http.get<Job[]>('http://127.0.0.1:8000/api/jobs')
+    const token = localStorage.getItem('authToken');
+    const headers = new HttpHeaders({
+      Authorization: `Bearer ${token}`,
+      'Content-Type': 'application/json',
+    });
+    return this.http.get<Job[]>('http://127.0.0.1:8000/api/jobs', {headers});
   }
 
   getJobById(jobId: number): Observable<Job>
@@ -20,7 +25,12 @@ export class JobService {
 
   postJob(job: Job): Observable<Job>
   {
-    return this.http.post<Job>(`http://127.0.0.1:8000/api/jobs`, job);
+    const token = localStorage.getItem('authToken');
+    const headers = new HttpHeaders({
+      Authorization: `Bearer ${token}`,
+      'Content-Type': 'application/json',
+    });
+    return this.http.post<Job>(`http://127.0.0.1:8000/api/jobs`, job , {headers});
   }
 
   deleteJob(jobId: number): Observable<any>{
