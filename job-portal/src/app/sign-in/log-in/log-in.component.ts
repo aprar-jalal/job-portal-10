@@ -3,7 +3,6 @@ import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angula
 import { CommonModule } from '@angular/common';
 import { RouterLink, Router } from '@angular/router';
 import Swal from 'sweetalert2';
-
 import { AuthService } from '../services/auth.service';
 import { LoginRequest } from '../models/login.model';
 @Component({
@@ -54,7 +53,7 @@ export class LogInComponent {
             timer: 3000
           });
 
-          this.router.navigate(['/home-page']);
+          this.router.navigate(['/']);
         },
         error: (err) => {
           Swal.fire({

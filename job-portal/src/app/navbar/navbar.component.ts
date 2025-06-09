@@ -35,7 +35,7 @@ export class NavbarComponent implements OnInit {
     this.setNavItems(userType);
   }
 
-  private setNavItems(userType: string) {
+  public setNavItems(userType: string) {
 
     switch (userType) {
       case 'guest':
@@ -56,7 +56,7 @@ export class NavbarComponent implements OnInit {
         break;
       case 'employer':
         this.navItems = [
-          { name: 'employer', label: 'Home', icon: 'bi bi-house' },
+          { name: 'home', label: 'Home', icon: 'bi bi-house' },
           { name: 'jobApplications', label: 'Job Applications', icon: 'bi bi-file-earmark-bar-graph' },
           { name: 'notifications', label: 'Notifications', icon: 'bi bi-bell' },
           { name: 'me', label: 'Me', icon: 'bi bi-person' }
@@ -106,7 +106,7 @@ export class NavbarComponent implements OnInit {
   }
   setActive(item: string) {
     const userType = this.userTypeService.getUserType();
-
+    this.activeItem = 'home';
     if (item === 'notifications') {
       if (this.isMobileView) {
         this.router.navigate(['/notifications-page']);
