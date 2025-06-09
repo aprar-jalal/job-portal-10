@@ -5,6 +5,16 @@
   cursor: pointer;
   transition: all 0.3s ease;
 }
+.par2{
+  position: relative;
+  text-align: center;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+
+
 .navbar-toggler {
   margin-left: auto;
 }
@@ -12,11 +22,13 @@
   color:#1D2445;
 }
 .navbar-nav .nav-item span,
-.navbar-nav .nav-item i {
+.navbar-nav .nav-item i ,
+.par2 .logOut-item {
   color: #1D2445;
   transition: color 0.3s ease;
 }
-.navbar-nav .nav-item::after {
+.navbar-nav .nav-item::after,
+.par2::after {
   content: '';
   position: absolute;
   bottom: 0;
@@ -28,21 +40,27 @@
   transform-origin: center;
   transition: transform 0.3s ease;
 }
-.navbar-nav .nav-item:hover::after {
+.navbar-nav .nav-item:hover::after,
+.par2:hover::after {
   transform: scaleX(1);
 }
 
 .navbar-nav .nav-item:hover span,
-.navbar-nav .nav-item:hover i {
+.navbar-nav .nav-item:hover i ,
+.par2 .logOut-item:hover i,
+.par2 .logOut-item :hover span{
   color: #1D2445;
   transform: scale(1.05);
 }
 .navbar-nav .nav-item.active span,
-.navbar-nav .nav-item.active i {
+.navbar-nav .nav-item.active i,
+.par2 .logOut-item:hover i,
+.par2 .logOut-item :hover span{
   color: #1D2445;
   font-weight: bold;
 }
-.navbar-nav .nav-item.active::after {
+.navbar-nav .nav-item.active::after,
+.par2.active::after{
   transform: scaleX(1);
 }
 .navbar {
@@ -56,6 +74,8 @@
     width: 100%;
   }
 }
+
+
   @media (max-width: 992px) {
     .par2{
       display:none;

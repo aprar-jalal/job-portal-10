@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import {Component, Input, input} from '@angular/core';
 import { Router } from '@angular/router';
+import {NotificationModel} from '../models/notificatin.model';
 
 
 @Component({
@@ -9,10 +10,11 @@ import { Router } from '@angular/router';
   styleUrl: './notification.component.css'
 })
 export class NotificationComponent {
-
-  constructor(private router: Router) {}
+@Input('notification') NotificationModel:NotificationModel|undefined;
+  constructor(private router: Router,) {}
 handleClick() {
   this.router.navigate(['/notifications-page']);
 }
 
+  protected readonly Notification = Notification;
 }

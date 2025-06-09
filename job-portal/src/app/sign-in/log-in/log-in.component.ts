@@ -53,8 +53,8 @@ export class LogInComponent {
             showConfirmButton: false,
             timer: 3000
           });
-        
-          this.router.navigate(['/home-page']); 
+
+          this.router.navigate(['/home-page']);
         },
         error: (err) => {
           Swal.fire({

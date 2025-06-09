@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import {NgForOf, NgIf} from '@angular/common';
 import { NotificationComponent } from '../notification/notification.component';
+import{NotificationsService} from '../notifications.service';
+import{NotificationModel} from '../models/notificatin.model';
 
 @Component({
   selector: 'app-notifications-page',
@@ -14,6 +16,12 @@ import { NotificationComponent } from '../notification/notification.component';
   ]
 })
 export class NotificationsPageComponent {
-  notifications = Array(5).fill(null);
+  Notifications:NotificationModel[] = [];
+  constructor(private NotificationsService:NotificationsService) {}
+  ngOnInit() {
+  this.NotificationsService.getNotifications().subscribe((Notifications: any[])=>{
+    this.Notifications=Notifications;
+})
+  }
 }
 

@@ -27,7 +27,7 @@ export class NavbarComponent implements OnInit {
   constructor(
     protected router: Router,
     @Inject(PLATFORM_ID) private platformId: Object,
-    @Inject(UserTypeService) private userTypeService: UserTypeService
+    @Inject(UserTypeService) protected userTypeService: UserTypeService
   ) {
     this.isBrowser = isPlatformBrowser(this.platformId);
 
@@ -98,6 +98,12 @@ export class NavbarComponent implements OnInit {
       this.showNotificationsDropdown = false;
     }
   }
+  handleLogout() {
+    localStorage.removeItem('authToken');
+    let currentUser = 'guest';
+    this.setNavItems(currentUser);
+    this.router.navigate(['login']);
+  }
   setActive(item: string) {
     const userType = this.userTypeService.getUserType();
 
@@ -108,7 +114,9 @@ export class NavbarComponent implements OnInit {
       } else {
         this.showNotificationsDropdown = !this.showNotificationsDropdown;
       }
-
+    }
+    else if(item === 'logout') {
+      this.router.navigate(['/logout']);
     }
     else if (item === 'home') {
       this.router.navigate(['/']);
@@ -139,9 +147,6 @@ export class NavbarComponent implements OnInit {
     }
      else if (item === 'about-us') {
       this.router.navigate(['/about-us']);
-    }
-     else if (item === 'login') {
-      this.router.navigate(['/login']);
     }
      else if (item === 'favorites') {
       this.router.navigate(['/favorites']);

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {NgClass, NgForOf} from '@angular/common';
+import {NgClass, NgForOf, NgOptimizedImage} from '@angular/common';
 import {NotificationsInboxComponent} from '../Notifications/notifications-inbox/notifications-inbox.component';
 
 @Component({
@@ -8,7 +8,8 @@ import {NotificationsInboxComponent} from '../Notifications/notifications-inbox/
   imports: [
     NgClass,
     NgForOf,
-    NotificationsInboxComponent
+    NotificationsInboxComponent,
+    NgOptimizedImage
   ],
   styleUrls: ['./about-us.component.css']
 })

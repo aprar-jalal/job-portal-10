@@ -5,17 +5,11 @@
   </div>
 
   <hr class="mt-0">
+<div *ngFor = "let notification of Notifications">
+  <app-notification [notification]="notification">
 
-<app-notification></app-notification>
-
-<app-notification></app-notification>
-
-<app-notification></app-notification>
-
-<app-notification></app-notification>
-
-<app-notification></app-notification>
-
-<app-notification></app-notification>
-
+  </app-notification>
 </div>
+
+
+
