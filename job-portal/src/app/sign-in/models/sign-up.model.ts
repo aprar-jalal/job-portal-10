@@ -5,7 +5,7 @@ export class SignUpModel {
   password_confirmation: string = '';
   phone: string = '';
   location: string = '';
-   role_id: number = 2;
+  role_id: number = 0;
 
   company_name?: string = '';
   industry?: string = '';
@@ -16,5 +16,5 @@ export class SignUpModel {
   degree?: string = '';
   years_of_experience?: number = 0;
   gender?: 'male' | 'female';
-
+ 
 }
