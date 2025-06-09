@@ -1,8 +1,6 @@
 import {Component, Input, input} from '@angular/core';
-import {NgForOf, SlicePipe} from '@angular/common';
 import {RouterLink} from '@angular/router';
 import {JobService} from '../../../services/job.service';
-// import {TimeagoCustomFormatter, TimeagoFormatter, TimeagoIntl, TimeagoModule} from 'ngx-timeago';
 
 @Component({
   selector: 'app-recent-job-block',
@@ -12,8 +10,6 @@ import {JobService} from '../../../services/job.service';
   templateUrl: './recent-job-block.component.html',
   styleUrl: './recent-job-block.component.css',
   providers: [
-    // TimeagoIntl,
-    // { provide: TimeagoFormatter, useClass: TimeagoCustomFormatter }
   ]
 })
 export class RecentJobBlockComponent {
