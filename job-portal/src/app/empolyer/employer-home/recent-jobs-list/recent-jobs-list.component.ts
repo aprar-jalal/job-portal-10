@@ -26,7 +26,7 @@ export class RecentJobsListComponent implements OnInit {
 
   ngOnInit() {
 
-    this.jobService.getJobs(1).subscribe((jobs) => {
+    this.jobService.getJobs().subscribe((jobs) => {
       this.jobs = jobs;
     })
 

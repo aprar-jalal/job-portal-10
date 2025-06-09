@@ -11,8 +11,8 @@
              class="rounded-circle me-3"
              style="width: 80px; height: 80px; object-fit: cover;">
         <div>
-          <h4 class="mb-1">{{employer.company_name}}</h4>
-          <p class="mb-0 text-muted"><small>ID: <span id="employerID">{{employer.employer_id}}</span></small></p>
+          <h4 class="mb-1">{{employer?.company_name}}</h4>
+          <p class="mb-0 text-muted"><small>ID: <span id="employerID">{{employer?.employer_id}}</span></small></p>
         </div>
       </div>
 
@@ -25,23 +25,23 @@
     <div class="row d-flex justify-content-evenly">
       <div class="profile-items  col-md-4" >
         <p class="mb-1 text-muted">Industry</p>
-        <p class="fw-semibold">{{employer.industry}}</p>
+        <p class="fw-semibold">{{employer?.industry}}</p>
       </div>
 
       <div class="profile-items  col-md-4">
         <p class="mb-1 text-muted">Established</p>
-        <p class="fw-semibold" id="establishedDate">{{employer.established_date}}</p>
+        <p class="fw-semibold" id="establishedDate">{{employer?.established_date}}</p>
       </div>
 
       <div class="profile-items  col-md-4">
         <p class="mb-1 text-muted">Company Size</p>
-        <p class="fw-semibold" id="companySize">{{employer.company_size}} employees</p>
+        <p class="fw-semibold" id="companySize">{{employer?.company_size}} employees</p>
       </div>
     </div>
 
     <hr>
 
     <p class="mb-1 text-muted">Description</p>
-    <p>{{employer.description}}</p>
+    <p>{{employer?.description}}</p>
   </div>
 </div>
