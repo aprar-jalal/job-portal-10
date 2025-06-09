@@ -24,6 +24,7 @@ import {CompanyProfileComponent} from './empolyer/company-profile/company-profil
 
 import {JobApplicationDetailsComponent} from './empolyer/all-job-applications/job-application-details/job-application-details.component';
 import {EditJobComponent} from './empolyer/recent-jobs-page/edit-job/edit-job.component';
+import {RedirectGuard} from './guards/redirect.guard';
 
 
 
@@ -31,7 +32,11 @@ export const routes: Routes = [
   // {path: 'job-application', component: JobApplectionComponent},
   { path: 'employer', component: EmployerHomeComponent },
   { path: 'login', component: LogInComponent },
-  { path: '', component: HomePageComponent },
+  {
+    path: '',
+    canActivate: [RedirectGuard],
+    component: EmployerHomeComponent
+  },
   { path: 'forgot-password', component: ForgotPasswordComponent },
  { path: 'sign-up', component: SignUpComponent },
   { path: 'notifications-page', component: NotificationsPageComponent },
