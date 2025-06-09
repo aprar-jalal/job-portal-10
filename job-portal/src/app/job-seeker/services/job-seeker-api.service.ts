@@ -72,4 +72,18 @@ export class JobSeekerApiService {
     });
   }
   
+  uploadResume(formData: FormData) {
+    return this.http.post<{ message: string, path: string }>(
+      `${this.baseUrl}/jobseeker/upload-resume`, formData, {
+        headers: this.getAuthHeaders()
+      });
+  }
+  deleteResume() {
+    return this.http.delete(`${this.baseUrl}/job-seeker/resume`, {
+      headers: this.getAuthHeaders() 
+    });
+  }
+  
+  
+  
 }

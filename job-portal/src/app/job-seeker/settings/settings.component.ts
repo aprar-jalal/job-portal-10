@@ -2,11 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
 import { JobSeekerApiService } from '../services/job-seeker-api.service';
 import { ReactiveFormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-settings',
-  imports: [ReactiveFormsModule],
+  imports: [ReactiveFormsModule,CommonModule],
   templateUrl: './settings.component.html',
   styleUrl: './settings.component.css'
 })
@@ -116,4 +117,23 @@ export class SettingsComponent implements OnInit {
       }
     });
   }
+
+showCurrentPassword = false;
+showNewPassword = false;
+showConfirmPassword = false;
+
+togglePasswordVisibility(type: string): void {
+  switch (type) {
+    case 'current':
+      this.showCurrentPassword = !this.showCurrentPassword;
+      break;
+    case 'new':
+      this.showNewPassword = !this.showNewPassword;
+      break;
+    case 'confirm':
+      this.showConfirmPassword = !this.showConfirmPassword;
+      break;
+  }
+}
+
 }  

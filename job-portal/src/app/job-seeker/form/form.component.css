@@ -1,148 +1,118 @@
 .form {
-    position:absolute;
-    margin-top: 2%;
+    position: absolute;
     width: 100%;
-    height: 585px;
-    border-radius: 20px;
-    border: none;
-    background-color: white;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.20);
-    font-size: 15px;
+    height: 500px;
     left: -5%;
+    margin-top: 20px;
+    border-radius: 20px;
+    padding: 40px 30px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    background-color: white;
 }
 
 
-.form-title{
-    padding-top: 8%;
+.title-1 {
+    font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
     text-align: center;
+    margin-bottom: 30px;
+    font-size: 35px;
+    font-weight: bold;
+    color: #1D2445;
 }
-.upload{
-    margin-left: 33%;
-    margin-top: 7%;
-    width: 35%;
+.center-group {
+    margin-top: 70px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-bottom: 25px;
 }
-.form-label{
+
+
+.title-2{
+    display: block;
     font-weight: 600;
-}
-.form-control{
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-}
-
-
-.cover{
-    margin-left: 33%;
-    font-weight: 600;
+    margin-bottom: 10px;
+    color: #1D2445;
 }
 
-#coverLetter {
-    width: 35%;
-    margin-left: 33%;
+.form-control {
+
+    width: 50%;
     padding: 12px;
+    border-radius: 8px;
     border: 1px solid #ccc;
-    border-radius: 6px;
-    font-size: 14px;
-
-}
-.submit{
-    margin-top: 3%;
-    margin-left: 33%;
-    background-color: #0d6efd;
-    color: #f2f7f7;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
 }
 
-
-@media (min-width: 0) and (max-width: 480px){
-    .form{
-        height: 370px;
-    }
-    .form-title{
-        margin-left: 10px;
-        text-align: start;
-        font-weight: 900;
-        font-size: 20px;
-        margin-bottom: 20px;
-    }
-    .upload{
-        width: 80%;
-        font-size: 13px;
-        margin-left: 10%;
-    }
-    .cover{
-        font-size: 13px;
-        margin-left: 10%;
-    }
-    #coverLetter{
-      width: 80%;
-      margin-left: 10%;
-      height: 100px;
-    }
-    .submit{
-        margin-top: 25px;
-    }
+.button-group {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 100px;
+    flex-wrap: wrap;
 }
-@media (min-width: 481px) and (max-width: 768px){
+.submit {
+    background-color: #1D2445;
+    color: white;
+    font-size: 18px;
+    padding: 10px 25px;
+    font-weight: 600;
+    border: none;
+    border-radius: 8px;
+}
+
+.submit:hover {
+    background-color: #4A506A;
+}
+
+.download{
+    text-align: center;
+    color: #1d7734;
+    font-weight: 600;
+    font-size: 18px;
+    text-decoration: none;
+    border: 1px solid #1d7734;
+    padding: 8px 18px;
+    border-radius: 8px;
+    transition: 300ms;
+}
+
+.download:hover {
+    background-color: #1d7734;
+    color: white;
+    text-decoration: none;
+}
+
+.delete {
+    background-color: #1D2445;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 12px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.delete:hover {
+    background-color: #4A506A;
+}
+
+@media (max-width: 768px) {
     .form {
-            height: 360px;
-        }
-    
-        .form-title {
-            font-weight: 900;
-            font-size: 25px;
-            margin-bottom: 20px;
-        }
-    
-        .upload {
-            width: 80%;
-            font-size: 13px;
-            margin-left: 10%;
-        }
-    
-        .cover {
-            font-size: 13px;
-            margin-left: 10%;
-        }
-    
-        #coverLetter {
-            width: 80%;
-            margin-left: 10%;
-            height: 100px;
-        }
-    
-        .submit {
-            margin-top: 25px;
-            margin-left: 40%;
-        }
-}
-@media (min-width: 768px) and (max-width: 1279px){
-    .form {
-            height: 465px;
-        }
-    
-        .form-title {
-            font-weight: 900;
-            font-size: 25px;
-            margin-bottom: 50px;
-        }
-    
-        .upload {
-            width: 80%;
-            font-size: 13px;
-            margin-left: 10%;
-        }
-    
-        .cover {
-            font-size: 13px;
-            margin-left: 10%;
-        }
-    
-        #coverLetter {
-            width: 80%;
-            margin-left: 10%;
-            height: 100px;
-        }
-    
-        .submit {
-            margin-top: 40px;
-            margin-left: 40%;
-        }
+        padding: 25px;
+        margin: 20px;
+    }
+
+    .title-1 {
+        font-size: 22px;
+    }
+
+    .submit,
+    .download {
+        width: 100%;
+        text-align: center;
+    }
 }

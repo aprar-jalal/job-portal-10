@@ -5,7 +5,6 @@ import { JobService } from '../../empolyer/services/job.service';
 import { Job } from '../../empolyer/models/job.model';
 import { FavaroteJobService } from '../services/favorite/FavoriteJobService';
 import { SearchService } from '../services/search/search.service';
-import { ActivatedRoute } from '@angular/router';
 import Swal from 'sweetalert2';
 
 @Component({
@@ -17,7 +16,7 @@ import Swal from 'sweetalert2';
 })
 export class JobApplectionComponent implements OnInit {
   jobs: Job[] = [];
-  userId = 102;
+ 
   favoriteJobIds: number[] = [];
   notFound = false;
 
@@ -25,10 +24,10 @@ export class JobApplectionComponent implements OnInit {
     private jobService: JobService,
     private favaroteJobService: FavaroteJobService,
     private searchService: SearchService,
-    private route: ActivatedRoute
   ) {}
 
   ngOnInit() {
+    
     this.loadJobsAndFavorites();
 
     this.searchService.searchQuery$.subscribe((query) => {
@@ -70,7 +69,7 @@ export class JobApplectionComponent implements OnInit {
 
   loadFavorites() {
     this.favaroteJobService
-      .GetFavorateJobsForUSer(this.userId)
+      .GetFavorateJobsForUSer()
       .subscribe((Favorites) => {
         this.favoriteJobIds = Favorites.map((Favorite) => Favorite.job_id);
       });

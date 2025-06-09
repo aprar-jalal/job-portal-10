@@ -19,6 +19,7 @@ export class SearchService {
 
   // Call your API to get search results
   searchJobs(query: string): Observable<Job[]> {
+    
     return this.http.get<Job[]>(`http://127.0.0.1:8000/api/search?query=${query}`);
   }
 }

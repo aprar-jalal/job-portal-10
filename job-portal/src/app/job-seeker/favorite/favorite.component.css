@@ -40,6 +40,7 @@
 }
 
 .favorite-body {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
     padding: 20px;
     display: flex;
     flex-direction: column;
@@ -53,7 +54,7 @@
     font-weight: bold;
 }
 
-.view-btn {
+.view {
     margin-top: auto;
     padding: 10px;
     border: 2px solid #1D2445;
@@ -63,6 +64,11 @@
     cursor: pointer;
     transition: background-color 0.3s ease, color 0.3s ease;
     width: 100%;
+    text-align: center;
+    display: inline-block;
+    text-decoration: none;
+    align-items: center;
+    height: 40px;
 }
 
 .view-btn:hover {

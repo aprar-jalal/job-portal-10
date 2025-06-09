@@ -43,7 +43,7 @@ export class JobService {
   }
   //aprar start
   getAllJobs():Observable<Job[]>{
-     return this.http.get<Job[]>('http://127.0.0.1:8000/api/allJobs');
+     return this.http.get<Job[]>('http://localhost:8000/api/allJobs');
   }
 
   GetJobByIdForDetails(jobId:number):Observable<Job>{
