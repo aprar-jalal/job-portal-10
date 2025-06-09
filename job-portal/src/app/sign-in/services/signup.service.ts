@@ -14,5 +14,6 @@ export class SignupService {
 
   register(user: SignUpModel): Observable<any> {
     return this.http.post(`${this.apiUrl}/sign-up`, user);
+  
   }
 }

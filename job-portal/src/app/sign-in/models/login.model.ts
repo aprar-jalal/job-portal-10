@@ -13,11 +13,12 @@ export class LoginRequest {
 export class User {
   id: number;
   email: string;
-
+  // role_id:number;
 
   constructor(id: number, email: string) {
     this.id = id;
     this.email = email;
+    // this.role_id=role_id;
   }
 }
 
@@ -32,3 +33,5 @@ export class LoginResponse {
     this.token = token;
   }
 }
+
+
