@@ -2,13 +2,24 @@
      style="max-width: 1023px;
 ">
 
-  <div class="d-flex justify-content-between align-items-center mb-4">
+  <div class="  d-flex justify-content-between align-items-center mb-4">
     <h1 class="h3"><i class="bi bi-briefcase me-2"></i>Post a Job</h1>
-    <button class="btn text-white" [routerLink]="'/postJob'"
+    <button class=" post-job-btn btn text-white" [routerLink]="'/postJob'"
     style="background-color: #1D2445"
     > <i class="bi bi-pencil-square me-2"> </i> Post New Job </button>
   </div>
 
-  <app-recent-jobs-list></app-recent-jobs-list>
+
+
+  <app-recent-jobs-list (numberOfJobs)="getNumberOfJobs($event)" ></app-recent-jobs-list>
+
+  <div *ngIf="numberOfJobs <= 0">
+    <div class="d-flex justify-content-center flex-column align-items-center mt-5"
+         style="font-size: 32px; color: #1d2445"
+    >
+      <i class="bi bi-inbox text-secondary" style="font-size: 2rem;"></i>
+      <p >No jobs available.</p>
+    </div>
+  </div>
 
 </div>

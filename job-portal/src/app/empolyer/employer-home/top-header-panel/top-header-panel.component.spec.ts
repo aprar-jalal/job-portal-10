@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { AllJobsCardComponent } from './all-jobs-card.component';
+import { TopHeaderPanelComponent } from './top-header-panel.component';
 
-describe('AllJobsCardComponent', () => {
-  let component: AllJobsCardComponent;
-  let fixture: ComponentFixture<AllJobsCardComponent>;
+describe('TopHeaderPanelComponent', () => {
+  let component: TopHeaderPanelComponent;
+  let fixture: ComponentFixture<TopHeaderPanelComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [AllJobsCardComponent]
+      imports: [TopHeaderPanelComponent]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(AllJobsCardComponent);
+    fixture = TestBed.createComponent(TopHeaderPanelComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

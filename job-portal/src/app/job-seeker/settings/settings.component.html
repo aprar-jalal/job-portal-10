@@ -2,8 +2,12 @@
     <div class="settings-container">
         <h2>Settings</h2>
         <form [formGroup]="profileForm">
-            <label>Full Name:</label>
-            <input type="text" formControlName="fullName" />
+            <label>First Name:</label>
+            <input type="text" formControlName="firstName" />
+            
+            <label>Last Name:</label>
+            <input type="text" formControlName="lastName" />
+            
 
             <label>Phone Number:</label>
             <input type="text" formControlName="phone" />
@@ -26,29 +30,34 @@
 
             <label>Years of Experience:</label>
             <input type="text" formControlName="experienceYears" />
-
-
-            <div class="changePassword"> do you want to change your password ?</div>
-
+            
             <label>Current Password:</label>
-            <input type="password" formControlName="currentPassword" />
-
+            <div class="password-field">
+                <input [type]="showCurrentPassword ? 'text' : 'password'" formControlName="currentPassword" />
+                <i class="bi" [ngClass]="showCurrentPassword ? 'bi-eye-slash' : 'bi-eye'"
+                    (click)="togglePasswordVisibility('current')"></i>
+            </div>
+            
             <label>New Password:</label>
-            <input type="password" formControlName="newPassword" />
+            <div class="password-field">
+                <input [type]="showNewPassword ? 'text' : 'password'" formControlName="newPassword" />
+                <i class="bi" [ngClass]="showNewPassword ? 'bi-eye-slash' : 'bi-eye'" (click)="togglePasswordVisibility('new')"></i>
+            </div>
+            
+            <label>Confirm Password:</label>
+            <div class="password-field">
+                <input [type]="showConfirmPassword ? 'text' : 'password'" formControlName="confirmPassword" />
+                <i class="bi" [ngClass]="showConfirmPassword ? 'bi-eye-slash' : 'bi-eye'"
+                    (click)="togglePasswordVisibility('confirm')"></i>
+            </div>
+            
 
-            <label>Confirm New Password:</label>
-            <input type="password" formControlName="confirmNewPassword" />
-
-            <button type="button">Save</button>
+            
+            <button type="button" (click)="onSave()">Save</button>
         </form>
 
-        <button class="logout">
-            <i class="bi bi-box-arrow-right"></i> Log Out
-        </button>
-          
+    
+        </div>
           
     </div>
-</div>
-  
-  
   

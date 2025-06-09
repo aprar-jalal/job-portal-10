@@ -21,27 +21,20 @@
         </div>
 
         <div class="mb-3 position-relative">
-          <input
-            [type]="showPassword ? 'text' : 'password'"
-            class="form-control"
+        <input
+           [type]="showPassword ? 'text' : 'password'"
+           class="form-control"
             formControlName="password"
-            placeholder="Password"
-            style="border: 1px solid rgba(0,0,0,0.15); box-shadow: 0 2px 10px rgba(0,0,0,0.1);"
-          />
+           placeholder="Password"
+           style="border: 1px solid rgba(0,0,0,0.15); box-shadow: 0 2px 10px rgba(0,0,0,0.1);"
+             />
+
           <small class="text-danger" *ngIf="password?.invalid && password?.touched">
             <span *ngIf="password?.errors?.['required']">Password is required</span>
             <span *ngIf="password?.errors?.['minlength']">Password must be at least 8 characters</span>
           </small>
 
-          <button
-            type="button"
-            (click)="togglePasswordVisibility()"
-            class="btn btn-sm btn-outline-light position-absolute"
-            style="top: 50%; right: 10px; transform: translateY(-50%); background: transparent; border: none;"
-            tabindex="-1"
-          >
-            <i class="bi" [ngClass]="showPassword ? 'bi-eye-slash' : 'bi-eye'"></i>
-          </button>
+
         </div>
 
         <div class="mb-3 text-end">

@@ -1,4 +1,18 @@
 <div class="status">
+    <div class="job-card" *ngFor="let item of appliedJobs">
+        <div class="job-info">
+            <h3 class="job-title">{{ item.job?.job_title || 'Unknown Title' }}</h3>
+            <p class="job-detail"><strong>Location:</strong> {{ item.job?.location || 'N/A' }}</p>
+            <p class="job-detail"><strong>Salary:</strong> {{ item.job?.salary ? ('$' + item.job.salary) : 'N/A' }}</p>
+        </div>
 
-
+        <div class="status-chip" [ngClass]="{
+        'pending': item.application_status === 'pending',
+        'accepted': item.application_status === 'accepted',
+        'rejected': item.application_status === 'rejected'
+      }">
+            {{ item.application_status ? (item.application_status | titlecase) : 'Unknown' }}
+        </div>
+    </div>
 </div>
+  

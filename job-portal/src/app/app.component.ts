@@ -7,9 +7,11 @@ import {NavbarComponent} from './navbar/navbar.component';
   selector: 'app-root',
   standalone: true,
   imports: [
+  
     RouterOutlet,
     CommonModule,
     NavbarComponent,
+   
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
