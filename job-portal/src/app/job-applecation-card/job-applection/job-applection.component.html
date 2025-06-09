@@ -1,5 +1,5 @@
 <div >
-  <div  class="d-flex align-items-center justify-content-between " >
+  <div  class="d-flex align-items-center justify-content-between mb-5" >
     <div class="row container  g-3 m-auto"   >
       <div class=" col-12 col-lg-4 col-md-6 col-sm-12 " *ngFor="let job of jobs"  >
         <app-job-card [job]="job" [userId]="102"  [favoriteJobIds]="favoriteJobIds" (favoriteChanged)="onFavoriteChanged()" ><p id="applicationCard"></p></app-job-card> <!--(favoriteChanged)="onFavoriteChanged()"-->
