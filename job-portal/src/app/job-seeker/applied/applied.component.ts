@@ -1,16 +1,19 @@
 import { Component, OnInit } from '@angular/core';
-import { JobSeekerApiService } from '../services/job-seeker-api.service';
 import { CommonModule } from '@angular/common';
+import { RouterLink } from '@angular/router';
+import { JobSeekerApiService } from '../services/job-seeker-api.service';
+
 @Component({
   selector: 'app-applied',
-  imports: [CommonModule],
+  standalone: true,
+  imports: [CommonModule, RouterLink],
   templateUrl: './applied.component.html',
   styleUrl: './applied.component.css'
 })
 export class AppliedComponent implements OnInit {
   appliedJobs: any[] = [];
 
-  constructor(private jobSeekerApi: JobSeekerApiService) { }
+  constructor(private jobSeekerApi: JobSeekerApiService) {}
 
   ngOnInit(): void {
     this.loadAppliedJobs();
