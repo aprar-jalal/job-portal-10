@@ -17,58 +17,68 @@ export class EditProfileComponent implements OnInit {
   constructor(private employerService: EmployerService) { }
 
   employerForm!: FormGroup;
+
   ngOnInit()
   {
     this.employerForm = new FormGroup({
-      companyName: new FormControl ("" , Validators.minLength(3)),
+      company_name: new FormControl ("" , Validators.minLength(3)),
       industry: new FormControl (""),
-      establishedDate: new FormControl (""),
-      companySize: new FormControl (""),
+      established_date: new FormControl (""),
+      company_size: new FormControl (""),
       description: new FormControl (""),
     });
 
-    const employerId = 1; //Temp !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-
-    this.employerService.getEmployerById(employerId).subscribe({
-      next: (data) => {
-        this.employerForm.patchValue({
-          companyName: data.company_name,
-          industry: data.industry,
-          establishedDate: data.established_date,
-          companySize: data.company_size,
-          description: data.description
-        });
-      },
-    });
+    this.employerService.getEmployerInfo().subscribe({
+        next: (data) => {
+          console.log(data);
+          this.employerForm.patchValue({
+            company_name: data.company_name,
+            industry: data.industry,
+            established_date: data.established_date,
+            company_size: data.company_size,
+            description: data.description
+          });
+        },
+    })
 
   }
 
+  selectedFile: File|null = null;
+  onFileSelected(event:any)
+  {
+    this.selectedFile = event.target.files?.[0] || null;
+  }
 
   onUpdate() {
-    if (this.employerForm.valid) {
-      const employerId = 1 //Temp !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-      const employerFromForm = this.employerForm.value;
-      const dataToUpdate:Employer ={
-        employer_id: employerId,
-        company_name: employerFromForm.companyName,
-        industry: employerFromForm.industry,
-        logo_url: null,
-        established_date: employerFromForm.establishedDate,
-        company_size: employerFromForm.companySize,
-        description: employerFromForm.description,
-        verified: false,
-      }
+    const formValue:Employer = this.employerForm.value;
+    const dataToUpdate = {
+      company_name: formValue.company_name || '',
+      industry: formValue.industry || '',
+      established_date: formValue.established_date || Date,
+      company_size: formValue.company_size|| '',
+      description: formValue.description|| '',
+    };
 
-      this.employerService.updateEmployer(employerId, dataToUpdate).subscribe(
-        (data) => {
-        }
-      )
-    }
+    console.log('data to be sent:', dataToUpdate);
+
+    this.employerService.updateEmployer(dataToUpdate).subscribe({
+      next: ()  =>
+      {
+        alert('Update successful');
+        this.cancelClicked.emit();
+      },
+      error: () => {
+        alert('Update failed');
+      }
+    });
   }
+
 
   onCancel() {
     this.employerForm.reset();
+    this.selectedFile = null;
     this.cancelClicked.emit();
+
   }
 
 

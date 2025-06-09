@@ -78,5 +78,12 @@ export class JobSeekerApiService {
         headers: this.getAuthHeaders()
       });
   }
+  deleteResume() {
+    return this.http.delete(`${this.baseUrl}/job-seeker/resume`, {
+      headers: this.getAuthHeaders() 
+    });
+  }
+  
+  
   
 }

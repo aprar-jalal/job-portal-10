@@ -18,12 +18,21 @@ export class ViewProfileComponent {
   }
 
 
+  // ngOnInit() {
+    // const employerId = 1; //Temp , I'm wait the auth
+    // this.employerService.getEmployerById(employerId).subscribe((employer: Employer) => {
+    //   this.employer = employer;
+    // })
+
   ngOnInit() {
-    const employerId = 1; //Temp , I'm wait the auth
-    this.employerService.getEmployerById(employerId).subscribe((employer: Employer) => {
+
+    this.employerService.getEmployerInfo().subscribe((employer: Employer) => {
       this.employer = employer;
     })
+
   }
+
+
 
   onEdit() {
     this.editClicked.emit();

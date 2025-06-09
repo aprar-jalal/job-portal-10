@@ -1,0 +1,119 @@
+<div style="background-color: #F4F4F6">
+
+  <div class=" d-flex justify-content-center p-3"  >
+    <div class="container border border-2 post-job-form p-3 rounded-2"
+         style="
+
+  background-color: white;
+  box-shadow:0 0 3px 2px rgba(0,0,0,.075);
+
+">
+
+      <header class="d-flex justify-content-between">
+        <h2 class="mx-2">Edit the job</h2>
+        <button class="btn btn-close d-flex align-self-center" (click)="cancelPost()" ></button>
+      </header>
+
+      <hr>
+
+      <form [formGroup]="editJobForm" (ngSubmit)="submitEdit()" class="d-flex flex-column align-content-between">
+        <div>
+          <div class="mb-4">
+            <label for="formGroupJobTitle" class="form-label"><strong>Job Title</strong> </label>
+            <input type="text" class="form-control" id="formGroupJobTitle" placeholder="Example input placeholder" formControlName = "job_title">
+          </div>
+
+
+          <div class="mb-4">
+            <label class="mb-2" for="job_category"> <strong>Job Category</strong> </label>
+            <input type="text" class="form-control" id="job_category" placeholder="Example input placeholder" formControlName = "job_category">
+          </div>
+
+
+          <div class="mb-4">
+            <label class="mb-2" for="formGroupLocation"> <strong>Job Location</strong>
+            </label >
+            <input type="text" class="form-control" id="formGroupLocation" placeholder="Example input placeholder" formControlName = "location">
+
+          </div>
+
+
+          <div class="mb-5">
+            <label class="mb-2" for="formGroupSalary"> <strong>Monthly Salary</strong> </label>
+            <input type="text" class="form-control" id="formGroupSalary" placeholder="Example input placeholder" formControlName = "salary">
+
+          </div>
+
+          <hr>
+          <div class="d-flex justify-content-between">
+            <label><strong>Employment Type</strong></label>
+            <div class="mb-3">
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" value="full-time" formControlName="job_type" id="full-time">
+                <label class="form-check-label" for="full-time">full-time</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" value="part-time" formControlName="job_type" id="part-time">
+                <label class="form-check-label" for="part-time">Part Time</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" value="contractor" formControlName="job_type" id="contractor">
+                <label class="form-check-label" for="contractor">Contractor</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" value="temporary" formControlName="job_type" id="temporary">
+                <label class="form-check-label" for="temporary">Temporary</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" value="internship" formControlName="job_type" id="internship">
+                <label class="form-check-label" for="internship">Internship</label>
+              </div>
+            </div>
+            <div></div>
+          </div>
+
+          <hr>
+
+          <div class="d-flex justify-content-between mb-3">
+            <label><strong>Workplace</strong></label>
+            <div class="mb-3">
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" value="onsite" formControlName="workplace" id="onsite">
+                <label class="form-check-label" for="onsite">onsite</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" value="hybrid" formControlName="workplace" id="hybrid">
+                <label class="form-check-label" for="hybrid">hybrid</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" value="remote" formControlName="workplace" id="remote">
+                <label class="form-check-label" for="remote">remote</label>
+              </div>
+            </div>
+            <div></div>
+          </div>
+
+
+
+
+
+          <div>
+            <label><strong>Description</strong></label>
+            <textarea class="form-control" id="jobDescription" rows="5" placeholder="Write job details here..." formControlName="description"></textarea>
+
+          </div>
+        </div>
+
+        <hr>
+
+        <div class="d-flex justify-content-end gap-2 mt-2">
+          <button class="btn btn-secondary" (click)="cancelPost()" >Cansel</button>
+          <button class="btn btn-primary">Edit</button>
+        </div>
+      </form>
+
+    </div>
+  </div>
+
+
+</div>
