@@ -67,4 +67,20 @@ export class FormComponent implements OnInit {
     link.download = 'resume';
     link.click();
   }
+  deleteResume() {
+    if (!confirm("Are you sure you want to delete your resume?")) return;
+  
+    this.jobSeekerApi.deleteResume().subscribe({
+      next: () => {
+        alert("Resume deleted successfully.");
+        this.resumeUrl = null;
+        this.resumeFile = null;
+      },
+      error: err => {
+        console.error("Delete failed:", err);
+        alert("Failed to delete resume.");
+      }
+    });
+  }
+  
 }
