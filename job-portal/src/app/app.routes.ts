@@ -11,11 +11,15 @@ import { JobDescriptionComponent } from './job-applecation-card/job-description/
 import { EmployerHomeComponent } from './empolyer/employer-home/employer-home.component';
 import { AllJobsComponent } from './job-applecation-card/all-jobs/all-jobs.component';
 import { AboutUsComponent } from './about-us/about-us.component';
-import {AdminReportsComponent} from './admin-reports/admin-reports.component';
-import {PostJobComponent} from './empolyer/post-job/post-job.component';
-import {RecentJobsPageComponent} from './empolyer/recent-jobs-page/recent-jobs-page.component';
-import {JobDetailsComponent} from './empolyer/job-details/job-details.component';
-import {AllJobApplicationsComponent} from './empolyer/all-job-applications/all-job-applications.component';
+import { AdminReportsComponent } from './admin-reports/admin-reports.component';
+import { PostJobComponent } from './empolyer/post-job/post-job.component';
+import { RecentJobsPageComponent } from './empolyer/recent-jobs-page/recent-jobs-page.component';
+import { AllJobApplicationsComponent } from './empolyer/all-job-applications/all-job-applications.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { UserManagementComponent } from './user-managment/user-managment.component';
+import { JobListingsComponent } from './job-list/job-list.component';
+import { AdminLayoutComponent } from './admin/admin-layout/admin-layout.component';
+
 export const routes: Routes = [
   // {path: 'job-application', component: JobApplectionComponent},
   { path: 'employer', component: EmployerHomeComponent },
@@ -27,11 +31,19 @@ export const routes: Routes = [
   { path: 'home-page', component: HomePageComponent },
   { path: 'job-seeker', component: JobMainComponent },
   { path: 'job-description/:id', component: JobDescriptionComponent },
-  {path:'all-jobs' , component:AllJobsComponent},
-  {path:'postJob', component: PostJobComponent},
-  {path:'recentJobs', component: RecentJobsPageComponent},
-  // {path:'job-details/:id', component: JobDetailsComponent},
-  {path: 'allJobApplications', component: AllJobApplicationsComponent},
-  {path:'adminReports', component: AdminReportsComponent},
-  {path:'about-us', component: AboutUsComponent},
+  { path: 'all-jobs', component: AllJobsComponent },
+  { path: 'postJob', component: PostJobComponent },
+  { path: 'recentJobs', component: RecentJobsPageComponent },
+  { path: 'allJobApplications', component: AllJobApplicationsComponent },
+  { path: 'adminReports', component: AdminReportsComponent },
+  { path: 'about-us', component: AboutUsComponent },
+  {
+    path: '',
+    component: AdminLayoutComponent,
+    children: [
+      { path: 'dashboard', component: DashboardComponent },
+      { path: 'usermanagment', component: UserManagementComponent },
+      { path: 'joblist', component: JobListingsComponent }
+    ]
+  }
 ];

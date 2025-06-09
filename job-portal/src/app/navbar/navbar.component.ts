@@ -128,8 +128,14 @@ export class NavbarComponent implements OnInit {
     }
     else if (item === 'dashboard') {
       if (userType === 'admin') {
-        this.router.navigate(['/admin-dashboard']);
+        this.router.navigate(['/dashboard']);
+
+
       }
+      else if(userType === 'admin'){
+        this.router.navigate(['/usermanagment']);
+      }
+
     }
    else if (item === 'jobApplications'){
        this.router.navigate(['/allJobApplications']);

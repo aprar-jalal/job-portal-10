@@ -1,0 +1,61 @@
+
+<div class="user-management">
+  <div class="header">
+    <h2>User Management</h2>
+    <div class="filters">
+      <button [class.active]="filterStatus === 'all'" (click)="filterUsers('all')">
+        All Users
+      </button>
+      <button [class.active]="filterStatus === 'pending'" (click)="filterUsers('pending')">
+        Pending
+      </button>
+      <button [class.active]="filterStatus === 'approved'" (click)="filterUsers('approved')">
+        Approved
+      </button>
+      <button [class.active]="filterStatus === 'rejected'" (click)="filterUsers('rejected')">
+        Rejected
+      </button>
+    </div>
+  </div>
+
+  <div class="users-table">
+    <table>
+      <thead>
+      <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Role</th>
+        <th>Registration Date</th>
+        <th>Status</th>
+        <th>Actions</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let user of filteredUsers">
+        <td>{{user.name}}</td>
+        <td>{{user.email}}</td>
+        <td>{{user.role}}</td>
+        <td>{{user.registrationDate | date}}</td>
+        <td>
+            <span class="status-badge" [class]="user.status">
+              {{user.status}}
+            </span>
+        </td>
+        <td class="actions">
+          <button *ngIf="user.status === 'pending'"
+                  class="approve"
+                  (click)="approveUser(user.id)">
+            <i class="fas fa-check"></i> Approve
+          </button>
+          <button *ngIf="user.status === 'pending'"
+                  class="reject"
+                  (click)="rejectUser(user.id)">
+            <i class="fas fa-times"></i> Reject
+          </button>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+

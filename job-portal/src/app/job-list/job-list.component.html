@@ -1,0 +1,63 @@
+<div class="job-listings">
+  <div class="header">
+    <h2>Job Listings</h2>
+    <div class="search-box">
+      <input
+        type="text"
+        [(ngModel)]="searchTerm"
+        (input)="searchJobs()"
+        placeholder="Search jobs..."
+      >
+      <i class="fas fa-search"></i>
+    </div>
+  </div>
+
+  <div class="jobs-container">
+    <div class="job-card" *ngFor="let job of filteredJobs">
+      <div class="job-header">
+        <h3>{{job.title}}</h3>
+        <div class="status-badge" [class]="job.status">
+          {{job.status}}
+        </div>
+      </div>
+
+      <div class="job-details">
+        <div class="detail">
+          <i class="fas fa-building"></i>
+          <span>{{job.company}}</span>
+        </div>
+        <div class="detail">
+          <i class="fas fa-map-marker-alt"></i>
+          <span>{{job.location}}</span>
+        </div>
+        <div class="detail">
+          <i class="fas fa-clock"></i>
+          <span>{{job.type}}</span>
+        </div>
+      </div>
+
+      <div class="job-stats">
+        <div class="stat">
+          <i class="fas fa-calendar"></i>
+          <span>Posted: {{job.postedDate | date}}</span>
+        </div>
+        <div class="stat">
+          <i class="fas fa-users"></i>
+          <span>{{job.applicants}} Applicants</span>
+        </div>
+      </div>
+
+      <div class="job-actions">
+        <button class="status-toggle" (click)="toggleJobStatus(job.id)">
+          <i class="fas" [class.fa-toggle-on]="job.status === 'active'"
+             [class.fa-toggle-off]="job.status === 'closed'"></i>
+          {{job.status === 'active' ? 'Mark as Closed' : 'Reactivate'}}
+        </button>
+        <button class="remove" (click)="removeJob(job.id)">
+          <i class="fas fa-trash"></i>
+          Remove
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
