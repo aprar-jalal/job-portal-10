@@ -16,11 +16,16 @@ import {PostJobComponent} from './empolyer/post-job/post-job.component';
 import {RecentJobsPageComponent} from './empolyer/recent-jobs-page/recent-jobs-page.component';
 import {JobDetailsComponent} from './empolyer/job-details/job-details.component';
 import {AllJobApplicationsComponent} from './empolyer/all-job-applications/all-job-applications.component';
+import {RedirectGuard} from './guards/redirect.guard';
 export const routes: Routes = [
   // {path: 'job-application', component: JobApplectionComponent},
   { path: 'employer', component: EmployerHomeComponent },
   { path: 'login', component: LogInComponent },
-  { path: '', component: HomePageComponent },
+  {
+    path: '',
+    canActivate: [RedirectGuard],
+    component: EmployerHomeComponent
+  },
   { path: 'forgot-password', component: ForgotPasswordComponent },
   { path: 'sign-up', component: SignUpComponent },
   { path: 'notifications-page', component: NotificationsPageComponent },

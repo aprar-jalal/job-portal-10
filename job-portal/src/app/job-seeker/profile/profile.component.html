@@ -1,8 +1,8 @@
 <div class="profile-app">
     <div class="profile-top">
         <button class="edit-background"><i class="bi bi-pencil"> </i></button>
-        <img class="backgrond-profile-pic" src="assets/backgrond-profile-pic.jpeg" alt="background">
-       
+        <img class="backgrond-profile-pic" src="../../../../public/assets/backgrond-profile-pic.jpeg" alt="background">
+
     </div>
         <div class="profile-pic-wrapper">
             <img class="profile-pic" src="/assets/default-pic.png" alt="Profile pic">
@@ -12,7 +12,7 @@
         <div class="info">
             <div class="name">User Name</div>
 
-            
+
     <div class="top-bar">
         <ul class="nav-list">
             <li><a class="applied" (click)="selectComponent('applied')">Applied</a></li>
@@ -21,7 +21,7 @@
             <li><a class="status" (click)="selectComponent('status')">Status</a></li>
         </ul>
     </div>
-    
+
     <div>
         <app-save *ngIf="selectedComponent === ''"></app-save>
         <app-applied *ngIf="selectedComponent === 'applied'"></app-applied>

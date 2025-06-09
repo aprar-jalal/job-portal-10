@@ -39,9 +39,13 @@
         </ul>
       </div>
 </div>
-      <div class = "par2">
-<!--        empty div just to center navbar-->
+      <div *ngIf="this.userTypeService.getUserType()!== 'guest' "  class="par2 nav-item text-center" (click)="handleLogout()">
+  <span class="logOut-item">
+    <i class="logoOutButton bi bi-box-arrow-right fs-4 d-block"></i>
+    <span class="logOut fw-medium">Logout</span>
+  </span>
       </div>
+
     </div>
   </nav>
 </div>
