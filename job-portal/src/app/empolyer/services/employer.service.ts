@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {HttpClient} from '@angular/common/http';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {Employer} from '../models/employer.model'
 
@@ -9,12 +9,20 @@ import {Employer} from '../models/employer.model'
 
 export class EmployerService {
   constructor(private http: HttpClient) { }
-  getEmployerById(employerId: number): Observable<Employer>
+  getEmployerInfo(): Observable<Employer>
   {
-    return this.http.get<Employer>(`http://127.0.0.1:8000/api/employers/${employerId}`);
+    const token = localStorage.getItem('authToken');
+    const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
+    return this.http.get<Employer>('http://127.0.0.1:8000/api/employer', { headers });
+
   }
-  updateEmployer(employerId: number, employer: Employer): Observable<Employer> {
-      return this.http.put<Employer>
-      (`http://127.0.0.1:8000/api/employers/${employerId}`, employer);
+  updateEmployer(employer: any): Observable<any> {
+
+    const token = localStorage.getItem('authToken');
+    const headers = new HttpHeaders()
+      .set('Authorization', `Bearer ${token}`)
+      .set('Content-Type', 'application/json');
+
+    return this.http.put<any>('http://127.0.0.1:8000/api/employer', employer, { headers });
   }
 }

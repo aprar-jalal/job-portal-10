@@ -3,7 +3,6 @@ import { NotificationsPageComponent } from './Notifications/notifications-page/n
 import { HomePageComponent } from './home-page/home-page.component';
 import { JobMainComponent } from './job-seeker/job-main/job-main.component';
 import { LogInComponent } from './sign-in/log-in/log-in.component';
-import { NgModule } from '@angular/core';
 import { ForgotPasswordComponent } from './sign-in/forgot-password/forgot-password.component';
 
 import { SignUpComponent } from './sign-in/sign-up/sign-up.component';
@@ -22,6 +21,9 @@ import {AllJobApplicationsComponent} from './empolyer/all-job-applications/all-j
 import { ResetPasswordComponent } from './sign-in/reset-password/reset-password.component';
 
 import {CompanyProfileComponent} from './empolyer/company-profile/company-profile.component';
+
+import {JobApplicationDetailsComponent} from './empolyer/all-job-applications/job-application-details/job-application-details.component';
+import {EditJobComponent} from './empolyer/recent-jobs-page/edit-job/edit-job.component';
 
 
 
@@ -44,11 +46,13 @@ export const routes: Routes = [
   {path:'adminReports', component: AdminReportsComponent},
   {path:'about-us', component: AboutUsComponent},
 
-  
+
   { path: 'reset-password', component: ResetPasswordComponent },
 
   {path:'job-details/:id', component: JobDetailsComponent},
   {path: 'companyProfile', component: CompanyProfileComponent},
+  {path: 'applicationDetails', component: JobApplicationDetailsComponent},
+  {path:'edit-job/:id', component: EditJobComponent},
 
   {path: 'allJobApplications', component: AllJobApplicationsComponent},
   {path:'job-application', component: JobApplectionComponent}
