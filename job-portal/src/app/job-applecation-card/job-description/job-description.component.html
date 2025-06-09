@@ -1,51 +1,47 @@
 <div class="card  container-fluid " style="height: 300px;" >
-  <div class="card-body d-flex   flex-column align-items-center justify-content-center">
-    <h1 class="card-title">Front End Developer</h1>
-    <h3 class="card-text fs-5">company Name</h3>
+  <div class="card-body d-flex   flex-column align-items-center justify-content-center" *ngIf="job">
+    <h1 class="card-title">{{job.job_title}}</h1>
+        <h3 class="card-text fs-5">{{job.company_name}}</h3>
   </div>
 </div>
 
 <div class="container-fluid " style=" background-color: rgb(244, 244, 246); overflow: hidden;">
-<div class="container " style="margin-top: 100px;">
-  <div class="row" *ngIf="job">
-    <div class="col-lg-4  me-5 shadow rounded-4 " style="background-color:  rgb(255, 255, 255); height: 300px;">
-      <div class=" mb-3 d-flex justify-content-between mt-4">
+<div  style="margin-top: 70px;">
+  <div class="row d-flex justify-content-evenly" *ngIf="job">
+    <div class="col-lg-3 shadow rounded-4 " style="background-color:  rgb(255, 255, 255); height: 280px;">
+      <div class=" mb-2 d-flex justify-content-between mt-2">
         <span
-            class="card-text border  p-1  border-opacity-10 rounded fw-medium ps-3 pe-3 me-3 ">{{job.JobType}}</span>
+            class="card-text border  p-1  border-opacity-10 rounded fw-medium ps-3 pe-3 me-3 ">{{job.job_type}}</span>
         <span class="card-text border  p-1 border-opacity-10 rounded fw-medium ps-3 pe-3"> <i
-                class="bi bi-geo-alt"></i> {{job.JobLocation}}</span>
+                class="bi bi-geo-alt"></i> {{job.location}}</span>
     </div>
-    <div class="d-flex justify-content-start align-items-center ">
-        <img *ngIf="job.JobLogo" [src]="job.JobLogo" class="rounded-circle"  alt="logo" style="width:60px ; height:60px;">
-        <h5 class="m-3 fs-3">{{job.CompanyName}}</h5>
+      <div class="d-flex justify-content-start align-items-center ">
+        <img *ngIf="job.logo_url" [src]="job.logo_url" class="rounded-circle "  alt="logo" style="width:60px ; height:60px;">
+        <h5 class="ms-5 fs-5">{{job.company_name}}</h5>
     </div>
-    <h5 class="card-title mt-3 fs-5 fw-medium">{{job.JobName}}</h5>
-    <p class="card-text fw-lighter">{{job.AboutJop}} </p>
-  <button class="btn btn-dark w-100 mt-3" [routerLink]="'/Applection-form'">Apply Now</button>
+    <h5 class="card-title mt-3 fs-5 fw-medium">{{job.job_title}}</h5>
+    <p class="card-text fw-lighter mt-2">{{job.description}} </p>
+   <button class="btn btn-dark w-100 mt-2" [routerLink]="''">Go Back</button>
     </div>
-    <div class="col-lg-6 "  >
+    <div class="col-lg-5 "  >
       <h5 class="fw-bolder mb-3">Job Description</h5>
       <p class="mb-5 text-body-secondary fw-medium lh-2">
-        {{ job.jobFullDisc.JobDescription }}
+        {{job.job_full_disc}}
       </p>
-
-      <h6 class="fw-bold mb-3">Key Responsibilities</h6>
+ <div class="d-flex ">
+      <h6 class="fw-bold mb-1">Salary</h6>
       <ul class="mb-5 text-body-secondary fw-medium">
-        <li *ngFor="let responsibility of job.jobFullDisc.KeyResponsibilities | keyvalue">
-          {{ responsibility.value }}
-        </li>
+       {{job.salary}}
       </ul>
-
-      <h6 class="fw-bold mb-3">Skills and Experience</h6>
+</div>
+      <div class="d-flex ">
+      <h6 class="fw-bold mb-1">Job Work Place :</h6>
       <ul class="mb-5 text-body-secondary fw-medium">
-        <li *ngFor="let skill of job.jobFullDisc.SkillandExperience | keyvalue">
-          {{ skill.value }}
-        </li>
+        {{job.workplace}}
       </ul>
-
-      <div class="d-flex justify-content-between gap-2 mt-4">
-        <button class="btn btn-dark" (click)="showApplecationMsg()" type="submit">Apply Now</button>
-        <button class="btn btn-dark" [routerLink]="''">Go Back</button>
+     </div>
+      <div class="d-flex justify-content-start gap-2 mt-4">
+        <button class="btn btn-dark w-50" (click)="showApplecationMsg()" type="submit">Apply Now</button>
       </div>
     </div>
   </div>

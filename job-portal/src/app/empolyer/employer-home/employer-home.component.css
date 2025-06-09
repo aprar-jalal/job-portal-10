@@ -1,0 +1,20 @@
+.employer-windows
+{
+  height: 30rem;
+  width: 100%;
+  border-left: 10px solid #1D2445;
+  border-right: 10px solid #1D2445;
+  box-shadow:0 0 3px 2px rgba(0,0,0,.075);
+}
+
+
+.greeting-employer{
+  color: #1d2445;
+  font-size: 36px;
+  transition: .3s;
+  margin-bottom: 20px;
+}
+
+.greeting-employer:hover{
+  transform: translateY(-5px);
+}

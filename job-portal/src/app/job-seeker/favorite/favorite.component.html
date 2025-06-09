@@ -1,4 +1,21 @@
 <div class="favorite">
+    <div class="favorite-row">
+        <div class="favorite-col" *ngFor="let item of favoriteJobs">
+            <ng-container>
+                <div class="favorite-card">
+                    <button class="delete-btn" (click)="removeFromFavorites(item.job_id)">
+                        ❤️
+                    </button>
+                    <div class="favorite-body">
+                        <h5 class="favorite-title">{{ item.job_title }}</h5>
+                        <p><strong>Location:</strong> {{ item.location || 'N/A' }}</p>
+                        <p><strong>Salary:</strong> {{ item.salary ? ('$' + item.salary) : 'N/A' }}</p>
+                        <p><strong>Requirements:</strong> {{ item.job_full_disc?.dda || 'N/A' }}</p>
+                        <a class="view" [routerLink]="['/job-description', item.job_id]">View Details</a>
 
-
+                    </div>
+                </div>
+            </ng-container>
+        </div>
+    </div>
 </div>
