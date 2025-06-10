@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { CanActivate, Router } from '@angular/router';
-import { UserTypeService } from '../navbar/services/userType.service';
 
 @Injectable({
   providedIn: 'root'
@@ -8,21 +7,20 @@ import { UserTypeService } from '../navbar/services/userType.service';
 export class RedirectGuard implements CanActivate {
   constructor(
     private router: Router,
-    private currentUserType: UserTypeService
   ) {}
 
   canActivate(): boolean {
-    const userType = this.currentUserType.getUserType();
+    const userType = localStorage.getItem('roleId') || '0';
 
     switch (userType) {
-      case 'jobSeeker':
-      case 'guest':
+      case '2':
+      case '0':
         this.router.navigate(['/home-page']);
         break;
-      case 'employer':
+      case '3':
         this.router.navigate(['/employer']);
         break;
-      case 'admin':
+      case '1':
         this.router.navigate(['/adminReports']);
         break;
       default:

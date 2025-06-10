@@ -10,13 +10,13 @@
           <input
             type="email"
             class="form-control"
-            formControlName="username"
+            formControlName="email"
             placeholder="Email"
             style="border: 1px solid rgba(0,0,0,0.15); box-shadow: 0 2px 10px rgba(0,0,0,0.1);"
           />
-          <small class="text-danger" *ngIf="username?.invalid && username?.touched">
-            <span *ngIf="username?.errors?.['required']">Email is required</span>
-            <span *ngIf="username?.errors?.['email']">Please enter a valid email</span>
+          <small class="text-danger" *ngIf="email?.invalid && email?.touched">
+            <span *ngIf="email?.errors?.['required']">Email is required</span>
+            <span *ngIf="email?.errors?.['email']">Please enter a valid email</span>
           </small>
         </div>
 
