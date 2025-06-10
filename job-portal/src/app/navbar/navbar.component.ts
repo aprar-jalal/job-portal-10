@@ -55,7 +55,6 @@ export class NavbarComponent implements OnInit {
       case '2':
         this.navItems = [
           { name: 'home', label: 'Home', icon: 'bi bi-house' },
-          { name: 'favorites', label: 'Favorites', icon: 'bi bi-heart' },
           { name: 'notifications', label: 'Notifications', icon: 'bi bi-bell' },
           { name: 'me', label: 'Me', icon: 'bi bi-person' }
         ];
@@ -156,9 +155,7 @@ export class NavbarComponent implements OnInit {
       this.router.navigate(['/contact-us']);
     } else if (item === 'about-us') {
       this.router.navigate(['/about-us']);
-    } else if (item === 'favorites') {
-      this.router.navigate(['/favorites']);
-    }
+    } 
       else if (item === 'login'){
         this.router.navigate(['/login']);
       }
