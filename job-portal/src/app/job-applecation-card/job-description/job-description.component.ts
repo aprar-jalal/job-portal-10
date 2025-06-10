@@ -5,9 +5,10 @@ import Swal from 'sweetalert2';
 import { JobService } from '../../empolyer/services/job.service';
 import { Job } from '../../empolyer/models/job.model';
 import { ApplicationService } from '../services/application/application.service';
+import{FooterComponent} from '../../footer/footer.component';
 @Component({
   selector: 'app-job-description',
-  imports: [CommonModule, RouterLink],
+  imports: [CommonModule, RouterLink,FooterComponent],
   templateUrl: './job-description.component.html',
   styleUrl: './job-description.component.css',
 })
