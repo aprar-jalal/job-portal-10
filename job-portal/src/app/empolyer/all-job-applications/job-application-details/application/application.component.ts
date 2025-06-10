@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
 import {NgIf,NgClass} from "@angular/common";
+import {ActivatedRoute} from '@angular/router';
+import {ApplicationService} from '../../../../job-applecation-card/services/application/application.service';
+import {AppliedJob} from '../../../../job-applecation-card/models/Application';
 
 @Component({
   selector: 'app-application',
@@ -11,46 +14,15 @@ import {NgIf,NgClass} from "@angular/common";
   styleUrl: './application.component.css'
 })
 export class ApplicationComponent {
-  jobApplications = [
-    {
-      id: 1,
-      title: 'Web Development Internship',
-      applicant: 'Mohammad',
-      skills: ['React', 'HTML', 'CSS'],
-      status: 'Accepted',
-      imageURL: 'https://media.istockphoto.com/id/1435745704/photo/portrait-of-smiling-mid-adult-businessman-standing-at-corporate-office.jpg?s=1024x1024&w=is&k=20&c=tJytJf_M1BGBHCc7QF7K43xzmyuWzlAzuz_2IVkPeII='
-    },
-    {
-      id: 2,
-      title: 'Frontend Developer',
-      applicant: 'Sara',
-      skills: ['Angular', 'TypeScript', 'SCSS'],
-      status: 'Rejected',
-      imageURL: 'https://cdn.pixabay.com/photo/2023/01/27/04/53/muslim-7747745_1280.png'
-    },
-    {
-      id: 3,
-      title: 'Backend Developer Intern',
-      applicant: 'Omar',
-      skills: ['Node.js', 'Express', 'MongoDB'],
-      status: 'Under Review',
-      imageURL: 'https://randomuser.me/api/portraits/men/33.jpg'
-    },
-    {
-      id: 4,
-      title: 'UI/UX Internship',
-      applicant: 'Lina',
-      skills: ['Figma', 'Adobe XD', 'Prototyping'],
-      status: 'Interview Scheduled',
-      imageURL: 'https://cdn.pixabay.com/photo/2023/10/06/06/42/child-8297551_1280.png'
-    },
-    {
-      id: 5,
-      title: 'Full Stack Developer',
-      applicant: 'Yousef',
-      skills: ['React', 'Laravel', 'MySQL'],
-      status: 'Accepted',
-      imageURL: 'https://cdn.pixabay.com/photo/2017/06/26/02/47/man-2442565_1280.jpg'
+  jobApplication!: AppliedJob;
+  constructor(private route: ActivatedRoute, private applicationService: ApplicationService) {
+    const id = Number(this.route.snapshot.paramMap.get('id'));
+
+    if(id){
+      this.applicationService.getApplicationAndJobDetails(id).subscribe(application => {
+        this.jobApplication = application;
+        console.log(this.jobApplication);
+      })
     }
-  ];
+  }
 }

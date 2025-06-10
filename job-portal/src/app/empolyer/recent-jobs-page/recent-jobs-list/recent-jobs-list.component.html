@@ -1,40 +1,7 @@
 <div class="container p-1">
   <div class="col-12">
 
-    <div class="card mb-5" style="box-shadow: 0 0 3px 1px rgba(0,0,0.75); ">
-      <div class="card-body">
-        <div class="row g-3">
-          <div class="col-md-4">
-            <label class="form-label">Employment Type</label>
-            <select class="form-select">
-              <option selected>All Types</option>
-              <option>Full time</option>
-              <option>Part time</option>
-              <option>Contract</option>
-            </select>
-          </div>
-          <div class="col-md-4">
-            <label class="form-label">Job Industry</label>
-            <select class="form-select">
-              <option selected>All Industry</option>
-              <option>IT</option>
-              <option>Web</option>
-              <option>SE</option>
-            </select>
-          </div>
-          <div class="col-md-4">
-            <label class="form-label">Work Location</label>
-            <select class="form-select">
-              <option selected>All Locations</option>
-              <option>Onsite</option>
-              <option>Remote</option>
-              <option>Hybrid</option>
-            </select>
-          </div>
-        </div>
-      </div>
-    </div>
-    <h2 class="h5 mb-3">Your Recent Job Posts</h2>
+    <h2 class="h5 mb-3">Your Job Posts</h2>
     <app-recent-job-block *ngFor="let job of jobs" [job] = 'job '></app-recent-job-block>
 
   </div>

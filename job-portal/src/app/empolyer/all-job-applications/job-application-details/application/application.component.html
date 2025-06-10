@@ -1,5 +1,12 @@
+
 <div class="job-details-card shadow rounded-4 p-4">
-  <h2>Frontend Developer</h2>
+  <div class="d-flex justify-content-between">
+    <h2>{{jobApplication.job_title}}</h2>
+    <div>
+      <h3 *ngIf="jobApplication.availability" class="text-success">Available</h3>
+      <h3 *ngIf="!jobApplication.availability" class="text-danger">Not Available</h3>
+    </div>
+  </div>
   <hr>
 
 
@@ -7,16 +14,16 @@
     <div class="job-detail-items" >
       <p class="card-text" style="font-size: 14px;">
              <span
-               class="px-3 py-1 rounded-pill"
+               class="px-3 py-1 rounded-pill text-white"
                [ngClass]="{
-            'bg-success text-light': jobApplications[1].status == 'Accepted',
-            'bg-danger text-light': jobApplications[1].status == 'Rejected',
-            'bg-warning text-dark': jobApplications[1].status == 'Under Review',
+            'bg-success text-light': jobApplication.application_status == 'Accepted',
+            'bg-danger text-light': jobApplication.application_status == 'Rejected',
+            'bg-warning text-dark': jobApplication.application_status == 'Under Review',
           }">
-                <i class="bi bi-check-circle-fill me-1" *ngIf="jobApplications[1].status == 'Accepted'"></i>
-          <i class="bi bi-x-circle-fill me-1" *ngIf="jobApplications[1].status == 'Rejected'"></i>
-          <i class="bi bi-hourglass-split me-1" *ngIf="jobApplications[1].status == 'Under Review'"></i>
-               {{ jobApplications[1].status }}
+                <i class="bi bi-check-circle-fill me-1" *ngIf="jobApplication.application_status == 'Accepted'"></i>
+          <i class="bi bi-x-circle-fill me-1" *ngIf="jobApplication.application_status == 'Rejected'"></i>
+          <i class="bi bi-hourglass-split me-1" *ngIf="jobApplication.application_status == 'Under Review'"></i>
+               {{ jobApplication.application_status }}
         </span>
       </p>
     </div>
@@ -27,23 +34,34 @@
     </div>
 
     <div class="job-detail-items d-flex gap-2 mt-0">
-      <p class="text-muted">location:</p>
-      <p class="fw-semibold" id="companySize">Remote</p>
+      <p class="text-muted">location: </p>
+      <p class="fw-semibold" id="companySize"> {{jobApplication.location}}</p>
     </div>
 
     <div class="job-detail-items d-flex gap-2 mt-0">
       <p class="text-muted">salary:</p>
-      <p class="fw-semibold" >50000 $</p>
+      <p class="fw-semibold" >{{jobApplication.salary}} $</p>
     </div>
 
     <div class="job-detail-items d-flex gap-2 mt-0">
       <p class="text-muted">Job Type:</p>
-      <p class="fw-semibold" >internship</p>
+      <p class="fw-semibold" >{{jobApplication.job_type}}</p>
     </div>
+
+    <div class="job-detail-items d-flex gap-2 mt-0">
+      <p class="text-muted">Workplace:</p>
+      <p class="fw-semibold" >{{jobApplication.workplace}}</p>
+    </div>
+
+    <div class="job-detail-items d-flex gap-2 mt-0">
+      <p class="text-muted">Category:</p>
+      <p class="fw-semibold" >{{jobApplication.job_category}}</p>
+    </div>
+
   </div>
 
   <hr>
 
-  <p class="mb-1 text-muted">Description</p>
-  <p>We build modern web solutions for businesses across the globe.</p>
+  <p class="mb-1 text-muted">Job Description</p>
+  <p>{{jobApplication.description}}</p>
 </div>

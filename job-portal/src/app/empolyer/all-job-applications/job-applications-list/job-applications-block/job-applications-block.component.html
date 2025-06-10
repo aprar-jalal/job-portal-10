@@ -5,7 +5,7 @@
     <div class="col-4">
       <div class="h-100 w-100 overflow-hidden" >
         <img
-          [src]="jobApplications.imageURL"
+          [src]="jobApplications.jobSeekerAvatar"
           alt="Applicant Image"
           class=""
           style="height: 100px; width: 100%; object-fit: cover;" />
@@ -13,21 +13,21 @@
     </div>
     <div class="col-8">
       <div class="card-body py-2 px-3">
-        <h6 class="card-title mb-1 fw-bold" style="font-size: 14px;">{{ jobApplications.title }}</h6>
-        <p class="card-text mb-1" style="font-size: 12px;">From {{jobApplications.applicant}}</p>
-        <p class="card-text mb-1" style="font-size: 10px;">{{jobApplications.skills.join(', ') }}</p>
+        <h6 class="card-title mb-1 fw-bold" style="font-size: 14px;">{{ jobApplications.job_title}}</h6>
+        <p class="card-text mb-1" style="font-size: 12px;">From {{jobApplications.jobSeekerName}}</p>
+        <p class="card-text mb-1" style="font-size: 10px;">{{jobApplications.jobSeekerSkills}}</p>
         <p class="card-text" style="font-size: 14px;">
              <span
                class="badge px-3 py-1 rounded-pill"
                [ngClass]="{
-            'bg-success text-light': jobApplications.status == 'Accepted',
-            'bg-danger text-light': jobApplications.status == 'Rejected',
-            'bg-warning text-dark': jobApplications.status == 'Under Review',
+            'bg-success text-light': jobApplications.application_status == 'Accepted',
+            'bg-danger text-light': jobApplications.application_status == 'Rejected',
+            'bg-warning text-dark': jobApplications.application_status == 'Under Review',
           }">
-                <i class="bi bi-check-circle-fill me-1" *ngIf="jobApplications.status == 'Accepted'"></i>
-          <i class="bi bi-x-circle-fill me-1" *ngIf="jobApplications.status == 'Rejected'"></i>
-          <i class="bi bi-hourglass-split me-1" *ngIf="jobApplications.status == 'Under Review'"></i>
-               {{ jobApplications.status }}
+                <i class="bi bi-check-circle-fill me-1" *ngIf="jobApplications.application_status == 'Accepted'"></i>
+          <i class="bi bi-x-circle-fill me-1" *ngIf="jobApplications.application_status == 'Rejected'"></i>
+          <i class="bi bi-hourglass-split me-1" *ngIf="jobApplications.application_status == 'Under Review'"></i>
+               {{ jobApplications.application_status }}
         </span>
         </p>
 

@@ -43,12 +43,6 @@ export class EditProfileComponent implements OnInit {
 
   }
 
-  selectedFile: File|null = null;
-  onFileSelected(event:any)
-  {
-    this.selectedFile = event.target.files?.[0] || null;
-  }
-
   onUpdate() {
     const formValue:Employer = this.employerForm.value;
     const dataToUpdate = {
@@ -76,9 +70,7 @@ export class EditProfileComponent implements OnInit {
 
   onCancel() {
     this.employerForm.reset();
-    this.selectedFile = null;
     this.cancelClicked.emit();
-
   }
 
 
