@@ -10,7 +10,7 @@ export class JobSeekerApiService {
   constructor(private http: HttpClient) { }
 
   private getAuthHeaders() {
-    const token = localStorage.getItem('token');
+    const token = localStorage.getItem('authToken');
     return token ? new HttpHeaders({ Authorization: `Bearer ${token}` }) : new HttpHeaders();
   }
   

@@ -11,6 +11,6 @@ export class User {
 
 export class SignInResponse {
   message: string = '';
-  token: string = '';
+  authToken: string = '';
   user: User = new User();
 }

@@ -20,6 +20,7 @@ export class JobApplicationsListComponent {
   constructor(private application: ApplicationService) {
   }
   ngOnInit() {
+    
     this.application.displayApplicationsForEmployer().subscribe(applications => {
       this.jobApplications = applications;
       this.filterStatus('All');

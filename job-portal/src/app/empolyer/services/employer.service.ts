@@ -11,7 +11,7 @@ export class EmployerService {
   constructor(private http: HttpClient) { }
   getEmployerInfo(): Observable<Employer>
   {
-    const token = localStorage.getItem('token');
+    const token = localStorage.getItem('authToken');
     const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
     return this.http.get<Employer>('http://127.0.0.1:8000/api/employer', { headers });
 

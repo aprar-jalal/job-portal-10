@@ -10,6 +10,6 @@ export class NotificationsService {
   constructor(private http: HttpClient) { }
   getNotifications():Observable<Notification[]> {
 
-    return this.http.get<Notification[]>('http://localhost/backEnd/public/api/notifications/1');
+    return this.http.get<Notification[]>('http://127.0.0.1:8000/api/notifications/1');
   }
 }
