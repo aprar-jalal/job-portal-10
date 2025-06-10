@@ -25,4 +25,11 @@ export class EmployerService {
 
     return this.http.put<any>('http://127.0.0.1:8000/api/employer', employer, { headers });
   }
+
+  updateEmployerLogo(formData: FormData): Observable<any> {
+    const token = localStorage.getItem('authToken');
+    const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
+
+    return this.http.post('http://127.0.0.1:8000/api/employer/update-logo', formData, {headers});
+  }
 }

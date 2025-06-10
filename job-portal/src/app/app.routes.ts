@@ -51,7 +51,7 @@ export const routes: Routes = [
 
   {path:'job-details/:id', component: JobDetailsComponent},
   {path: 'companyProfile', component: CompanyProfileComponent},
-  {path: 'applicationDetails', component: JobApplicationDetailsComponent},
+  {path: 'applicationDetails/:id', component: JobApplicationDetailsComponent},
   {path:'edit-job/:id', component: EditJobComponent},
 
   {path: 'allJobApplications', component: AllJobApplicationsComponent},

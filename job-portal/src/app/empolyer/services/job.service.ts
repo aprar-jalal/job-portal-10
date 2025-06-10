@@ -20,7 +20,12 @@ export class JobService {
 
   getJobById(jobId: number): Observable<Job>
   {
-    return this.http.get<Job>(`http://127.0.0.1:8000/api/jobs/${jobId}`);
+    const token = localStorage.getItem('authToken');
+    const headers = new HttpHeaders({
+      Authorization: `Bearer ${token}`,
+      'Content-Type': 'application/json',
+    });
+    return this.http.get<Job>(`http://127.0.0.1:8000/api/jobs/${jobId}` , {headers});
   }
 
   postJob(job: Job): Observable<Job>
@@ -34,12 +39,23 @@ export class JobService {
   }
 
   deleteJob(jobId: number): Observable<any>{
-    return this.http.delete(`http://127.0.0.1:8000/api/jobs/${jobId}`);
+    const token = localStorage.getItem('authToken');
+    const headers = new HttpHeaders({
+      Authorization: `Bearer ${token}`,
+      'Content-Type': 'application/json',
+    });
+
+    return this.http.delete(`http://127.0.0.1:8000/api/jobs/${jobId}` , {headers});
   }
 
   updateJob(jobId : number ,newJob: Job): Observable<any>
   {
-    return this.http.put(`http://127.0.0.1:8000/api/jobs/${jobId}`, newJob);
+    const token = localStorage.getItem('authToken');
+    const headers = new HttpHeaders({
+      Authorization: `Bearer ${token}`,
+      'Content-Type': 'application/json',
+    });
+    return this.http.put(`http://127.0.0.1:8000/api/jobs/${jobId}`, newJob, {headers});
   }
   //aprar start
   getAllJobs():Observable<Job[]>{

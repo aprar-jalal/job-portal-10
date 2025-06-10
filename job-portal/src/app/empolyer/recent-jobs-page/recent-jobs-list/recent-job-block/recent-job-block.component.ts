@@ -24,7 +24,7 @@ export class RecentJobBlockComponent {
 
     this.jobService.deleteJob(this.job.job_id).subscribe({
       next: data => {
-        console.log('deleted ');
+        console.log('deleted');
       }
     });
   }
