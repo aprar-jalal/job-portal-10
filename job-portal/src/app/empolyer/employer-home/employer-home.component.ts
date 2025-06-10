@@ -18,7 +18,7 @@ import {EmployerService} from '../services/employer.service';
 })
 export class EmployerHomeComponent {
 
-  constructor(private employerService: EmployerService,) {
+  constructor(private employerService: EmployerService) {
   }
 
   employerName: string = "";
@@ -26,5 +26,6 @@ export class EmployerHomeComponent {
     this.employerService.getEmployerInfo().subscribe((employer) => {
       this.employerName = employer.company_name;
     })
+
   }
 }
