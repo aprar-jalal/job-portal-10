@@ -2,10 +2,13 @@ import { Component } from '@angular/core';
 import {AppliedJob} from '../../../../job-applecation-card/models/Application';
 import {ApplicationService} from '../../../../job-applecation-card/services/application/application.service';
 import {ActivatedRoute} from '@angular/router';
+import {NgOptimizedImage} from '@angular/common';
 
 @Component({
   selector: 'app-job-seeker-details',
-  imports: [],
+  imports: [
+    NgOptimizedImage
+  ],
   templateUrl: './job-seeker-details.component.html',
   styleUrl: './job-seeker-details.component.css'
 })
