@@ -10,11 +10,10 @@ export class JobSeekerApiService {
   constructor(private http: HttpClient) { }
 
   private getAuthHeaders() {
-    const token = localStorage.getItem('authToken') || localStorage.getItem('auth_token') || localStorage.getItem('token');
-    return new HttpHeaders({
-      'Authorization': `Bearer ${token}`
-    });
+    const token = localStorage.getItem('token');
+    return token ? new HttpHeaders({ Authorization: `Bearer ${token}` }) : new HttpHeaders();
   }
+  
 
   getJobSeekerProfile() {
     return this.http.get(`${this.baseUrl}/jobseeker/profile`, {
