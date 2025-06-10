@@ -4,7 +4,8 @@ import { CommonModule } from '@angular/common';
 import { RouterLink, Router } from '@angular/router';
 import Swal from 'sweetalert2';
 import { AuthService } from '../services/auth.service';
-import { LoginRequest } from '../models/login.model';
+import { SignInRequest, SignInResponse} from '../models/login.model';
+import {AppComponent} from "../../app.component";
 @Component({
   selector: 'app-log-in',
   standalone: true,
@@ -17,18 +18,19 @@ export class LogInComponent {
   signInForm: FormGroup;
 
   constructor(
-    private fb: FormBuilder,
-    private authService: AuthService,
-    private router: Router
+      private fb: FormBuilder,
+      private authService: AuthService,
+      private router: Router,
+       private appComponent: AppComponent
   ) {
     this.signInForm = this.fb.group({
-      username: ['', [Validators.required, Validators.email]],
+      email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required, Validators.minLength(8)]]
     });
   }
 
-  get username() {
-    return this.signInForm.get('username');
+  get email() {
+    return this.signInForm.get('email');
   }
 
   get password() {
@@ -37,30 +39,30 @@ export class LogInComponent {
 
   onSubmit() {
     if (this.signInForm.valid) {
-      const loginData = new LoginRequest(
-        this.signInForm.value.username,
-        this.signInForm.value.password
-      );
 
-      this.authService.login(loginData).subscribe({
-        next: (res) => {
-          localStorage.setItem('authToken', res.token);
-          Swal.fire({
-            position: 'center',
-            icon: 'success',
-            title: res.message || 'Signed in successfully!',
-            showConfirmButton: false,
-            timer: 3000
-          });
+      const data: SignInRequest = this.signInForm.value;
 
-          this.router.navigate(['/']);
+      this.authService.signIn(data).subscribe({
+        next: (response: SignInResponse) => {
+          Swal.fire("Login Successfully !", 'success', 'success');
+
+          switch (response.user.role_id.toString()) {
+            case '1':
+              this.router.navigate(['/adminReports']);
+              break;
+            case '2':
+              this.router.navigate(['/home-page']);
+              break;
+            case '3':
+              this.router.navigate(['/employer']);
+              break;
+          }
+        let user = response.user.role_id.toString();
+          // Call setNavItems directly
+          this.appComponent.navbar.setNavItems(user);
         },
-        error: (err) => {
-          Swal.fire({
-            icon: 'error',
-            title: 'Login failed',
-            text: err.error.message || 'Please check your credentials',
-          });
+        error: (error) => {
+          Swal.fire('Error', error.error?.message || 'Login failed', 'error');
         }
       });
     } else {

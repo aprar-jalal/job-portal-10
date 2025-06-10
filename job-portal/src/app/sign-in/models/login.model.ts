@@ -1,34 +1,16 @@
-
-
-export class LoginRequest {
-  email: string;
-  password: string;
-
-  constructor(email: string, password: string) {
-    this.email = email;
-    this.password = password;
-  }
+export class SignInRequest {
+  email: string = '';
+  password: string = '';
 }
 
 export class User {
-  id: number;
-  email: string;
-
-
-  constructor(id: number, email: string) {
-    this.id = id;
-    this.email = email;
-  }
+  id: number = 0;
+  email: string = '';
+  role_id: string = '0';
 }
 
-export class LoginResponse {
-  message: string;
-  user: User;
-  token: string;
-
-  constructor(message: string, user: User, token: string) {
-    this.message = message;
-    this.user = user;
-    this.token = token;
-  }
+export class SignInResponse {
+  message: string = '';
+  token: string = '';
+  user: User = new User();
 }

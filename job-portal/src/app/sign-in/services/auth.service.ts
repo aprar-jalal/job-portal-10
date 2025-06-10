@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable, map } from 'rxjs';
+import {Observable, map, tap} from 'rxjs';
 
-import { LoginRequest, LoginResponse, User } from '../models/login.model';
+import { SignInRequest, SignInResponse } from '../models/login.model';
 
 @Injectable({
   providedIn: 'root'
@@ -12,27 +12,12 @@ export class AuthService {
 
   constructor(private http: HttpClient) {}
 
- login(credentials: LoginRequest): Observable<LoginResponse> {
-  return this.http.post<any>(`${this.apiUrl}/log-in`, credentials).pipe(
-    map(response => {
-      const token = response.token;
-      const userData = response.user;
-
-    
-      localStorage.setItem('authToken', token);
-console.log(token);
-    
-      const user = new User(userData.id, userData.email);
-      return new LoginResponse(response.message, user, token);
+  signIn(data: SignInRequest): Observable<SignInResponse> {
+    return this.http.post<SignInResponse>(`${this.apiUrl}/log-in`, data).pipe(
+    tap((response: SignInResponse) => {
+      localStorage.setItem('token', response.token);
+      localStorage.setItem('roleId', response.user.role_id.toString());
     })
   );
-}
-  
-
-  logout() {
-    localStorage.removeItem('authToken');
-   
   }
-
-
 }
