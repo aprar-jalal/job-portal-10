@@ -16,12 +16,6 @@ import { CommonModule } from '@angular/common';
 
         <nav class="nav-menu">
           <a
-            routerLink="/dashboard"
-            routerLinkActive="active">
-            <i class="fas fa-chart-line"></i>
-            Dashboard
-          </a>
-          <a
             routerLink="/usermanagment"
             routerLinkActive="active">
             <i class="fas fa-users"></i>

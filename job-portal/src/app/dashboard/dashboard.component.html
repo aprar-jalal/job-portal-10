@@ -26,59 +26,45 @@
   <!-- Main Content Area -->
   <div class="main-content">
     <!-- Dashboard Stats -->
-    <div class="reports-dashboard">
-      <h2>Reports & Analytics</h2>
-
-      <div class="stats-cards">
-        <div class="stat-card">
-          <i class="fas fa-users"></i>
-          <div class="stat-info">
-            <h3>Total Users</h3>
-            <p>{{totalUsers}}</p>
-          </div>
-        </div>
-
-        <div class="stat-card">
-          <i class="fas fa-briefcase"></i>
-          <div class="stat-info">
-            <h3>Active Jobs</h3>
-            <p>{{activeJobs}}</p>
-          </div>
-        </div>
-
-        <div class="stat-card">
-          <i class="fas fa-file-alt"></i>
-          <div class="stat-info">
-            <h3>Applications</h3>
-            <p>{{totalApplications}}</p>
-          </div>
-        </div>
-
-        <div class="stat-card">
-          <i class="fas fa-check-circle"></i>
-          <div class="stat-info">
-            <h3>Placements</h3>
-            <p>{{successfulPlacements}}</p>
-          </div>
+    <div class="stats-cards">
+      <div class="stat-card">
+        <i class="fas fa-users"></i>
+        <div class="stat-info">
+          <h3>Total Users</h3>
+          <p>{{totalUsers}}</p>
         </div>
       </div>
 
-      <div class="charts-section">
-        <div class="chart-container">
-          <h3>Monthly Statistics</h3>
-          <div class="chart">
-            <canvas id="monthlyStats"></canvas>
-          </div>
+      <div class="stat-card">
+        <i class="fas fa-briefcase"></i>
+        <div class="stat-info">
+          <h3>Active Jobs</h3>
+          <p>{{activeJobs}}</p>
         </div>
+      </div>
 
-        <div class="top-categories">
-          <h3>Top Job Categories</h3>
-          <div class="category-list">
-            <div class="category-item" *ngFor="let category of topJobCategories">
-              <span class="category-name">{{category.name}}</span>
-              <span class="category-count">{{category.count}}</span>
-            </div>
-          </div>
+      <div class="stat-card">
+        <i class="fas fa-file-alt"></i>
+        <div class="stat-info">
+          <h3>Applications</h3>
+          <p>{{totalApplications}}</p>
+        </div>
+      </div>
+
+      <div class="stat-card">
+        <i class="fas fa-check-circle"></i>
+        <div class="stat-info">
+          <h3>Placements</h3>
+          <p>{{successfulPlacements}}</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="charts-section">
+      <div class="chart-container">
+        <h3>Monthly Statistics</h3>
+        <div class="chart">
+          <canvas id="monthlyStats"></canvas>
         </div>
       </div>
     </div>
