@@ -110,7 +110,7 @@ export class NavbarComponent implements OnInit {
 
   handleLogout() {
     if (this.isBrowser) {
-      localStorage.removeItem('token');
+      localStorage.removeItem('authToken');
       localStorage.removeItem('roleId');
       localStorage.setItem('roleId', '0');
       this.setNavItems('0');

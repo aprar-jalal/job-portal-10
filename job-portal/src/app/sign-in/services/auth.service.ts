@@ -15,7 +15,7 @@ export class AuthService {
   signIn(data: SignInRequest): Observable<SignInResponse> {
     return this.http.post<SignInResponse>(`${this.apiUrl}/log-in`, data).pipe(
     tap((response: SignInResponse) => {
-      localStorage.setItem('token', response.token);
+      localStorage.setItem('authToken', response.authToken);
       localStorage.setItem('roleId', response.user.role_id.toString());
     })
   );
