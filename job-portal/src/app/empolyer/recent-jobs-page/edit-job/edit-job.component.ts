@@ -55,7 +55,6 @@ export class EditJobComponent {
       },
       error: () => {
         alert("please try again later");
-        // this.location.back();
       }
     });
   }

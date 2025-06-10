@@ -1,12 +1,13 @@
-<div class="container mb-3 last-app-block shadow-sm" [routerLink]="'/applicationDetails'">
+<div class="container mb-3 last-app-block shadow-sm" [routerLink]="['/applicationDetails', jobApplications.application_id]">
 
 
   <div class="row g-0">
     <div class="col-4">
       <div class="h-100 w-100 overflow-hidden" >
         <img
-          [src]="jobApplications.jobSeekerAvatar"
+          [ngSrc]="'http://127.0.0.1:8000/storage/' + jobApplications.jobSeekerAvatar"
           alt="Applicant Image"
+
           class=""
           style="height: 100px; width: 100%; object-fit: cover;" />
       </div>

@@ -57,6 +57,17 @@ export class JobService {
     });
     return this.http.put(`http://127.0.0.1:8000/api/jobs/${jobId}`, newJob, {headers});
   }
+
+  getEmployerJobsCount(): Observable<{job_count: number}> {
+    const token = localStorage.getItem('authToken');
+    const headers = new HttpHeaders({
+      Authorization: `Bearer ${token}`,
+      'Content-Type': 'application/json',
+    });
+
+    return this.http.get<{ job_count: number }>('http://127.0.0.1:8000/api/jobs/count', {headers});
+  }
+
   //aprar start
   getAllJobs():Observable<Job[]>{
      return this.http.get<Job[]>('http://localhost:8000/api/allJobs');
