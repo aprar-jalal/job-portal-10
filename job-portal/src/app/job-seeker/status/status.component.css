@@ -60,17 +60,17 @@
 }
 
 /* Status Styles */
-.pending {
+.Under_Review {
     background-color: #fff3cd;
     color: #856404;
 }
 
-.accepted {
+.Accepted {
     background-color: #d4edda;
     color: #155724;
 }
 
-.rejected {
+.Rejected {
     background-color: #f8d7da;
     color: #721c24;
 }

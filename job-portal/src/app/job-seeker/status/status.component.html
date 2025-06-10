@@ -7,9 +7,9 @@
         </div>
 
         <div class="status-chip" [ngClass]="{
-        'pending': item.application_status === 'pending',
-        'accepted': item.application_status === 'accepted',
-        'rejected': item.application_status === 'rejected'
+        'Under_Review': item.application_status === 'Under Review',
+        'Accepted': item.application_status === 'Accepted',
+        'Rejected': item.application_status === 'Rejected'
       }">
             {{ item.application_status ? (item.application_status | titlecase) : 'Unknown' }}
         </div>

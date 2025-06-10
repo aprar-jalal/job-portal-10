@@ -1,5 +1,5 @@
 import {Component, Input} from '@angular/core';
-import {NgClass, NgIf, NgOptimizedImage} from '@angular/common';
+import {NgClass, NgIf} from '@angular/common';
 import {RouterLink} from '@angular/router';
 
 @Component({
@@ -7,8 +7,7 @@ import {RouterLink} from '@angular/router';
   imports: [
     NgClass,
     NgIf,
-    RouterLink,
-    NgOptimizedImage
+    RouterLink
   ],
   templateUrl: './last-applications-block.component.html',
   styleUrl: './last-applications-block.component.css'

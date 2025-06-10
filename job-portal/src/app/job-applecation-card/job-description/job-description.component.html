@@ -16,7 +16,7 @@
                 class="bi bi-geo-alt"></i> {{job.location}}</span>
     </div>
       <div class="d-flex justify-content-start align-items-center ">
-        <img *ngIf="job.logo_url" [src]="job.logo_url" class="rounded-circle "  alt="logo" style="width:60px ; height:60px;">
+        <img *ngIf="job.logo_url" [src]="'http://127.0.0.1:8000/storage/' + job.logo_url" class="rounded-circle "  alt="logo" style="width:60px ; height:60px;">
         <h5 class="ms-5 fs-5">{{job.company_name}}</h5>
     </div>
     <h5 class="card-title mt-3 fs-5 fw-medium">{{job.job_title}}</h5>
