@@ -10,7 +10,7 @@ export class JobService {
   constructor(private http: HttpClient) { }
   getJobs(): Observable<Job[]>
   {
-    const token = localStorage.getItem('authToken');
+    const token = localStorage.getItem('token');
     const headers = new HttpHeaders({
       Authorization: `Bearer ${token}`,
       'Content-Type': 'application/json',
@@ -20,7 +20,7 @@ export class JobService {
 
   getJobById(jobId: number): Observable<Job>
   {
-    const token = localStorage.getItem('authToken');
+    const token = localStorage.getItem('token');
     const headers = new HttpHeaders({
       Authorization: `Bearer ${token}`,
       'Content-Type': 'application/json',
@@ -30,7 +30,7 @@ export class JobService {
 
   postJob(job: Job): Observable<Job>
   {
-    const token = localStorage.getItem('authToken');
+    const token = localStorage.getItem('token');
     const headers = new HttpHeaders({
       Authorization: `Bearer ${token}`,
       'Content-Type': 'application/json',
@@ -39,7 +39,7 @@ export class JobService {
   }
 
   deleteJob(jobId: number): Observable<any>{
-    const token = localStorage.getItem('authToken');
+    const token = localStorage.getItem('token');
     const headers = new HttpHeaders({
       Authorization: `Bearer ${token}`,
       'Content-Type': 'application/json',
@@ -50,7 +50,7 @@ export class JobService {
 
   updateJob(jobId : number ,newJob: Job): Observable<any>
   {
-    const token = localStorage.getItem('authToken');
+    const token = localStorage.getItem('token');
     const headers = new HttpHeaders({
       Authorization: `Bearer ${token}`,
       'Content-Type': 'application/json',
@@ -59,7 +59,7 @@ export class JobService {
   }
 
   getEmployerJobsCount(): Observable<{job_count: number}> {
-    const token = localStorage.getItem('authToken');
+    const token = localStorage.getItem('token');
     const headers = new HttpHeaders({
       Authorization: `Bearer ${token}`,
       'Content-Type': 'application/json',
